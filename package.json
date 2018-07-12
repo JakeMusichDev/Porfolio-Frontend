@@ -3,11 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "compression": "^1.7.2",
+    "corser": "^2.0.1",
+    "express": "^4.16.3",
+    "prerender-node": "^3.1.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
   },
   "devDependencies": {
-    "react-scripts": "1.1.4"
+    "animejs": "^2.2.0",
+    "pixi.js": "^4.8.1",
+    "react-scripts": "1.1.4",
+    "underscore": "^1.9.1",
+    "vanilla-tilt": "^1.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
