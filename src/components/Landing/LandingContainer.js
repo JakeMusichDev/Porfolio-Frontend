@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, css } from 'aphrodite/no-important'
+import Anime from 'animejs'
 import "../../styles/index.css"
 import { withScrollMonitor } from '../../hoc/ScrollHOC'
 
@@ -11,12 +12,27 @@ import LandingImage from './LandingImage'
 import LandingCounter from './LandingCounter'
 
 class LandingContainer extends Component {
-
+  componentDidMount() {
+    Anime.timeline().add({
+      targets: [this.container.childNodes],
+      translateX: '10%',
+      duration: 0,
+      opacity: 0
+    }).add({
+      targets: this.container.childNodes,
+      translateX: '0%',
+      duration: 1000,
+      opacity: 1,
+      easing: 'easeInOutQuad',
+      delay: (e, i) => i * 100,
+    })
+  }
+  
   render() {
     const { data } = this.props
     const currentProject = this.nextProject()
     return(
-      <div className={css(styles.landingContainerMain)} >
+      <div ref={refDiv => {this.container = refDiv}} className={css(styles.landingContainerMain)} >
         <LandingMenu scrollState={data} open={this.openPage} />
         <LandingImage src={currentProject.src} />
         <LandingCounter index={data.currentItem} />

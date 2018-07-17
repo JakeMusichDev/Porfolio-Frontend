@@ -21,8 +21,10 @@ const styles = StyleSheet.create({
     gridColumn: '3/4',
   },
   image: {
-    height: "100%",
-    width: 'auto'
+    height: "auto",
+    maxHeight: '400px',
+    // width: 'auto',
+    maxWidth: '800px'
   }
 })
 

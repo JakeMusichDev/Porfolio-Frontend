@@ -11,7 +11,7 @@ import {photographyGridData } from '../data/photoData'
 class Photography extends Component {
   render() {
     const { data } = this.props 
-    return <PageContainer pageData={photographyGridData} scrollIndex={data} pageTitle={'[ photography ]'} />
+    return <PageContainer pageData={photographyGridData} scrollIndex={data} pageTitle={'[ photography ]'} {...this.props}/>
   }
 }
 

@@ -43,8 +43,8 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
     color: 'white',
-    // border: '1px solid pink',
     gridRow: '2/5',
+    zIndex: 2,
     gridColumn: '4/9'
   },
 })

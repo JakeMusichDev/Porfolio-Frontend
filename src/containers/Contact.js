@@ -3,33 +3,16 @@ import React, {
 } from 'react';
 import { StyleSheet, css } from 'aphrodite/no-important'
 import Anime from 'animejs'
-import Name from '../components/contact-components/Name'
-import Socials from '../components/contact-components/Socials'
-import ContactBio from '../components/contact-components/ContactBio'
-import ContactSection from '../components/contact-components/ContactSection'
-import Rellax from 'rellax'
-import nameSvg from '../../assets/name_lg.svg'
+// import Name from '../components/contact-components/Name'
+// import Socials from '../components/contact-components/Socials'
+// import ContactBio from '../components/contact-components/ContactBio'
+// import ContactSection from '../components/contact-components/ContactSection'
+// import nameSvg from '../../assets/name_lg.svg'
+import vid from '../assets/contacts/vid.mp4'
 import {contactCopy} from '../utils/copy.js'
 
 export default class Contact extends Component {
   componentDidMount() {
-    // this.attachRellax()
-    // const tl = Anime.timeline({loop:false})
-    // tl.add({
-    //   targets: ['#c--img'],
-    //   // strokeDashoffset: [Anime.setDashoffset, 0],
-    //   // translateY: ['100%'],
-    //   opacity: 0,
-    //   easing: 'easeInOutSine',
-    //   duration: 0,
-    //   delay: function(el, i) { return i * 250 },
-    // }).add({
-    //   targets: ['#c--img'],
-    //   translateY: ['0%'],
-    //   opacity: 0.7,
-    //   duration: 1000,
-    //   easing: 'easeInQuart',
-    // })
   }
 
   render() {
@@ -41,20 +24,11 @@ export default class Contact extends Component {
         <div ref={ el => this.rightSection = el } className={css(styles.rightSide)}>
           <ContactSection />
         </div> */}
+        <div className={css(styles.rightSide)}>
+          <video src={`${vid}`} autoPlay loop></video>
+        </div>
       </div>
     )
-  } 
-
-  attachRellax = () => {
-    const rellaxLeft = new Rellax(this.leftSection, {
-      wrapper: '#contact--mainContainer',
-      speed: 3.5,
-    })
-
-    const rellaxRight = new Rellax(this.rightSection, {
-      wrapper: '#contact--mainContainer',
-      speed: -8.5,
-    })
   }
 }
 

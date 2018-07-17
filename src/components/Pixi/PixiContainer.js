@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import _ from 'underscore'
 import * as PIXI from 'pixi.js'
 import { StyleSheet, css } from 'aphrodite/no-important'
+import filter from "../../assets/home/displacementFilterHome.jpeg"
 
 export default class PixiContainer extends Component {
   constructor(props) {
@@ -71,7 +72,7 @@ export default class PixiContainer extends Component {
     
     // Create Filter sprite 
     // const filterSprite = new PIXI.Sprite(PIXI.loader.resources['filter'].texture)
-    const filterSprite = PIXI.Sprite.fromImage(`../../assests/home/displacementFilterHome.jpeg`);
+    const filterSprite = PIXI.Sprite.fromImage(`${filter}`);
     filterSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
     filterSprite.texture.baseTexture.wrapMode
     filterSprite.scale.x = 0.6;

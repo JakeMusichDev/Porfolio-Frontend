@@ -33,7 +33,7 @@ export default class PageMenu extends Component {
     return (
       <div ref={ref => {this.menu = ref}}  className={css(styles.scrollInstructionContainer)}>
         <div className={css(styles.wrapper)}>
-          <div id='pv--counter' className={css(styles.scrollInstruction)}>{index + 1}. / 11</div>
+          <div id='pv--counter' className={css(styles.scrollInstruction)}>{index.currentItem + 1}. / 11</div>
         </div>
         <div  className={css(styles.wrapper)}>
           <div id='pv--name' onClick={handleOpenProject} className={css(styles.menuProjectTitle)}>

@@ -77,16 +77,17 @@ export default class LandingMenuSection extends Component {
       for (var i = 0; i < elements.length; i++) {
         var elementToDestroy = elements[i];
         tiltArray.push(elementToDestroy)
+
         VanillaTilt.init(elements[i], {
           reverse: false,
-          max: 50,
-          perspective: 800,
+          max: 40,
+          perspective: 500,
           scale: 1,
-          speed: 700,
+          speed: 1000,
           transition: true,
           axis: null,
           reset: true,
-          easing: "cubic-bezier(.03,.98,.52,.99)",
+          easing: "cubic-bezier(.03,.08,.52,.99)",
         });
       }
       this.setState({tiltArray})
@@ -134,7 +135,6 @@ const styles = StyleSheet.create({
     opacity:'0.8',
     transition: '0.4s opacity',
     height: 'auto',
-    // border: '1px solid green',
     width: 'auto',
     ":hover" : {
       opacity:0.9

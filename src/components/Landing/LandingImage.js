@@ -19,7 +19,8 @@ const styles = StyleSheet.create({
     color: 'white',
     border: '1px solid green',
     gridRow: '2/5',
-    gridColumn: '2/8',
-    overflow: 'hidden'
+    gridColumn: '2/7',
+    overflow: 'hidden',
+    zIndex: 1
   },
 })

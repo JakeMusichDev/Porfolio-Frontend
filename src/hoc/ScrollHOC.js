@@ -14,20 +14,25 @@ export const withScrollMonitor = (WrappedComponent, list ) => {
     }
   
     componentDidMount() {
-      this.wheelEvent = window.addEventListener('wheel', this._scrollMonitor)
+      this.addListeners()
     }
   
     componentWillUnmount() {
-      window.removeEventListener('wheel', this.wheelEvent)
+      this.removeListeners()
     }
 
-    
-    scrollMonitor = wheelEvent => {
-      const direction = wheelEvent.deltaY > 0 ? '+' : '-'
+    addListeners = () => {
+      this.wheelEvent = window.addEventListener('wheel', this._scrollMonitor, false)
+    }
+
+    removeListeners = () => {
+      window.removeEventListener('wheel', this._scrollMonitor, false)
+    }
+  
+    setNewState = (direction) => {
       const { currentItem } = this.state
       let nextItem
-      
-      
+
       if (direction === '+' && currentItem === (list.length - 1)) {
         nextItem = 0
       } else if (direction === '+' && currentItem >= 0) {
@@ -39,15 +44,27 @@ export const withScrollMonitor = (WrappedComponent, list ) => {
       } else {
         return
       }
-  
+
       this.setState({ currentItem: nextItem, direction })
     }
-  
-    render() {
-      return <WrappedComponent data={this.state} {...this.props} />
+    
+    scrollMonitor = wheelEvent => {
+      const direction = wheelEvent.deltaY > 0 ? '+' : '-'
+      this.setNewState(direction)
     }
-  
 
+
+    render() {
+      return (
+        <WrappedComponent
+          data={this.state} 
+          addListeners={this.addListeners} 
+          handleClick={this.setNewState}
+          removeListeners={this.removeListeners} 
+          {...this.props} 
+        />
+      )
+    }
   }
 }
 

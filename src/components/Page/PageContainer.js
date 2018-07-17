@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { StyleSheet, css } from 'aphrodite/no-important'
 import Anime from 'animejs'
+import {withScrollMonitor} from '../../hoc/ScrollHOC'
 
 // import ProjectMainImage from '../ProjectMainImage/ProjectMainImage'
 import PageMenu from './PageMenu'
 import {PageTitle} from './PageTitle'
 import PageImage from './PageImage';
 import { PageSelector } from './PageSelector';
-import { PageArrow } from './PageArrow'
-import PageDetailContainer from './PageDetailContainer'
+import PageArrow from './PageArrow'
+import PageDetailContainer from '../PageDetail/PageDetailContainer'
 
 export default class PageContainer extends Component {
   constructor (props) {
@@ -20,8 +21,6 @@ export default class PageContainer extends Component {
   }
 
   componentDidMount() {
-    console.log(this.container.childNodes);
-    
     Anime.timeline().add({
       targets: [this.container.childNodes],
       translateY: '100%',
@@ -39,17 +38,17 @@ export default class PageContainer extends Component {
 
   
   render() {
-    const { scrollIndex, pageTitle } = this.props
+    const { scrollIndex, pageTitle, handleClick} = this.props  
     const currentProject = this.nextProject()
     return(
       <div ref={refDiv => {this.container = refDiv}}  className={css(styles.pageContainerMain)} >
-        <PageArrow handleClick={this.nextProject} direction={'+'}/>
-        <PageArrow handleClick={this.nextProject} direction={'-'} />
         <PageImage src={currentProject.mainImage} />
-        <PageMenu  index={scrollIndex} name={currentProject.projectName} handleOpenProject={this.openProject} />
+        <PageMenu  index={scrollIndex} name={currentProject.projectName} handleOpenProject={this.handleClick} />
         <PageTitle title={pageTitle} />
         <PageSelector />
-        { this.state.focusActive ? <PageDetailContainer currentData={currentProject} /> : null }
+        <PageArrow handleClick={handleClick} direction={'+'}/>
+        <PageArrow handleClick={handleClick} direction={'-'} />
+        { this.state.focusActive ? <PageDetailContainer currentData={currentProject} closePage={this.handleClick} /> : null }
       </div>
     )
   }
@@ -58,10 +57,28 @@ export default class PageContainer extends Component {
     return this.props.pageData[this.props.scrollIndex.currentItem]
   }
 
-  openProject = (e) => {
-    this.setState({focusActive:true})
+  handleClick = () => {
+    const {focusActive} = this.state
+    this.setState({focusActive: !focusActive})
+
+    if(focusActive) {
+      this.detailTransitionAnimation(1, 1)
+      this.props.addListeners()
+    } else {
+      this.detailTransitionAnimation(0.6, 0.2)
+      this.props.removeListeners()
+    }
   }
 
+  detailTransitionAnimation = (scale, opacity) => {
+    Anime({
+      targets: this.container.childNodes,
+      scale: scale,
+      duration: 600,
+      opacity: opacity,
+      easing: 'easeOutQuint'
+    })
+  }
 }
 
 const styles = StyleSheet.create({
@@ -76,3 +93,5 @@ const styles = StyleSheet.create({
   }
 })
 
+// const WorkWithScroll = withScrollMonitor(WorkContainer, workProjectData)
+// export default WorkWithScroll
