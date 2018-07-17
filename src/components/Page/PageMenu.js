@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { StyleSheet, css } from 'aphrodite/no-important'
 import Anime from 'animejs'
+import '../../styles/index.css'
 
 export default class PageMenu extends Component {
   constructor(props) {
@@ -49,13 +50,13 @@ const styles = StyleSheet.create({
     height: 'auto',
     width: '100%',
     display:'block',
-    gridColumn: '4/6',
-    gridRow: '4/5',
+    gridColumn: '8/11',
+    gridRow: '5/6',
     alignSelf: 'end',
     fontFamily: ['Inconsolata', 'sans-serif'], 
     color: '#F2F2F2',
     fontSize: '0.5rem',
-    border: '1px solid white'
+    // border: '1px solid white'
   },
   scrollInstruction: {
     width: 'auto',
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
   },
   menuProjectTitle: {
     // border: '1px solid green',
-    fontSize: '3rem',
+    fontSize: '3.5rem',
     fontFamily: ['Vollkorn', 'serif'],
     cursor: 'pointer'
   },

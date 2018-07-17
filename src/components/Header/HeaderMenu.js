@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { StyleSheet, css } from 'aphrodite/no-important'
 import Anime from 'animejs'
+import { flex } from '../../styles/styleUtils'
+import circleSVG from '../../assets/header-menu-circle.svg'
 
 export default class HeaderMenu extends Component {
   componentDidMount() {
@@ -17,7 +19,7 @@ export default class HeaderMenu extends Component {
     return (
       <div 
         ref={el => {this.header = el}} 
-        className={css(styles.titleWrapper)}
+        className={css(styles.titleWrapper, flex.flexCenter)}
         onMouseEnter={this.handleEnter}
         onMouseMove={this.handleMove}
         onMouseLeave={this.handleExit}
@@ -25,7 +27,7 @@ export default class HeaderMenu extends Component {
         <div 
           onClick={this.handleMenuClick}
           className={css(styles.titleHeader)} >
-          <img id='header--menu-circle' src='/assets/header-menu-circle.svg' alt=""/>
+          <img id='header--menu-circle' src={circleSVG} alt=""/>
         </div>
       </div>
     )
@@ -59,11 +61,8 @@ export default class HeaderMenu extends Component {
 const styles = StyleSheet.create({
   titleWrapper: {
     height:'100%',
-    gridColumn: '11',
-    display:'flex',
-    flexDirection: 'column',
-    alignContent: 'center',
-    justifyContent: 'center'
+    gridColumn: '10',
+    // border: '1px solid pink'
   },
   titleHeader: {
     margin: '0 auto',

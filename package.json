@@ -15,6 +15,7 @@
     "animejs": "^2.2.0",
     "aphrodite": "^2.2.2",
     "pixi.js": "^4.8.1",
+    "react-reveal": "^1.2.2",
     "react-scripts": "1.1.4",
     "underscore": "^1.9.1",
     "vanilla-tilt": "^1.4.1"

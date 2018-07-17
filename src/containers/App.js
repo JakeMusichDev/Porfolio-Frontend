@@ -16,7 +16,17 @@ export default class App extends Component {
     this.state = {
       menuActive:false
     }
-    // this.loadPixi()
+  }
+
+  componentDidMount() {
+    // PIXI.loader
+    //   .add('background', `../assets/photography/noguchi_1.jpg`)
+    //   .add('')
+    //   .load(this.buildApp);
+  }
+
+  buildApp = (params) => {
+    
   }
 
   render() {
@@ -45,6 +55,7 @@ const styles = StyleSheet.create({
     display:'block',
     height:'100vh',
     width: '100vw',
+    background: 'rgb(15,15,15)',
     // cursor: `url(${cursorDot}) 2 2, pointer`
   }
 })

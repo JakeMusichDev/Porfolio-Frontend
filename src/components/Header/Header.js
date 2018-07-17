@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     width: '100vw',
     display: 'grid',
     gridTemplateRows: 'repeat(1, 1fr)',
-    gridTemplateColumns: 'repeat(10, auto)',
+    gridTemplateColumns: 'repeat(10, 10%)',
     position: 'absolute',
     top:0,
     left:0,

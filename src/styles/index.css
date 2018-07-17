@@ -8,6 +8,8 @@ html, body {
   overflow: hidden;
   background: --main-black;
   -webkit-font-smoothing: antialiased;
+  font-family: 'Inconsolata', sans-serif;
+  font-size: 10;
 }
 
 /* ------- https://github.com/majodev/google-webfonts-helper/  ------ */

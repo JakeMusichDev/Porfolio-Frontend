@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import _ from 'underscore'
+import * as PIXI from 'pixi.js'
+import { StyleSheet, css } from 'aphrodite/no-important'
 
 export default class PixiContainer extends Component {
   constructor(props) {
@@ -15,7 +17,9 @@ export default class PixiContainer extends Component {
   }
 
   componentDidMount() {
-
+    setTimeout(this.buildApp, 10)
+    window.addEventListener('resize', this.resize)
+    // this.buildApp()
   }
 
   componentWillReceiveProps(nextProps, nextState) {
@@ -25,42 +29,30 @@ export default class PixiContainer extends Component {
   }
 
   componentWillUnmount() {
-    
+    window.removeEventListener('resize', this.resize)
   }
 
   render() {
-    const { style } = this.props
     return (
-      <div className={css(styles.style)} ref={refEl => {this.canvasAnchor = refEl}}></div>
+      <div className={css(styles.canvasContainer)} ref={refEl => {this.canvasAnchor = refEl} }></div>
     )
-  }
-
-  //----------------------------------------------------------------
-  //----------------------------------------------------------------
-  //----------------------------------------------------------------
-  //----------------------------------------------------------------
-
-  loaderConfig = () => {
-    PIXI.loader
-      .add('background-0', `${}`)
-      .load(this.buildApp);
   }
 
 
   buildApp = () => {
+    // const anchorBounds = this.canvasAnchor.getBoundingClientRect()
     const anchorBounds = this.canvasAnchor.getBoundingClientRect()
-
+  
     this.app = new PIXI.autoDetectRenderer({
       width:  anchorBounds.width,
       height: anchorBounds.height,
-      antialias: true,
+      antialias: true, 
       transparent: true,
       resolution: 1,
-      autoResize: true,
-      interactive:true,
+      // autoResize: true,
+      // interactive:true,
     })
-
-    this.app.renderer.resize(anchorBounds.height, anchorBounds.width)
+    
     this.canvasAnchor.appendChild(this.app.view)
     this.attachFilteredImage()
   }
@@ -68,59 +60,48 @@ export default class PixiContainer extends Component {
   attachFilteredImage = () => {
     // Create stage
     this.stageContainer = new PIXI.Container()
-    // this.app.render(this.stageContainer)
-    // this.app.stage.interactive = true
 
     // Create Image itself
-    const imageSprite = new PIXI.Sprite(PIXI.loader.resources['background-0'].texture)
-    imageSprite.autoFit = true
+    const imageSprite = PIXI.Sprite.fromImage(`../../${this.props.image}`);
+    
+    imageSprite.autoFit = true;
     imageSprite.interactive = true
     imageSprite.scale.set(0.3, 0.3)
-    imageSprite.anchor.set(0.2,0.2)
+    // imageSprite.anchor.set(0.2,0.2)
     
-    this.app.on('click', (event) => {
-      this.changeAlpha(imageSprite)
-    })
-
     // Create Filter sprite 
     // const filterSprite = new PIXI.Sprite(PIXI.loader.resources['filter'].texture)
-    const filterSprite = PIXI.Sprite.fromImage(`${displacementFilterImg}`);
-    // Create filter
-    const displacementFilter = new PIXI.filters.DisplacementFilter(filterSprite)
-    displacementFilter.autoFit = true
-
+    const filterSprite = PIXI.Sprite.fromImage(`../../assests/home/displacementFilterHome.jpeg`);
     filterSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
     filterSprite.texture.baseTexture.wrapMode
     filterSprite.scale.x = 0.6;
     filterSprite.scale.y = 0.6;
+    
+
+    const displacementFilter = new PIXI.filters.DisplacementFilter(filterSprite)
+    displacementFilter.autoFit = true
 
     // Add sprites and filter to container
     this.stageContainer.addChild(filterSprite)
-
     this.stageContainer.addChild(imageSprite)
     this.stageContainer.filters = [displacementFilter]
+
     this.app.render(this.stageContainer)
-    // console.log(this.app);
-    // let interactionManager = PIXI.interaction.InteractionManager(this.app);
     
     this.setState({pixiInitComplete:true}, () => this.animateCanvas(filterSprite) )
+
   }
 
   animateCanvas = (filterSprite) => {
     let count = 0
-    let ticker = new PIXI.ticker.Ticker()
-    ticker.add(this.update, this);
-    ticker.start();
-    ticker.add(function(time) {
+    this.ticker = new PIXI.ticker.Ticker()
+    this.ticker.add(this.update, this);
+    this.ticker.start();
+    this.ticker.add(function(time) {
       filterSprite.x = count*30
       filterSprite.y = count*30
       count += 0.05
     })
-    // this.app.ticker.add((delta) => {
-    //   filterSprite.x = count*30
-    //   filterSprite.y = count*30
-    //   count += 0.05
-    // })
   }
 
   update() {
@@ -137,14 +118,39 @@ export default class PixiContainer extends Component {
 
   
   nextBackgroundImage = (nextProps) => {
+    let i = this.stageContainer.getChildAt(1)
+    let p = 0
+    console.log(i);
+    const fadeOutAlpha = () => i.alpha > 0? i.alpha =- 0.01 : cancelAnimationFrame(frame)
+    const frame = requestAnimationFrame(fadeOutAlpha)
+    const anchorBounds = this.canvasAnchor.getBoundingClientRect()
+    
+    
     const {activePixiImage} = nextProps
-    const imageSprite = new PIXI.Sprite.fromImage(`${activePixiImage.src}`);
-
+    const imageSprite = new PIXI.Sprite.fromImage(`${this.props.image}`);
+    
     imageSprite.autoFit = true
-    // imageSprite.scale.set(1, 1)
-    imageSprite.anchor.set(0.2,0.2)
+    imageSprite.height = anchorBounds.height
+    imageSprite.width = anchorBounds.width
+    // imageSprite.scale.set(0.3, 0.3)
+    // imageSprite.anchor.set(0.2,0.2)
+
     this.stageContainer.addChild(imageSprite)
   }
+
+  resize = () => {
+    const anchorBounds = this.canvasAnchor.getBoundingClientRect()
+    this.app.resize(anchorBounds.height, anchorBounds.width)
+  }
 }
+
+const styles = StyleSheet.create({
+  canvasContainer: {
+    height: '100%',
+    width: '100%'
+  }
+})
+
+
 
 

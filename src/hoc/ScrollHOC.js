@@ -15,7 +15,6 @@ export const withScrollMonitor = (WrappedComponent, list ) => {
   
     componentDidMount() {
       this.wheelEvent = window.addEventListener('wheel', this._scrollMonitor)
-      console.log(this.wheelEvent)
     }
   
     componentWillUnmount() {
@@ -29,14 +28,14 @@ export const withScrollMonitor = (WrappedComponent, list ) => {
       let nextItem
       
       
-      if (direction === '+' && currentItem === list.length) {
+      if (direction === '+' && currentItem === (list.length - 1)) {
         nextItem = 0
       } else if (direction === '+' && currentItem >= 0) {
         nextItem = currentItem + 1
       } else if (direction === '-' && currentItem !== 0) {
         nextItem = currentItem - 1
       } else if (direction === '-' && currentItem === 0) {
-        nextItem = list.length
+        nextItem = (list.length - 1)
       } else {
         return
       }
@@ -45,9 +44,7 @@ export const withScrollMonitor = (WrappedComponent, list ) => {
     }
   
     render() {
-      const { currentItem, direction } = this.state
-  
-      return <WrappedComponent data={currentItem} {...this.props} />
+      return <WrappedComponent data={this.state} {...this.props} />
     }
   
 
