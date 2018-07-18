@@ -55,15 +55,16 @@ export default class LandingMenuSection extends Component {
     tl
       .add({
         targets: `#menu-section-${index}`,
-        translateY: `${direction}150%`,
+        translateY: `${direction}10%`,
         duration: 0,
+        opacity:0
       })
       .add({
         targets: `#menu-section-${index}`,
         translateY: '0%',
-        opacity:[0,1],
+        opacity:[1],
         duration: 500,
-        easing: 'easeInOutQuint',
+        easing: 'easeInQuad',
         elasticity: 100,
       })
   }

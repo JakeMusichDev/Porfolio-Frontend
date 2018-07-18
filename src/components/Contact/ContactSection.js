@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import { StyleSheet, css } from 'aphrodite/no-important'
-import Fade from 'react-reveal'
+import Zoom from 'react-reveal/Zoom'
 import Anime from 'animejs'
 
-import {contactCopy} from '../../utils/copy'
-import {techSkillIcons} from '../../data/techIconData'
-
-export default class ContactSkillSection extends Component {
+export default class ContactSection extends Component {
   componentDidMount() {
     const tl = Anime.timeline()
     tl.add({
@@ -25,27 +22,36 @@ export default class ContactSkillSection extends Component {
   }
 
   render() {
+    const { sectionTitle, sectionData, sectionCopy, sectionStyle } = this.props
     return (
-      <div className={css(styles.skillSection)}>
-        <h3 className={css(styles.skillHeader)}>
-          Skills & Frameworks
+      <div className={css(styles.sectionMain, sectionStyle)}>
+        <h3 className={css(styles.sectionHeader)}>
+          {sectionTitle}
         </h3>
-        <div className={css(styles.skillIconGrid)}>
-        <Fade cascade>
-            {techSkillIcons.map( (icon, index) => (
-              // <div className={css(styles.iconWrapper)}>
-              <img className={css(styles.icon)} key={`${icon}`} src={icon} alt=''/>
-              // </div>
-            ))}
-        </Fade>
-        </div>
+        {sectionData ? (
+          <div className={css(styles.sectionGrid)}>
+            <Zoom cascade>
+              {sectionData.map( (icon, index) => (
+                // <div className={css(styles.iconWrapper)}>
+                <img className={css(styles.icon)} key={`${icon}`} src={icon} alt=''/>
+                // </div>
+              ))}
+            </Zoom>
+          </div>
+        ) : (
+            <div className={css(styles.sectionBody)}>
+              <Zoom cascade>
+                {sectionCopy}
+              </Zoom>
+            </div>
+        )}
       </div>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  skillSection: {
+  sectionMain: {
     height: 'auto',
     width: '90%',
     display: 'flex',
@@ -54,19 +60,23 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     color: 'white',
     // border: '1px solid white',
-    marginBottom: '50vh'
+    marginBottom: '50vh',
+    fontFamily: ['Source Sans Pro', 'serif'],
   },
-  skillHeader: {
+  sectionHeader: {
     color:"white",
     fontSize:"14px",
     lineHeight: '120%',
     alignText: 'block',
     marginBottom: '5vh',
     // border: '1px solid white',
-    fontFamily: ['Inconsolata', 'serif'],
+    // fontFamily: ['Open Sans', 'serif'],
     // fontFamily:["Source Code Pro","sans-serif"],
   },
-  skillIconGrid: {
+  sectionBody: {
+
+  },
+  sectionGrid: {
     // height: 'auto',
     width: '100%',
     display: "flex",
@@ -75,12 +85,9 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     // border: '1px solid green'
   },
-  iconWrapper: {
-
-  },
   icon: {
-    height: '50px',
-    width: '50px',
+    height: '100px',
+    width: '100px',
     margin: '50px'
   }
 })

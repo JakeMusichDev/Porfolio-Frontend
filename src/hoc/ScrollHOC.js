@@ -10,7 +10,7 @@ export const withScrollMonitor = (WrappedComponent, list ) => {
       this.state = { currentItem: 0, direction: null }
 
       // Throttle the scroll event listener handler 
-      this._scrollMonitor = _.throttle(this.scrollMonitor, 1500, {trailing: false})
+      this._scrollMonitor = _.throttle(this.scrollMonitor, 1200, {trailing: false})
     }
   
     componentDidMount() {

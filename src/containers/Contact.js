@@ -7,6 +7,7 @@ import Anime from 'animejs'
 import ContactName from '../components/Contact/ContactName'
 import ContactSkillSection from '../components/Contact/ContactSkillSection'
 import ContactSocials from '../components/Contact/ContactSocials'
+import ContactSection from '../components/Contact/ContactSection'
 
 import vid from '../assets/contacts/vid.mp4'
 import {contactCopy} from '../utils/copy.js'
@@ -17,18 +18,26 @@ export default class Contact extends Component {
     Anime.timeline().add({
       targets: this.contactContainer.childNodes,
       duration: 0,
-      translateY: '100%', 
+      opacity: 0
+      // translateY: '100%', 
     }).add({
       targets: this.contactContainer.childNodes,
       duration: 1000,
-      translateY: '0%', 
+      translateY: '0%',
+      easing: 'easeInExpo',
+      delay: (target, i) => i * 200,
+      opacity: 1
     })
   }
+
   render() {
     return (
       <div id="contact--mainContainer" ref={ref => {this.contactContainer = ref}} className={css(styles.contactContainer)}>
-        <ContactName/> 
+        <div className={css(styles.leftSide)}>
+          <ContactName/>
+        </div>
         <div className={css(styles.rightSide)}>
+          <ContactSection sectionTitle={'Hello'} sectionCopy={contactCopy.contactBio} sectionStyle={styles.header}/>
           <ContactSkillSection />
           <ContactSocials />
         </div>
@@ -46,18 +55,21 @@ const styles = StyleSheet.create({
   },
   leftSide: {
     height: '100%',
-    width: '10%',
+    width: '29%',
     float: 'left',
-    border:"1px solid pink"
+    // border:"1px solid pink"
   },
   rightSide: {
     height: '100%',
-    width: '80%',
-    marginLeft: '10vw',
+    width: '70%',
+    // marginLeft: '10vw',
     // float: 'right',
     display: 'grid',
     gridRow: 'repeat(auto, 10)',
     gridColumn: 'repeat(auto, 10)',
     // border:"1px solid pink"
+  },
+  header: {
+    marginTop: '50vh'
   }
 })

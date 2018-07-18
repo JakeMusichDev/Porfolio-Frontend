@@ -3,7 +3,7 @@ import { StyleSheet, css } from 'aphrodite/no-important'
 import Anime from 'animejs'
 import {withScrollMonitor} from '../../hoc/ScrollHOC'
 
-// import ProjectMainImage from '../ProjectMainImage/ProjectMainImage'
+import ScrollIndicator from '../General/ScollIndicator'
 import PageMenu from './PageMenu'
 import {PageTitle} from './PageTitle'
 import PageImage from './PageImage';
@@ -48,6 +48,7 @@ export default class PageContainer extends Component {
         <PageSelector />
         <PageArrow handleClick={handleClick} direction={'+'}/>
         <PageArrow handleClick={handleClick} direction={'-'} />
+        <ScrollIndicator gridPos={styles.gridPos} />
         { this.state.focusActive ? <PageDetailContainer currentData={currentProject} closePage={this.handleClick} /> : null }
       </div>
     )
@@ -92,5 +93,9 @@ const styles = StyleSheet.create({
     gridTemplateColumns: 'repeat(10, 10%)',
     gridTemplateRows: 'repeat(6, 15%)',
     color: 'white',
+  },
+  gridPos: {
+    gridRow: '9/10',
+    gridColumn: '10/11'
   }
 })

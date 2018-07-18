@@ -6,21 +6,21 @@ import {items} from '../../data/home-route-data.js'
 
 export default class MenuDirectory extends Component {
   componentDidMount() {
-    Anime.timeline().add({
-      targets: this.container.children,
-      height: '0%',
-      duration: 0,
-      translateY: '-100%'
-    }).add({
-      targets: this.container.children,
-      translateY: '0%',
-      opacity: [0, 1],
-      easing: 'easeInSine',
-      duration: 1000,
-      delay: function(target, index) {
-        return index * 100;
-      },
-    })
+    // Anime.timeline().add({
+    //   targets: this.container.children,
+    //   height: '0%',
+    //   duration: 0,
+    //   translateX: '100%'
+    // }).add({
+    //   targets: this.container.children,
+    //   translateX: '0%',
+    //   opacity: [0, 1],
+    //   easing: 'easeInQuart',
+    //   duration: 1800,
+    //   delay: function(target, index) {
+    //     return index * 40;
+    //   },
+    // })
   }
 
   render() {
@@ -50,22 +50,23 @@ const styles = StyleSheet.create({
     zIndex: 10,
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'right',
+    alignItems: 'right',
     // flexWrap: 'wrap',
+    // border:'1px solid white',
     // flexBasis: 'fit-content'
   },
   menuListItem: {
     height: 'auto',
     // width: '100%',
     // border:'1px solid white',
-    textAlign:'left',
+    textAlign:'right',
     fontFamily: 'Vollkorn',
     fontSize:12,
     fontWeight:200,
     textDecoration:"none",
     outline:"none",
     padding: '5%',
-    opacity: '0.4',
+    opacity: '0.5',
     color: 'white',
     // transition: '0.5s all',
     ":hover": {
