@@ -4,7 +4,7 @@ import { Switch, Route } from 'react-router-dom';
 // import Home from '../containers/Home';
 import Contact from '../containers/Contact'
 import Photography from '../containers/Photography'
-// import PaintingView from '../containers/PaintingView'
+import Painting from '../containers/Painting'
 import Landing from '../containers/Landing'
 import LandingContainer from '../components/Landing/LandingContainer'
 import WorkContainer from '../containers/WorkContainer'
@@ -21,6 +21,10 @@ const pageArray = [
   {
     path: '/contact',
     component: Contact
+  },
+  {
+    path: '/painting',
+    component: Painting
   }
 ]
 

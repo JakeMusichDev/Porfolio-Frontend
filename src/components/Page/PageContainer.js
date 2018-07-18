@@ -32,13 +32,13 @@ export default class PageContainer extends Component {
       duration: 1000,
       opacity: 1,
       easing: 'easeInOutQuad',
-      delay: (e, i) => i * 100,
+      delay: (e, i) => i * 200,
     })
   }
 
   
   render() {
-    const { scrollIndex, pageTitle, handleClick} = this.props  
+    const { scrollIndex, pageTitle, handleClick} = this.props
     const currentProject = this.nextProject()
     return(
       <div ref={refDiv => {this.container = refDiv}}  className={css(styles.pageContainerMain)} >
@@ -53,14 +53,15 @@ export default class PageContainer extends Component {
     )
   }
 
+
   nextProject = () => {
     return this.props.pageData[this.props.scrollIndex.currentItem]
   }
 
+
   handleClick = () => {
     const {focusActive} = this.state
     this.setState({focusActive: !focusActive})
-
     if(focusActive) {
       this.detailTransitionAnimation(1, 1)
       this.props.addListeners()
@@ -69,6 +70,7 @@ export default class PageContainer extends Component {
       this.props.removeListeners()
     }
   }
+
 
   detailTransitionAnimation = (scale, opacity) => {
     Anime({
@@ -92,6 +94,3 @@ const styles = StyleSheet.create({
     color: 'white',
   }
 })
-
-// const WorkWithScroll = withScrollMonitor(WorkContainer, workProjectData)
-// export default WorkWithScroll

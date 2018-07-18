@@ -1,20 +1,16 @@
 import React, { Component, } from 'react'
-import _ from 'underscore'
-import Anime from 'animejs'
 
 import PageContainer from '../components/Page/PageContainer'
-import PageMenu from '../components/PageMenu/PageMenu'
-
-import {withScrollMonitor} from '../hoc/ScrollHOC'
-import {photographyGridData } from '../utils/data'
+import { withScrollMonitor } from '../hoc/ScrollHOC'
+import { paintingData } from '../data/paintingData'
 
 
 class Painting extends Component {
   render() {
     const { data } = this.props 
-    return <PageContainer pageData={photographyGridData} scrollIndex={data} />
+    return <PageContainer pageData={paintingData} scrollIndex={data} pageTitle={'[ Painting ]'} />
   }
 }
 
-const PhotographyWithScroll = withScrollMonitor(Painting, photographyGridData)
+const PhotographyWithScroll = withScrollMonitor(Painting, paintingData)
 export default PhotographyWithScroll

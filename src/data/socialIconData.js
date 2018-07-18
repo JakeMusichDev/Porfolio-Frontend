@@ -1,6 +1,6 @@
-import mediumIcon from '/assets/social-icons/medium.svg'
-import githubIcon from '/assets/social-icons/github.svg'
-import linkedinIcon from '/assets/social-icons/linkedin.svg'
+import mediumIcon from '../assets/social-icons/medium.svg'
+import githubIcon from '../assets/social-icons/github.svg'
+import linkedinIcon from '../assets/social-icons/linkedin.svg'
 
 const medium = {
   icon: mediumIcon,

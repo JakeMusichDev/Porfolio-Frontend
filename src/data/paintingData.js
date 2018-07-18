@@ -16,7 +16,7 @@
 //   movie: airswap_mov,
 //   content: {
 //     nameSvg: airswap_name,
-//     src: airswap_desktop,
+//     mainImage: airswap_desktop,
 //     tablet: airswap_tablet,
 //     mobile: airswap_mobile,
 //   }
@@ -27,7 +27,7 @@
 //   description: "Built an internal FTP system with with Angular and Electron",
 //   content: {
 //     nameSvg: stockpile_name,
-//     src: stockpile_index,
+//     mainImage: stockpile_index,
 //     tablet: airswap_tablet,
 //     mobile: airswap_mobile
 //   }
@@ -38,7 +38,7 @@
 //   description: "Building the portfolio for the creative studio The-Artery",
 //   content: {
 //     nameSvg: artery_name,
-//     src: artery_desktop,
+//     mainImage: artery_desktop,
 //     // tablet: airswap_tablet,
 //     // mobile: airswap_mobile
 //   }
@@ -61,8 +61,8 @@ import mothersWish from '../assets/painting/mothers-wish.png'
 //------------------------------------------------------------------------------------
 const _blueSchmear = {
   type: 'painting',
-  title: 'Blue Schmear',
-  src: blueSchmear,
+  projectName: 'Blue Schmear',
+  mainImage: blueSchmear,
   css_class: '',
   key: 'blue-schmear',
 }
@@ -70,8 +70,8 @@ const _blueSchmear = {
 
 const _delver = {
   type: 'painting',
-  title: 'Delver',
-  src: delver,
+  projectName: 'Delver',
+  mainImage: delver,
   css_class: '',
   key: 'delver',
 }
@@ -79,16 +79,16 @@ const _delver = {
 
 const _theFulcrum = {
   type: 'painting',
-  title: 'The Fulcrum',
-  src: theFulcrum,
+  projectName: 'The Fulcrum',
+  mainImage: theFulcrum,
   css_class: '',
   key: 'the-fulcrum',
 }
 
 const _windWhisper = {
   type: 'painting',
-  title: 'a wind a whisper',
-  src: windWhisper,
+  projectName: 'a wind a whisper',
+  mainImage: windWhisper,
   css_class: '',
   key: 'a-wind-a-whisper',
 }
@@ -96,18 +96,31 @@ const _windWhisper = {
 
 const _wispWhimper = {
   type: 'painting',
-  title: 'a wisp a whimper',
-  src: wispWhimper,
+  projectName: 'a wisp a whimper',
+  mainImage: wispWhimper,
   css_class: '',
   key: 'a-wisp-a-whimper',
 }
 const _mothersWish = {
   type: 'painting',
-  title: "a mother's wish",
-  src: mothersWish,
+  projectName: "a mother's wish",
+  mainImage: mothersWish,
   css_class: '',
   key: 'a-mothers-wish',
 }
+
+// const steez = {
+//   projectName: 'Brooklyn Steez',
+//   mainImage: snowRailroad,
+//   content: [
+//     _alec,
+//     _photo2,
+//     _photo2,
+//     _cole2,
+//     _photo1
+//   ],
+// }
+
 
 export const paintingData = [
   _blueSchmear,

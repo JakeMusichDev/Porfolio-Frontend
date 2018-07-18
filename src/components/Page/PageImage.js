@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   },
   image: {
     height: "auto",
-    maxHeight: '400px',
+    maxHeight: '600px',
     // width: 'auto',
     maxWidth: '800px'
   }

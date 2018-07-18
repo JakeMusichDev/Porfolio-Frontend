@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
   },
   menuProjectTitle: {
     // border: '1px solid green',
-    fontSize: '3.5rem',
+    fontSize: '2.5rem',
     fontFamily: ['Vollkorn', 'serif'],
     cursor: 'pointer'
   },

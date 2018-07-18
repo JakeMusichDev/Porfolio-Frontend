@@ -5,7 +5,7 @@ import '../styles/index.css'
 import * as PIXI from 'pixi.js'
 // import cursorDot from '../../assets/app/Ellipse2.png'
 
-// import Menu from './Menu'
+import MenuContainer from './MenuContainer'
 import Header from '../components/Header/Header'
 import { Routes } from '../routes/Routes'
 
@@ -36,9 +36,9 @@ export default class App extends Component {
         <div className={css(styles.app)}>
           <Header handleMenuActiveState={this.handleMenuActiveState} />
           <Routes />
-          {/* {menuActive &&
-            // <Menu /> 
-          } */}
+          {menuActive &&
+            <MenuContainer closeMenu={this.handleMenuActiveState} />
+          }
         </div>
       </Router>
     )

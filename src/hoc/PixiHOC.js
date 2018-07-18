@@ -34,7 +34,6 @@ export const wrapPixiComponent = (WrappedComponent, list ) => {
   
     render() {
       const { currentItem, direction } = this.state
-  
       return <WrappedComponent data={currentItem} {...this.props} />
     }
   

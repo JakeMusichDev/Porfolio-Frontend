@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
     color: 'white',
-    border: '1px solid green',
+    // border: '1px solid green',
     gridRow: '2/5',
     gridColumn: '2/7',
     overflow: 'hidden',
