@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { StyleSheet, css } from 'aphrodite/no-important'
 import PageDetailGrid from './PageDetailGrid'
 import PageDetailHeader from './PageDetailHeader'
+import PageDetailExit from './PageDetailExit'
 
 import Anime from 'animejs'
 
@@ -23,14 +24,16 @@ export default class PageDetailContainer extends Component {
   }
 
   render () {
-    const {currentData} = this.props
+    const {currentData, closePage } = this.props
     console.log(currentData.content);
     
     return (
       <div ref={refDiv => { this.container = refDiv }} className={css(styles.pageDetailContainer)} >
         <PageDetailHeader name={currentData.projectName} />
+        <PageDetailExit closePage={closePage} />
         <PageDetailGrid gridData={currentData.content} />
-        
+        {currentData.role ? currentData.role : null}
+        {currentData.description ? currentData.description : null}
       </div>
     )
   }

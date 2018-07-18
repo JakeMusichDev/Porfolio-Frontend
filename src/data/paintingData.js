@@ -63,50 +63,67 @@ const _blueSchmear = {
   type: 'painting',
   projectName: 'Blue Schmear',
   mainImage: blueSchmear,
-  css_class: '',
   key: 'blue-schmear',
+  content: [
+    blueSchmear
+  ]
 }
 
 
 const _delver = {
   type: 'painting',
   projectName: 'Delver',
-  mainImage: delver,
-  css_class: '',
+  mainImage: delver,  
   key: 'delver',
+  description: 'Oil on Canvas, 2016',
+  content: [
+    blueSchmear
+  ]
 }
 
 
 const _theFulcrum = {
   type: 'painting',
   projectName: 'The Fulcrum',
-  mainImage: theFulcrum,
-  css_class: '',
+  mainImage: theFulcrum,  
   key: 'the-fulcrum',
+  description: 'Oil on Canvas, 2016',
+  content: [
+    blueSchmear
+  ]
 }
 
 const _windWhisper = {
   type: 'painting',
   projectName: 'a wind a whisper',
-  mainImage: windWhisper,
-  css_class: '',
+  mainImage: windWhisper,  
   key: 'a-wind-a-whisper',
+  description: 'Oil on Canvas, 2016',
+  content: [
+    blueSchmear
+  ]
 }
 
 
 const _wispWhimper = {
   type: 'painting',
   projectName: 'a wisp a whimper',
-  mainImage: wispWhimper,
-  css_class: '',
+  mainImage: wispWhimper,  
   key: 'a-wisp-a-whimper',
+  description: 'Oil on Canvas, 2016',
+  content: [
+    blueSchmear
+  ]
 }
 const _mothersWish = {
   type: 'painting',
   projectName: "a mother's wish",
-  mainImage: mothersWish,
-  css_class: '',
+  mainImage: mothersWish,  
   key: 'a-mothers-wish',
+  description: 'Oil on Canvas, 2016',
+  content: [
+    blueSchmear
+  ]
 }
 
 // const steez = {

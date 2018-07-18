@@ -15,23 +15,15 @@ export default class PageDetailGrid extends Component {
 
   render() {
     const { gridData } = this.props
+    console.log(gridData);
     
     return (
-      <div id='photoview-focus-grid' className={css(styles.photoView_GridContainer)} >
-        {/* <Fade> */}
-          {gridData.map((content, index) => (
-            <div key={`${content.name} + ${index}`} className='row'>
-              <div className="col-sm-offset-2" >
-                <img
-                  // style={content.gridPosition}
-                  className={css(styles.img)}
-                  src={`${content.src}`}
-                  alt="photo"
-                />
-              </div>
-            </div>
-          ))}
-        {/* </Fade> */}
+      <div id='photoview-focus-grid' className={css(styles.photoView_GridContainer)} >        
+        {gridData.map((content, index) => (
+          <div key={`${content.name} + ${index}`}>
+            <img className={css(styles.img)} src={`${content}`} alt="photo" />
+          </div>
+        ))}
       </div>
     )
   }
@@ -85,6 +77,6 @@ const styles = StyleSheet.create({
   img: {
     marginBottom: 50,
     height: 'auto',
-    width: '100%',
+    width: '20%',
   }
 })

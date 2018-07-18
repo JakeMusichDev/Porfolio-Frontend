@@ -29,16 +29,14 @@ export default class PageMenu extends Component {
   }
 
   render() {
-    const { name, index, handleOpenProject } = this.props
+    const { name, index, handleOpenProject, length } = this.props
     return (
-      <div ref={ref => {this.menu = ref}}  className={css(styles.scrollInstructionContainer)}>
+      <div ref={ref => {this.menu = ref}} className={css(styles.scrollInstructionContainer)}>
         <div className={css(styles.wrapper)}>
-          <div id='pv--counter' className={css(styles.scrollInstruction)}>{index.currentItem + 1}. / 11</div>
+          <div className={css(styles.scrollInstruction)}>{index.currentItem + 1}. / {length}</div>
         </div>
-        <div  className={css(styles.wrapper)}>
-          <div id='pv--name' onClick={handleOpenProject} className={css(styles.menuProjectTitle)}>
-            {name}
-          </div>
+        <div className={css(styles.wrapper)}>
+          <div onClick={handleOpenProject} className={css(styles.menuProjectTitle)}>{name}</div>
         </div>
       </div>
     )
@@ -60,11 +58,12 @@ const styles = StyleSheet.create({
   },
   scrollInstruction: {
     width: 'auto',
+    fontSize: '1rm',
     marginBottom: '20px'
   },
   menuProjectTitle: {
     // border: '1px solid green',
-    fontSize: '2.5rem',
+    fontSize: '3rem',
     fontFamily: ['Vollkorn', 'serif'],
     cursor: 'pointer'
   },

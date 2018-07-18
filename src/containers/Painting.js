@@ -8,7 +8,7 @@ import { paintingData } from '../data/paintingData'
 class Painting extends Component {
   render() {
     const { data } = this.props 
-    return <PageContainer pageData={paintingData} scrollIndex={data} pageTitle={'[ Painting ]'} />
+    return <PageContainer pageData={paintingData} scrollIndex={data} pageTitle={'[ Painting ]'} {...this.props} />
   }
 }
 

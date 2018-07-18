@@ -44,7 +44,7 @@ class LandingContainer extends Component {
   }
 
   nextProject = () => {
-    const { data} = this.props
+    const { data } = this.props
     // add css classes to change text opacity
     return items[data.currentItem]
   }

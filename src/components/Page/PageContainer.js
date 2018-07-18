@@ -39,11 +39,12 @@ export default class PageContainer extends Component {
   
   render() {
     const { scrollIndex, pageTitle, handleClick} = this.props
+    
     const currentProject = this.nextProject()
     return(
       <div ref={refDiv => {this.container = refDiv}}  className={css(styles.pageContainerMain)} >
         <PageImage src={currentProject.mainImage} />
-        <PageMenu  index={scrollIndex} name={currentProject.projectName} handleOpenProject={this.handleClick} />
+        <PageMenu  index={scrollIndex} name={currentProject.projectName} length={this.props.pageData.length} handleOpenProject={this.handleClick} />
         <PageTitle title={pageTitle} />
         <PageSelector />
         <PageArrow handleClick={handleClick} direction={'+'}/>
@@ -67,7 +68,7 @@ export default class PageContainer extends Component {
       this.detailTransitionAnimation(1, 1)
       this.props.addListeners()
     } else {
-      this.detailTransitionAnimation(0.6, 0.2)
+      this.detailTransitionAnimation(0.6, 0.1)
       this.props.removeListeners()
     }
   }
@@ -77,9 +78,9 @@ export default class PageContainer extends Component {
     Anime({
       targets: this.container.childNodes,
       scale: scale,
-      duration: 600,
+      duration: 700,
       opacity: opacity,
-      easing: 'easeOutQuint'
+      easing: 'easeInOutQuad'
     })
   }
 }

@@ -1,11 +1,9 @@
 import React, { Component, } from 'react'
-import _ from 'underscore'
-import Anime from 'animejs'
+import { withScrollMonitor } from '../hoc/ScrollHOC'
 
 import PageContainer from '../components/Page/PageContainer'
 
-import {withScrollMonitor} from '../hoc/ScrollHOC'
-import {photographyGridData } from '../data/photoData'
+import { photographyGridData } from '../data/photoData'
 
 
 class Photography extends Component {

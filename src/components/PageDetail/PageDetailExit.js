@@ -4,7 +4,7 @@ import { StyleSheet, css } from 'aphrodite';
 
 const PageDetailExit = (props) => {
   return (
-    <div onClick={props.close} className={css(styles.exitContainer)}>
+    <div onClick={props.closePage} className={css(styles.exitContainer)}>
       <img src={`${xSVG}`} alt=""/>
     </div>
   )
@@ -12,7 +12,9 @@ const PageDetailExit = (props) => {
 
 const styles = StyleSheet.create({
   exitContainer: {
-
+    position: 'fixed',
+    top: "10vh",
+    right: "10vw",
   }
 })
 

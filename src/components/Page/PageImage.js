@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 import { StyleSheet, css } from 'aphrodite/no-important'
-import PixiContainer from '../Pixi/PixiContainer'
 
 export default class PageImage extends Component {
   render () {
     return (
       <div className={css(styles.imageContainer)} >
-        {/* <PixiContainer image={this.props.src} /> */}
-        <img src={this.props.src} className={css(styles.image)} alt=""/>
+        <div className={css(styles.image)} style={{backgroundImage: `url(${this.props.src})`}}></div>
       </div>
     )
   }
@@ -18,13 +16,19 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
     gridRow: '2/7',
-    gridColumn: '3/4',
+    gridColumn: '3/7',
   },
   image: {
-    height: "auto",
-    maxHeight: '600px',
+    // height: "600px",
+    // maxHeight: '600px',
     // width: 'auto',
-    maxWidth: '800px'
+    // border: '1px solid pink',
+    height: '100%',
+    width: '100%',
+    backgroundPosition: 'left',
+    backgroundSize: 'cover',
+    
+    // maxWidth: '800px'
   }
 })
 
