@@ -4,15 +4,26 @@ import '../../styles/index.css'
 import Anime from 'animejs'
 import Fade from 'react-reveal/Fade';
 
-export default class PageDetailGrid extends Component {
+export default class PageDetailPainting extends Component {
+  constructor(props) {
+    super(props)
+  }
+
+  componentDidMount() {
+    // this.animateIn()
+  }
+
   render() {
+    const { gridData } = this.props
+    console.log(gridData);
+    
     return (
       <div id='photoview-focus-grid' className={css(styles.photoView_GridContainer)} >        
-          {this.props.gridData.map((item, index) => (
-            <Fade> 
-              <img  className={css(styles.img)} src={`${item.src}`} key={`${item.name} + ${index}`} alt="photo" />
-            </Fade>
-          ))}
+        {gridData.map((content, index) => (
+          <div key={`${content.name} + ${index}`}>
+            <img className={css(styles.img)} src={`${content}`} alt="photo" />
+          </div>
+        ))}
       </div>
     )
   }
@@ -55,17 +66,16 @@ export default class PageDetailGrid extends Component {
 const styles = StyleSheet.create({
   photoView_GridContainer: {
     height: 'auto',
-    marginLeft: '15%',
-    width: '70%',
+    width: '100%',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignContent: 'center',
-    // border: '1px solid white',
-    padding: 5
+    gridRow: '3/4',
+    gridColumn: '2/5'
   },
   img: {
-    marginBottom: "30vh",
-    width: '100%',
+    // marginBottom: 50,
+    height: '90vh',
+    // width: '50%',
   }
 })

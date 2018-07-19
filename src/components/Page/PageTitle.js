@@ -20,8 +20,10 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
     color: 'white',
-    gridRow: '7/8',
-    gridColumn: '1/3',
+    // gridRow: '7/8',
+    // gridColumn: '1/3',
+    gridRow: '2/3',
+    gridColumn: '9/10',
     fontFamily: ['Inconsolata', 'sans-serif'], 
     fontSize: 12,
     opacity: 0.5

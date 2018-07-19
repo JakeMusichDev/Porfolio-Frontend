@@ -10,6 +10,13 @@ import stockpile_index from '../assets/work/stockpile-index.png'
 import artery_name from '../assets/work/The-Artery.svg'
 import artery_desktop from '../assets/work/artery-desktop.png'
 
+
+
+
+//-------------------------------------------------------------
+// Projects 
+//-------------------------------------------------------------
+
 const airswap = {
   projectName: 'Airswap Redesign',
   description: "Redesigning the cryptocurrency Airswap's website prior to the release of their trading platform.",

@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
     gridRow: '2/7',
-    gridColumn: '3/7',
+    gridColumn: '2/8',
   },
   image: {
     // height: "600px",
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundPosition: 'left',
     backgroundSize: 'cover',
-    
+    opacity: '0.7'
     // maxWidth: '800px'
   }
 })

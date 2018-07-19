@@ -65,11 +65,13 @@ const highEater = {
   projectName: 'High Eaters',
   type: 'photo',
   mainImage: liamBass,
+  description: 'Friends, an old apartment',
   content: [_photo1, _photo2, _alec, _photo2, _photo2, _cole1],
 }
 
 const steez = {
   projectName: 'Brooklyn Steez',
+  description: 'Friends, an old apartment',
   type: 'photo',
   mainImage: snowRailroad,
   content: [
@@ -83,6 +85,7 @@ const steez = {
 
 const freshNet = {
   projectName: "Zoro Depth Fres",
+  description: 'Trying to do the Lords work',
   type: 'photo',
   mainImage: pioneer1,
   content: [
@@ -95,6 +98,7 @@ const freshNet = {
 const el = {
   projectName: 'El Sonata',
   type: 'photo',
+  description: 'Out and about',
   mainImage: drum,
   content: [
     _cole1,
@@ -106,6 +110,7 @@ const el = {
 const pruse = {
   projectName: 'Beautiful Pruse',
   type: 'photo',
+  description: 'Out and about',
   mainImage: bk_2,
   content: [
     _cole2,

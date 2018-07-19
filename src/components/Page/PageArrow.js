@@ -39,11 +39,11 @@ const styles = StyleSheet.create({
   },
   up: {
     gridRow: '3/4',
-    gridColumn: '1/3'
+    gridColumn: '1/2'
   },
   down: {
     gridRow: '5/6',
-    gridColumn: '1/3'
+    gridColumn: '1/2'
   },
 })
 

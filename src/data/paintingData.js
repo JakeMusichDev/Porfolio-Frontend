@@ -78,7 +78,7 @@ const _delver = {
   key: 'delver',
   description: 'Oil on Canvas, 2016',
   content: [
-    blueSchmear
+    delver
   ]
 }
 
@@ -90,7 +90,7 @@ const _theFulcrum = {
   key: 'the-fulcrum',
   description: 'Oil on Canvas, 2016',
   content: [
-    blueSchmear
+    theFulcrum
   ]
 }
 
@@ -101,7 +101,7 @@ const _windWhisper = {
   key: 'a-wind-a-whisper',
   description: 'Oil on Canvas, 2016',
   content: [
-    blueSchmear
+    windWhisper
   ]
 }
 
@@ -113,7 +113,7 @@ const _wispWhimper = {
   key: 'a-wisp-a-whimper',
   description: 'Oil on Canvas, 2016',
   content: [
-    blueSchmear
+    wispWhimper
   ]
 }
 const _mothersWish = {
@@ -123,7 +123,7 @@ const _mothersWish = {
   key: 'a-mothers-wish',
   description: 'Oil on Canvas, 2016',
   content: [
-    blueSchmear
+    mothersWish
   ]
 }
 

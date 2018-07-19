@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, css } from 'aphrodite/no-important'
-import PageDetailGrid from './PageDetailGrid'
+import PageDetailPainting from './PageDetailPainting'
 import PageDetailHeader from './PageDetailHeader'
 import PageDetailExit from './PageDetailExit'
 import PageDetailSection from './PageDetailSection'
@@ -15,9 +15,9 @@ export default class PageDetailPaintingContainer extends Component {
       opacity: 0
     }).add({
       targets: this.container,
-      translateY: '0%',
+      // translateY: '0%',
       duration: 1000,
-      delay: 500,
+      delay: 250,
       opacity: 1,
       easing: 'linear'
     })
@@ -25,7 +25,6 @@ export default class PageDetailPaintingContainer extends Component {
 
   render () {
     const {currentData, closePage } = this.props
-    console.log(this.props);
     let type = currentData.type;
     let content = currentData.content 
     let description = currentData.description
@@ -34,8 +33,11 @@ export default class PageDetailPaintingContainer extends Component {
       <div >
         <PageDetailExit closePage={closePage} />
         <div ref={refDiv => { this.container = refDiv }} className={css(styles.pageDetailContainer)} >
-          <PageDetailGrid gridData={content} />
-          <PageDetailHeader name={currentData.projectName} description={description} role={currentData.role}/>
+          <PageDetailPainting gridData={content} />
+          <div className={css(styles.description)}>
+            {description}
+          </div>
+          {/* <PageDetailHeader name={currentData.projectName} description={description} role={currentData.role}/> */}
         </div>
       </div>
 
@@ -48,11 +50,18 @@ const styles = StyleSheet.create({
     height: '100vh',
     width: '100vw',
     color: 'white',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(10, 10%)',
+    gridTemplateRows: 'repeat(6, 20%)',
     background: 'rgba(15,15,15,0.8)',
     overflowY: 'hidden'
     // gridRow: '5/6',
     // gridColumn: '1/2',
   },
+  description: {
+    gridRow: '5/6',
+    gridColumn: '9/11',
+  }
 })
 
 

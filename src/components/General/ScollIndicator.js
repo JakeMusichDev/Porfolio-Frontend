@@ -19,12 +19,23 @@ export default class ScrollIndictator extends Component {
     const {gridPos} = this.props
     return (
       <div className={css(styles.scrollIndicatorContainer, gridPos)}>
+        <span>
         <div className={css(styles.text)}>
-          {"SCROLL"}      
+          <span>
+          {"SCROLL"}
+          {/* <div className={css(styles.please, styles.text)}> */}
+            {/* {", PLEASE ?"}   */}
+          {/* </div> */}
+          </span>
         </div>
-        <div className={css(styles.wrapper)}>
+        {/* <div className={css(styles.please, styles.text)}>
+          {"PLEASE ?"}  
+        </div> */}
+        
+        </span>
+        {/* <div className={css(styles.wrapper)}>
           <img className={css(styles.indicator)} ref={refDiv => {this.indicator = refDiv}} src={`${line}`} alt=""/>
-        </div>
+        </div> */}
       </div>
     )
   }
@@ -48,9 +59,16 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   text: {
+    height: '50%',
     width: '100%',
     textAlign: 'center',
     fontSize: 10,
+  },
+  please: {
+    // visibility: 'hidden',
+    ":hover": {
+      visibility: "visible"
+    }
   },
   indicator: {
     height: '10',

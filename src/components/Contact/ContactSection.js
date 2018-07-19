@@ -13,13 +13,14 @@ export default class ContactSection extends Component {
         </h3>
         {sectionData ? (
           <div className={css(styles.sectionGrid)}>
-            <Fade cascade>
+            
               {sectionData.map( (icon, index) => (
                 // <div className={css(styles.iconWrapper)}>
-                <img className={css(styles.icon)} key={`${icon}`} src={icon} alt=''/>
+                <Fade cascade>
+                  <img className={css(styles.icon)} key={`${icon}`} src={icon} alt=''/>
+                </Fade>
                 // </div>
               ))}
-            </Fade>
           </div>
         ) : (
             <div className={css(styles.sectionBody)}>

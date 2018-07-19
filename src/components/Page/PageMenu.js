@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     height: 'auto',
     width: '100%',
     display:'block',
-    gridColumn: '8/11',
+    gridColumn: '7/11',
     gridRow: '5/6',
     alignSelf: 'end',
     fontFamily: ['Inconsolata', 'sans-serif'], 

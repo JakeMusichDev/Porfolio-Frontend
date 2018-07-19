@@ -33,9 +33,9 @@ export default class PageDetailContainer extends Component {
     return (
       <div >
         <PageDetailExit closePage={closePage} />
-        <div ref={refDiv => { this.container = refDiv }} className={css(styles.pageDetailContainer)} >
-          <PageDetailGrid gridData={content} />
+        <div id='main-rellax' ref={refDiv => { this.container = refDiv }} className={css(styles.pageDetailContainer)} >
           <PageDetailHeader name={currentData.projectName} description={description} role={currentData.role}/>
+          <PageDetailGrid gridData={content} />
         </div>
       </div>
 
