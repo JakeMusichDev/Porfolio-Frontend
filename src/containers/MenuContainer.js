@@ -25,16 +25,13 @@ export default class MenuContainer extends Component {
   }
 
   render() {
+    
     return (
       <div id='appMenu--mainContainer' className={css(styles.menuMainContainer)}>
-        <MenuDirectory />
+        <MenuDirectory closeMenu={this.props.closeMenu}/>
       </div>
     )
   }
-
-  onMenuClick = (e) => {
-    
-  } 
 }
 
 const styles = StyleSheet.create({
@@ -43,13 +40,12 @@ const styles = StyleSheet.create({
     width: '100vw',
     color: 'white',
     position: 'absolute',
-    // background: "rgb(2,0,36)",
-    background: 'rgba(43,6,30,0.8)',
+    background: "rgba(2,0,36, 0.7)",
+    // background: 'rgba(43,6,30,0.8)',
     // background: '#2b061e',
     opacity: 1,
     top: 0,
     right: 0,
-    // border:"1px solid green",
     zIndex: 100,
     display: 'grid'
   },
