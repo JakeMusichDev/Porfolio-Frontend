@@ -4,7 +4,7 @@ import '../../styles/index.css'
 import Anime from 'animejs'
 import Fade from 'react-reveal/Fade';
 
-export default class PageDetailGrid extends Component {
+export default class PageDetailSection extends Component {
   constructor(props) {
     super(props)
   }
@@ -13,17 +13,19 @@ export default class PageDetailGrid extends Component {
     // this.animateIn()
   }
 
+  renderSection = (type) => {
+    if (type === 'image') {
+      return <SectionImage src={this.props.sectionData.src} />
+    } else if (type === 'header') {
+      return <SectionHeader text={this.props.sectionData.text} />
+    }
+  }
+
   render() {
-    const { gridData } = this.props
-    console.log(gridData);
-    
+    const { sectionData } = this.props
     return (
-      <div id='photoview-focus-grid' className={css(styles.photoView_GridContainer)} >        
-        {gridData.map((content, index) => (
-          <div key={`${content.name} + ${index}`}>
-            <img className={css(styles.img)} src={`${content}`} alt="photo" />
-          </div>
-        ))}
+      <div className={css(styles.detailSectionContainer)} >
+        {this.renderSection(sectionData.type)}
       </div>
     )
   }
@@ -35,7 +37,6 @@ export default class PageDetailGrid extends Component {
     .add({ 
       targets: gridContainer.children,
       opacity: 0,
-      scale: 0.9,
       duration: 0,
     })
     .add({
@@ -44,27 +45,32 @@ export default class PageDetailGrid extends Component {
       duration: 800,
       scale: 1,
       easing: 'easeInExpo',
-      // delay: 2000,
       offset: '+=200',
-      elasticity: function(target, index, totalTargets) {
-        return 200 + ((totalTargets - index) * 200);
-      },
       delay: function(target, index) {
         return index * 100
       },
     })
-    // .add({
-    //   targets: gridContainer.children,
-    //   // translateY: '0%',
-    //   duration: 800,
-    //   easing: 'easeInQuart',
-    //   complete: () => console.log('complete')
-    // })
   }
 }
 
+const SectionImage = (props) => {
+  return (
+    <div className={css(styles.image)}>
+      <img src={`${props.src}`} alt=""/>
+    </div>
+  )
+}
+
+const SectionHeader = (props) => {
+  return (
+    <div className={css(styles.image)}>
+      {props.headerText}
+    </div>
+  )
+}
+
 const styles = StyleSheet.create({
-  photoView_GridContainer: {
+  detailSectionContainer: {
     height: 'auto',
     marginLeft: '15%',
     width: '70%',
@@ -72,11 +78,11 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     border: '1px solid white',
-    // padding: 5
+    padding: 5
   },
-  img: {
+  image: {
     marginBottom: 50,
-    height: '100vh',
-    // width: '50%',
+    height: 'auto',
+    width: '20%',
   }
 })

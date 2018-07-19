@@ -16,7 +16,7 @@ export default class HeaderName extends Component {
       targets: ['#header--name-text'],
       duration: 1000,
       opacity: [0, 0.7],
-      easing: 'easeInExpo'
+      easing: 'linear'
     })
   }
 

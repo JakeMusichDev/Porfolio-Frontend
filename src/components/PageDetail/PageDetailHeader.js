@@ -1,48 +1,29 @@
 import React, { Component, PropTypes } from 'react'
 import { StyleSheet, css } from 'aphrodite/no-important'
 import '../../styles/index.css'
-import Anime from 'animejs'
 import Fade from 'react-reveal/Fade';
 
 export default class PageDetailHeader extends Component {
-  componentDidMount() {
-    // this.animateIn()
-  }
-
   render() {
-    const { name, close } = this.props    
+    const { name, close, description, role } = this.props    
+    console.log(description);
+    
     return (
       <div className={css(styles.modalNameContainer)}>
         <div className={css(styles.modalNameWrapper)}>
-          {/* <Fade bottom cascade> */}
-            <div id="photo-project--name" className={css(styles.modalName)}>{ name }</div>
-          {/* </Fade> */}
+          <Fade cascade bottom>
+            <div className={css(styles.modalName)}>{ name }</div>          
+          </Fade>
         </div>
-        {/* <Fade> */}
-          <div className={css(styles.date)}>
-            2018 - 
-          </div>
-        {/* </Fade> */}
+        <div className={css(styles.date)}>
+          2018 - 
+        </div>
+        <div className={css(styles.description)}>
+          {description}
+        </div>
       </div>
     )
   }
-
-  // animateIn = () => {
-  //   Anime.timeline().add({
-  //     targets: '#photo-project--name',
-  //     translateY: "100%",
-  //     duration: 0,
-  //     opacity: 0
-  //   }).add({
-  //     targets: '#photo-project--name',
-  //     translateY: "0%",
-  //     duration: 1000,
-  //     elasticity: 100,
-  //     opacity: 1,
-  //     // delay: 1000,
-  //     easing: 'easeInQuad',
-  //   })
-  // }
 }
 
 const styles = StyleSheet.create({
@@ -51,10 +32,11 @@ const styles = StyleSheet.create({
     height: '50vh',
     display: "grid",
     gridTemplateColumns: "repeat(8, 1fr)",
-    gridTemplateRows: 'repeat(4, 1fr)'
+    gridTemplateRows: 'repeat(4, 1fr)',
+    border: '1px solid red'
   },
   modalNameWrapper: {
-    overflow: 'hidden',
+    // overflow: 'hidden',
     gridColumn: '1/9',
     gridRow: '3/4',
   }, 
@@ -72,5 +54,13 @@ const styles = StyleSheet.create({
     gridColumn: '7/8',
     gridRow: '4/5',
     // border: '1px solid red'
+  },
+  description: {
+    gridColumn: '7/8',
+    gridRow: '4/5',
+  },
+  para: {
+    position: 'fixed',
+    height: 100
   }
 })

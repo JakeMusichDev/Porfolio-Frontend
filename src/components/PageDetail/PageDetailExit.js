@@ -13,8 +13,11 @@ const PageDetailExit = (props) => {
 const styles = StyleSheet.create({
   exitContainer: {
     position: 'fixed',
-    top: "10vh",
-    right: "10vw",
+    bottom: "10vh",
+    right: "2vw",
+    overflow: 'hidden',
+    // border: '1px solid pink',
+    zIndex: 200
   }
 })
 

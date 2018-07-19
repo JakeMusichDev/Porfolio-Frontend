@@ -3,7 +3,7 @@ import { StyleSheet, css } from 'aphrodite/no-important'
 import PageDetailGrid from './PageDetailGrid'
 import PageDetailHeader from './PageDetailHeader'
 import PageDetailExit from './PageDetailExit'
-
+import PageDetailSection from './PageDetailSection'
 import Anime from 'animejs'
 
 export default class PageDetailContainer extends Component {
@@ -19,22 +19,26 @@ export default class PageDetailContainer extends Component {
       duration: 1000,
       delay: 500,
       opacity: 1,
-      easing: 'easeInSine'
+      easing: 'linear'
     })
   }
 
   render () {
     const {currentData, closePage } = this.props
-    console.log(currentData.content);
-    
+    console.log(this.props);
+    let type = currentData.type;
+    let content = currentData.content 
+    let description = currentData.description
+
     return (
-      <div ref={refDiv => { this.container = refDiv }} className={css(styles.pageDetailContainer)} >
-        <PageDetailHeader name={currentData.projectName} />
+      <div >
         <PageDetailExit closePage={closePage} />
-        <PageDetailGrid gridData={currentData.content} />
-        {currentData.role ? currentData.role : null}
-        {currentData.description ? currentData.description : null}
+        <div ref={refDiv => { this.container = refDiv }} className={css(styles.pageDetailContainer)} >
+          <PageDetailHeader name={currentData.projectName} description={description} role={currentData.role}/>
+          <PageDetailGrid gridData={content} />
+        </div>
       </div>
+
     )
   }
 }

@@ -1,26 +1,9 @@
 import React, { Component } from 'react';
 import { StyleSheet, css } from 'aphrodite/no-important'
-import Zoom from 'react-reveal/Zoom'
+import Fade from 'react-reveal/Zoom'
 import Anime from 'animejs'
 
 export default class ContactSection extends Component {
-  componentDidMount() {
-    const tl = Anime.timeline()
-    tl.add({
-      targets: ['#c--img'],
-      opacity: 0,
-      easing: 'easeInOutSine',
-      duration: 0,
-      delay: function(el, i) { return i * 250 },
-    }).add({
-      targets: ['#c--img'],
-      translateY: ['0%'],
-      opacity: 0.3,
-      duration: 1000,
-      easing: 'easeInQuart',
-    })
-  }
-
   render() {
     const { sectionTitle, sectionData, sectionCopy, sectionStyle } = this.props
     return (
@@ -30,19 +13,19 @@ export default class ContactSection extends Component {
         </h3>
         {sectionData ? (
           <div className={css(styles.sectionGrid)}>
-            <Zoom cascade>
+            <Fade cascade>
               {sectionData.map( (icon, index) => (
                 // <div className={css(styles.iconWrapper)}>
                 <img className={css(styles.icon)} key={`${icon}`} src={icon} alt=''/>
                 // </div>
               ))}
-            </Zoom>
+            </Fade>
           </div>
         ) : (
             <div className={css(styles.sectionBody)}>
-              <Zoom cascade>
+              <Fade cascade>
                 {sectionCopy}
-              </Zoom>
+              </Fade>
             </div>
         )}
       </div>

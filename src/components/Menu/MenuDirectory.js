@@ -24,13 +24,13 @@ export default class MenuDirectory extends Component {
   }
 
   render() {
-    const { handleOpenPainting, paintingData } = this.props
+    const { closeMenu, paintingData } = this.props
     return (
       <div id="paintingView--mainContainer" ref={el => (this.container = el)} className={css(styles.paintingListContainer)}>
         {items.map(
           (item, index) => (
             <Link to={`${item.route}`} className={css(styles.menuListItem)}>
-              <img src={`${item.svg}`} alt=""/>
+              <img onClick={closeMenu}  src={`${item.svg}`} className={css(styles.menuItem)} alt=""/>
             </Link>
           )
         )}
@@ -68,10 +68,8 @@ const styles = StyleSheet.create({
     padding: '5%',
     opacity: '0.5',
     color: 'white',
-    // transition: '0.5s all',
-    ":hover": {
-      opacity: '1',
-      // scale: 1.1
-    }
+  },
+  menuItem: {
+    height: 50,
   }
 })

@@ -32,7 +32,7 @@ export default class PageContainer extends Component {
       duration: 1000,
       opacity: 1,
       easing: 'easeInOutQuad',
-      delay: (e, i) => i * 200,
+      delay: (e, i) => i * 120,
     })
   }
 
@@ -45,10 +45,11 @@ export default class PageContainer extends Component {
       <div ref={refDiv => {this.container = refDiv}}  className={css(styles.pageContainerMain)} >
         <PageImage src={currentProject.mainImage} />
         <PageMenu  index={scrollIndex} name={currentProject.projectName} length={this.props.pageData.length} handleOpenProject={this.handleClick} />
-        <PageTitle title={pageTitle} />
-        <PageSelector />
         <PageArrow handleClick={handleClick} direction={'+'}/>
         <PageArrow handleClick={handleClick} direction={'-'} />
+        <PageTitle title={pageTitle} />
+        <PageSelector />
+
         <ScrollIndicator gridPos={styles.gridPos} />
         { this.state.focusActive ? <PageDetailContainer currentData={currentProject} closePage={this.handleClick} /> : null }
       </div>

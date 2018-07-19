@@ -15,19 +15,19 @@ import Zoom from 'react-reveal'
 
 export default class Contact extends Component {
   componentDidMount() {
-    Anime.timeline().add({
-      targets: this.contactContainer.childNodes,
-      duration: 0,
-      opacity: 0
-      // translateY: '100%', 
-    }).add({
-      targets: this.contactContainer.childNodes,
-      duration: 1000,
-      translateY: '0%',
-      easing: 'easeInExpo',
-      delay: (target, i) => i * 200,
-      opacity: 1
-    })
+    // Anime.timeline().add({
+    //   targets: this.contactContainer.childNodes,
+    //   duration: 0,
+    //   opacity: 0
+    //   // translateY: '100%', 
+    // }).add({
+    //   targets: this.contactContainer.childNodes,
+    //   duration: 1000,
+    //   translateY: '0%',
+    //   easing: 'easeInExpo',
+    //   delay: (target, i) => i * 200,
+    //   opacity: 1
+    // })
   }
 
   render() {

@@ -64,6 +64,7 @@ const _blueSchmear = {
   projectName: 'Blue Schmear',
   mainImage: blueSchmear,
   key: 'blue-schmear',
+  description: 'Oil on Canvas, 2016',
   content: [
     blueSchmear
   ]
