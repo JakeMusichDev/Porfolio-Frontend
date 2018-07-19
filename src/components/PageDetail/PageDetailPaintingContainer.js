@@ -6,7 +6,7 @@ import PageDetailExit from './PageDetailExit'
 import PageDetailSection from './PageDetailSection'
 import Anime from 'animejs'
 
-export default class PageDetailContainer extends Component {
+export default class PageDetailPaintingContainer extends Component {
   componentDidMount() {
     Anime.timeline().add({
       targets: this.container,
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     width: '100vw',
     color: 'white',
     background: 'rgba(15,15,15,0.8)',
-    overflowY: 'scroll'
+    overflowY: 'hidden'
     // gridRow: '5/6',
     // gridColumn: '1/2',
   },

@@ -8,10 +8,10 @@ export default class ScrollIndictator extends Component {
   componentDidMount() {
     Anime({
       targets: this.indicator,
-      translateY: '100%',
-      duration: 3000,
+      translateY: ['-200%', "0%"],
+      duration: 5000,
       loop: true,
-      easing: 'easeInQuad'
+      easing: 'easeInOutQuad'
     })
   }
 
@@ -19,6 +19,9 @@ export default class ScrollIndictator extends Component {
     const {gridPos} = this.props
     return (
       <div className={css(styles.scrollIndicatorContainer, gridPos)}>
+        <div className={css(styles.text)}>
+          {"SCROLL"}      
+        </div>
         <div className={css(styles.wrapper)}>
           <img className={css(styles.indicator)} ref={refDiv => {this.indicator = refDiv}} src={`${line}`} alt=""/>
         </div>
@@ -30,13 +33,27 @@ export default class ScrollIndictator extends Component {
 
 const styles = StyleSheet.create({
   scrollIndicatorContainer: {
-    height: '10vh',
-    width: '10vw',
+    height: '100%',
+    width: '100%',
+    // border: '1px solid pink',
   },
   wrapper: {
-    height: 'auto',
     width: '100%',
     overflow: 'hidden',
-    border: '1px solid pink'
+    height: '100%',
+    // border: '1px solid pink',
+    display: 'flex',
+    justifyContent: 'center',
+    flexDirection: 'column',
+    alignItems: 'center'
+  },
+  text: {
+    width: '100%',
+    textAlign: 'center',
+    fontSize: 10,
+  },
+  indicator: {
+    height: '10',
+    width: '10'
   }
 })

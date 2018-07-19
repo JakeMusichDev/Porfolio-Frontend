@@ -10,6 +10,7 @@ import PageImage from './PageImage';
 import { PageSelector } from './PageSelector';
 import PageArrow from './PageArrow'
 import PageDetailContainer from '../PageDetail/PageDetailContainer'
+import PageDetailPaintingContainer from '../PageDetail/PageDetailPaintingContainer'
 
 export default class PageContainer extends Component {
   constructor (props) {
@@ -49,11 +50,20 @@ export default class PageContainer extends Component {
         <PageArrow handleClick={handleClick} direction={'-'} />
         <PageTitle title={pageTitle} />
         <PageSelector />
-
         <ScrollIndicator gridPos={styles.gridPos} />
-        { this.state.focusActive ? <PageDetailContainer currentData={currentProject} closePage={this.handleClick} /> : null }
+        { this.renderDetail(this.state.focusActive, currentProject.type, currentProject) }
       </div>
     )
+  }
+
+  renderDetail = (focusActive, type, currentProject) => {
+    if(focusActive) {
+      if(type !== 'painting') {
+        return <PageDetailContainer currentData={currentProject} closePage={this.handleClick} /> 
+      } else {
+        return <PageDetailPaintingContainer currentData={currentProject} closePage={this.handleClick} /> 
+      }
+    } else return null
   }
 
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Link } from 'react-router-dom'
 import { StyleSheet, css } from 'aphrodite/no-important'
-
+import '../styles/index.css'
 import MenuContainer from './MenuContainer'
 import Header from '../components/Header/Header'
 import { Routes } from '../routes/Routes'

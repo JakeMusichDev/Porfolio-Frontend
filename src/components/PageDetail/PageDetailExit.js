@@ -1,6 +1,7 @@
 import React from 'react'
 import xSVG from '../../assets/x.svg'
 import { StyleSheet, css } from 'aphrodite';
+import Zoom from 'react-reveal'
 
 const PageDetailExit = (props) => {
   return (
