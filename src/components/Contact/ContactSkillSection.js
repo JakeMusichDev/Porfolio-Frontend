@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { StyleSheet, css } from 'aphrodite/no-important'
 import Fade from 'react-reveal'
 import Anime from 'animejs'
-import Plx from 'react-plx'
-import {contactCopy} from '../../utils/copy'
 import {techSkillIcons} from '../../data/techIconData'
 
 export default class ContactSkillSection extends Component {
@@ -33,11 +31,9 @@ export default class ContactSkillSection extends Component {
         <div className={css(styles.skillIconGrid)}>
         {/* <Fade cascade duration={1000}> */}
             {techSkillIcons.map( (icon, index) => (
-              // <div className={css(styles.iconWrapper)}>
-              <Plx parallaxData={[{start:0, end:1000, properties: [{startValue: 0, endValue: 90, property: 'rotate'}]}]} >
+              
                 <img className={css(styles.icon)} key={`${icon}`} src={icon} alt=''/>
-              {/* // </div> */}
-              </Plx>
+              
             ))}
         {/* </Fade> */}
         </div>

@@ -9,7 +9,7 @@ import aboutSVG from '../assets/home/ABOUT.svg'
 import aboutImage from '../assets/home/home_bk_2.jpeg'
 
 import workSVG from '../assets/home/WORK.svg'
-import airswap from '../assets/work/airswap-desktop.png'
+import airswap from '../assets/work/airswap/airswap-desktop.png'
 
 export const items = [
   { name: 'photography', svg: photographySVG_lg, src: cole, route: '/photography' },

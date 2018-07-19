@@ -10,7 +10,7 @@ export default class PageDetailGrid extends Component {
       <div id='photoview-focus-grid' className={css(styles.photoView_GridContainer)} >        
           {this.props.gridData.map((item, index) => (
             <Fade> 
-              <img  className={css(styles.img)} src={`${item.src}`} key={`${item.name} + ${index}`} alt="photo" />
+              <div className={css(styles.image)} style={{backgroundImage: `url(${item.src})`}} key={`${item.name} + ${index}`}></div>
             </Fade>
           ))}
       </div>
@@ -61,11 +61,14 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     alignContent: 'center',
-    // border: '1px solid white',
     padding: 5
   },
-  img: {
-    marginBottom: "30vh",
+  image: {
+    height: '75vh',
     width: '100%',
+    marginBottom: '25vh',
+    backgroundPosition: 'center center',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat'
   }
 })

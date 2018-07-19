@@ -10,7 +10,6 @@ import ContactSocials from '../components/Contact/ContactSocials'
 import ContactSection from '../components/Contact/ContactSection'
 
 import vid from '../assets/contacts/vid.mp4'
-import {contactCopy} from '../utils/copy.js'
 import Zoom from 'react-reveal'
 
 export default class Contact extends Component {
@@ -37,7 +36,7 @@ export default class Contact extends Component {
           <ContactName/>
         </div>
         <div className={css(styles.rightSide)}>
-          <ContactSection sectionTitle={'Hello'} sectionCopy={contactCopy.contactBio} sectionStyle={styles.header}/>
+          <ContactSection sectionTitle={'Hello'} sectionStyle={styles.header}/>
           <ContactSkillSection />
           <ContactSocials />
         </div>
