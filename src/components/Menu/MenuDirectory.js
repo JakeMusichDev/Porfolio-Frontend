@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { StyleSheet, css } from 'aphrodite/no-important'
+import {flex} from '../../styles/styleUtils'
 import { Link } from 'react-router-dom'
 import Anime from 'animejs'
 import {items} from '../../data/home-route-data.js'
@@ -7,18 +8,19 @@ import {items} from '../../data/home-route-data.js'
 export default class MenuDirectory extends Component {
   componentDidMount() {
     Anime.timeline().add({
-      targets: this.container.children,
+      targets: '#menu-item-name',
       height: '0%',
       duration: 0,
+      opacity: 0,
       translateY: '100%'
     }).add({
-      targets: this.container.children,
+      targets: '#menu-item-name',
       translateY: '0%',
-      opacity: [0, 1],
+      opacity: [1],
       easing: 'easeInQuart',
-      duration: 1000,
+      duration: 900,
       delay: function(target, index) {
-        return index * 40;
+        return index * 50;
       },
     })
   }
@@ -26,16 +28,12 @@ export default class MenuDirectory extends Component {
   render() {
     const { closeMenu } = this.props
     return (
-      <div ref={el => (this.container = el)} className={css(styles.menuDirectoryContainer)}>
+      <div ref={el => (this.container = el)} className={css(styles.menuDirectoryContainer, flex.flexCenter)}>
         {items.map( (item, index) => (
           <div onClick={closeMenu} className={css(styles.menuItemWrapper)}>
-            {item.name}
-            {/* <Link to={`${item.route}`} className={css(styles.itemLink)}>
-              <img onClick={closeMenu}  src={`${item.svg}`} className={css(styles.menuItem)} alt=""/>
-            </Link> */}
-            {/* <Link to={`${item.route}`} className={css(styles.itemLink)}>
-              <div className={css(styles.menuItem)}>{item.name}</div>
-            </Link> */}
+            <Link to={`${item.route}`} style={{textDecoration: 'none'}}>
+              <div id='menu-item-name' className={css(styles.menuItem)}>{item.name}</div>
+            </Link>
           </div>
         ))}
       </div>
@@ -54,7 +52,8 @@ const styles = StyleSheet.create({
     zIndex: 10,
     display: 'flex',
     flexDirection: 'column',
-    // alignItems: 'left'
+    alignItems: 'center',
+
     // flexWrap: 'wrap',
     border:'1px solid black',
     // flexBasis: 'fit-content'
@@ -63,22 +62,21 @@ const styles = StyleSheet.create({
     width: '40%',
     marginLeft: '40%',
     right: 0,
+    overflow: 'hidden',
     // height: '10vw',
     // border:'1px solid red',
     // textAlign:'right',
     fontFamily: 'Vollkorn',
-    fontSize: "4vw",
-    padding: '5%',
+    fontSize: "6vw",
+    marginBottom: '5vh'
+    // padding: '5%',
     // margin: '5%',
     // opacity: '0.5',
   },
-  itemLink: {
-    height: '100%',
-    width: '100%',
-  },
   menuItem: {
-    height: '100',
-    border:'1px solid white',
-    opacity: '0.5'
+    textDecoration: 'none',
+    color: 'black',
+    height: '100%',
+    // border:'1px solid white'
   }
 })
