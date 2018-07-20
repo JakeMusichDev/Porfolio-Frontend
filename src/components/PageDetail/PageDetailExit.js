@@ -1,5 +1,5 @@
 import React from 'react'
-import xSVG from '../../assets/x.svg'
+import xSVG from '../../assets/general/x.svg'
 import { StyleSheet, css } from 'aphrodite';
 import {flex} from '../../styles/styleUtils'
 import Zoom from 'react-reveal'

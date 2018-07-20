@@ -73,7 +73,7 @@ export default class LandingMenuSection extends Component {
     if( this.checkSize() ) {
       const tiltArray = [];
       const elements = document.getElementsByName('menu--section')
-      console.log(elements);
+      // console.log(elements);
       
       for (var i = 0; i < elements.length; i++) {
         var elementToDestroy = elements[i];

@@ -34,10 +34,7 @@ export default class PageDetailPaintingContainer extends Component {
         <PageDetailExit closePage={closePage} />
         <div ref={refDiv => { this.container = refDiv }} className={css(styles.pageDetailContainer)} >
           <PageDetailPainting gridData={content} />
-          <div className={css(styles.description)}>
-            {description}
-          </div>
-          {/* <PageDetailHeader name={currentData.projectName} description={description} role={currentData.role}/> */}
+          <div className={css(styles.description)}>{description}</div>
         </div>
       </div>
 

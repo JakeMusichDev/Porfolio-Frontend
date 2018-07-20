@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { StyleSheet, css } from 'aphrodite/no-important'
 import Anime from 'animejs'
 import { flex } from '../../styles/styleUtils'
-import circleSVG from '../../assets/header-menu-circle.svg'
+import circleSVG from '../../assets/menu/header-menu-circle.svg'
 
 export default class HeaderMenu extends Component {
   componentDidMount() {

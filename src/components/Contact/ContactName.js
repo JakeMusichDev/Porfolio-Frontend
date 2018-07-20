@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, css } from 'aphrodite/no-important'
 import Anime from 'animejs'
-import name_lg from '../../assets/name_lg.svg'
+import name_lg from '../../assets/about/name_lg.svg'
 import Rellax from 'rellax'
 export default class ContactName extends Component {
 

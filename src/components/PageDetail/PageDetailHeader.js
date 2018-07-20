@@ -71,7 +71,8 @@ const styles = StyleSheet.create({
   },
   description: {
     gridColumn: '2/5',
-    gridRow: '5',
+    gridRow: '4',
+    lineHeight: '150%'
     // border: '1px solid yellow'
   },
   role: {

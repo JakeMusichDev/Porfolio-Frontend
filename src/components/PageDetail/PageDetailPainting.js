@@ -14,52 +14,15 @@ export default class PageDetailPainting extends Component {
   }
 
   render() {
-    const { gridData } = this.props
-    console.log(gridData);
-    
     return (
       <div id='photoview-focus-grid' className={css(styles.photoView_GridContainer)} >        
-        {gridData.map((content, index) => (
+        {this.props.gridData.map((content, index) => (
           <div key={`${content.name} + ${index}`}>
             <img className={css(styles.img)} src={`${content}`} alt="photo" />
           </div>
         ))}
       </div>
     )
-  }
-
-  animateIn = () => {
-    const gridContainer = document.getElementById("photoview-focus-grid")
-    const tl = Anime.timeline()
-    tl
-    .add({ 
-      targets: gridContainer.children,
-      opacity: 0,
-      scale: 0.9,
-      duration: 0,
-    })
-    .add({
-      targets: [gridContainer.children],
-      opacity: [1],
-      duration: 800,
-      scale: 1,
-      easing: 'easeInExpo',
-      // delay: 2000,
-      offset: '+=200',
-      elasticity: function(target, index, totalTargets) {
-        return 200 + ((totalTargets - index) * 200);
-      },
-      delay: function(target, index) {
-        return index * 100
-      },
-    })
-    // .add({
-    //   targets: gridContainer.children,
-    //   // translateY: '0%',
-    //   duration: 800,
-    //   easing: 'easeInQuart',
-    //   complete: () => console.log('complete')
-    // })
   }
 }
 
@@ -71,11 +34,9 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'center',
     gridRow: '3/4',
-    gridColumn: '2/5'
+    gridColumn: '3/5'
   },
   img: {
-    // marginBottom: 50,
     height: '90vh',
-    // width: '50%',
   }
 })

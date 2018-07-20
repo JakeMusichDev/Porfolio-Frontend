@@ -25,6 +25,7 @@ export default class PixiContainer extends Component {
 
   componentWillReceiveProps(nextProps, nextState) {
     if(this.state.pixiInitComplete) {
+      console.log(nextProps)
       this.nextBackgroundImage(nextProps)
     }
   }
@@ -50,7 +51,7 @@ export default class PixiContainer extends Component {
       antialias: true, 
       transparent: true,
       resolution: 1,
-      // autoResize: true,
+      autoResize: true,
       // interactive:true,
     })
     
@@ -59,28 +60,15 @@ export default class PixiContainer extends Component {
   }
 
   attachFilteredImage = () => {
+    const anchorBounds = this.canvasAnchor.getBoundingClientRect()
+    
     // Create stage
     this.stageContainer = new PIXI.Container()
 
-    // Create Image itself
-    const imageSprite = PIXI.Sprite.fromImage(`../../${this.props.image}`);
-    
-    imageSprite.autoFit = true;
-    imageSprite.interactive = true
-    imageSprite.scale.set(0.3, 0.3)
-    // imageSprite.anchor.set(0.2,0.2)
-    
-    // Create Filter sprite 
-    // const filterSprite = new PIXI.Sprite(PIXI.loader.resources['filter'].texture)
-    const filterSprite = PIXI.Sprite.fromImage(`${filter}`);
-    filterSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
-    filterSprite.texture.baseTexture.wrapMode
-    filterSprite.scale.x = 0.6;
-    filterSprite.scale.y = 0.6;
-    
-
-    const displacementFilter = new PIXI.filters.DisplacementFilter(filterSprite)
-    displacementFilter.autoFit = true
+    // Create Sprites and Filters
+    const imageSprite = this.createImageSprite(this.props.image, anchorBounds)
+    const filterSprite = this.createFilter(anchorBounds)
+    const displacementFilter = this.createDisplacementFilter(filterSprite)
 
     // Add sprites and filter to container
     this.stageContainer.addChild(filterSprite)
@@ -90,7 +78,34 @@ export default class PixiContainer extends Component {
     this.app.render(this.stageContainer)
     
     this.setState({pixiInitComplete:true}, () => this.animateCanvas(filterSprite) )
+  }
 
+  createImageSprite = (image, anchorBounds) => {
+    // Create Image itself
+    const imageSprite = new PIXI.Sprite.fromImage(`${image}`);
+    imageSprite.alpha = 0.9
+    imageSprite.autoFit = true;
+    imageSprite.interactive = true
+    imageSprite.zIndex = 2
+    imageSprite.height = anchorBounds.height
+    imageSprite.width = anchorBounds.width
+    return imageSprite
+  }
+
+  createFilter = (anchorBounds) => {
+    // Create Filter sprite 
+    let filterSprite = PIXI.Sprite.fromImage(`${filter}`);
+    filterSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
+    filterSprite.texture.baseTexture.wrapMode
+    filterSprite.scale.x = 0.2;
+    filterSprite.scale.y = 0.2;
+    return filterSprite
+  }
+
+  createDisplacementFilter = (filterSprite) => {
+    let displacementFilter = new PIXI.filters.DisplacementFilter(filterSprite)
+    displacementFilter.autoFit = true
+    return displacementFilter
   }
 
   animateCanvas = (filterSprite) => {
@@ -99,8 +114,8 @@ export default class PixiContainer extends Component {
     this.ticker.add(this.update, this);
     this.ticker.start();
     this.ticker.add(function(time) {
-      filterSprite.x = count*30
-      filterSprite.y = count*30
+      filterSprite.x = count*20
+      filterSprite.y = count*20
       count += 0.05
     })
   }
@@ -119,24 +134,15 @@ export default class PixiContainer extends Component {
 
   
   nextBackgroundImage = (nextProps) => {
-    let i = this.stageContainer.getChildAt(1)
-    let p = 0
-    console.log(i);
-    const fadeOutAlpha = () => i.alpha > 0? i.alpha =- 0.01 : cancelAnimationFrame(frame)
-    const frame = requestAnimationFrame(fadeOutAlpha)
+    // let i = this.stageContainer.getChildAt(1)
+    // let p = 0
+    // console.log(i);
+    // const fadeOutAlpha = () => i.alpha > 0? i.alpha =- 0.01 : cancelAnimationFrame(frame)
+    // const frame = requestAnimationFrame(fadeOutAlpha)
     const anchorBounds = this.canvasAnchor.getBoundingClientRect()
-    
-    
-    const {activePixiImage} = nextProps
-    const imageSprite = new PIXI.Sprite.fromImage(`${this.props.image}`);
-    
-    imageSprite.autoFit = true
-    imageSprite.height = anchorBounds.height
-    imageSprite.width = anchorBounds.width
-    // imageSprite.scale.set(0.3, 0.3)
-    // imageSprite.anchor.set(0.2,0.2)
-
+    const imageSprite = this.createImageSprite(nextProps.image, anchorBounds)
     this.stageContainer.addChild(imageSprite)
+    console.log(this.stageContainer)
   }
 
   resize = () => {

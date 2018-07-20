@@ -7,7 +7,6 @@ import Anime from 'animejs'
 import ContactName from '../components/Contact/ContactName'
 import ContactSection from '../components/Contact/ContactSection'
 import { contactCopy, skillsData, socialsData } from '../data/contactData'
-import vid from '../assets/contacts/vid.mp4'
 import Fade from 'react-reveal'
 
 export default class Contact extends Component {
