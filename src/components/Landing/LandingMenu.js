@@ -8,14 +8,6 @@ import LandingMenuSection from './LandingMenuSection'
 import {items} from '../../data/home-route-data.js'
 
 export default class LandingMenu extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-
-    }
-  }
-
   render() {
     const { scrollState, open } = this.props
     return (
@@ -45,6 +37,6 @@ const styles = StyleSheet.create({
     color: 'white',
     gridRow: '2/5',
     zIndex: 2,
-    gridColumn: '4/9'
+    gridColumn: '4/9',
   },
 })

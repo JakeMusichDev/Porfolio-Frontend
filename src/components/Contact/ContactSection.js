@@ -1,34 +1,23 @@
 import React, { Component } from 'react';
 import { StyleSheet, css } from 'aphrodite/no-important'
-import Fade from 'react-reveal/Zoom'
+import Fade from 'react-reveal/Fade'
 import Anime from 'animejs'
 
 export default class ContactSection extends Component {
   render() {
-    const { sectionTitle, sectionData, sectionCopy, sectionStyle } = this.props
+    const { sectionTitle, sectionData, sectionCopy } = this.props    
     return (
-      <div className={css(styles.sectionMain, sectionStyle)}>
-        <h3 className={css(styles.sectionHeader)}>
-          {sectionTitle}
-        </h3>
+      <div className={css(styles.sectionMain)}>
+        
+        {sectionTitle ? <Fade cascade><h2 className={css(styles.sectionHeader)}>{sectionTitle}</h2></Fade> : null}
+        
+        {sectionCopy ? <div className={css(styles.sectionBody)}>{sectionCopy}</div> : null }
         {sectionData ? (
           <div className={css(styles.sectionGrid)}>
-            
-              {sectionData.map( (icon, index) => (
-                // <div className={css(styles.iconWrapper)}>
-                <Fade cascade>
-                  <img className={css(styles.icon)} key={`${icon}`} src={icon} alt=''/>
-                </Fade>
-                // </div>
-              ))}
+            {sectionData.map( (icon, index) => <img className={css(styles.gridIcon)} key={`${icon.icon}`} src={`${icon.icon}`} alt=''/> )}
           </div>
-        ) : (
-            <div className={css(styles.sectionBody)}>
-              <Fade cascade>
-                {sectionCopy}
-              </Fade>
-            </div>
-        )}
+          ) : null
+        }
       </div>
     );
   }
@@ -41,24 +30,22 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    alignContent: 'center',
+    // alignContent: 'center',
     color: 'white',
     // border: '1px solid white',
-    marginBottom: '50vh',
-    fontFamily: ['Source Sans Pro', 'serif'],
+    fontFamily: ['Inconsolata', 'serif'],
+    marginTop: '20vh',
   },
   sectionHeader: {
     color:"white",
-    fontSize:"14px",
+    fontSize:"18px",
     lineHeight: '120%',
-    alignText: 'block',
-    marginBottom: '5vh',
-    // border: '1px solid white',
-    // fontFamily: ['Open Sans', 'serif'],
-    // fontFamily:["Source Code Pro","sans-serif"],
+    padding: '5%'
   },
   sectionBody: {
-
+    lineHeight: '200%',
+    fontSize:"15px",
+    padding: '5%'
   },
   sectionGrid: {
     // height: 'auto',
@@ -66,12 +53,14 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     flexWrap: 'wrap',
-    justifyContent: "space-evenly",
+    justifyContent: 'right',
+    alignItems: 'right'
+    // justifyContent: "space-evenly",
     // border: '1px solid green'
   },
-  icon: {
-    height: '100px',
-    width: '100px',
-    margin: '50px'
+  gridIcon: {
+    height: '5%',
+    width: '5%',
+    margin: '5%'
   }
 })

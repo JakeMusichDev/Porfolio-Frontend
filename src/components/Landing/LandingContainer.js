@@ -38,7 +38,9 @@ class LandingContainer extends Component {
         <LandingCounter index={data.currentItem} />
         <LandingText text={' - Artist'} mainStyle={textStyles.artist} />
         <LandingText text={' - Developer'} mainStyle={textStyles.dev} />
-        <LandingText text={'Jake Musich'} mainStyle={textStyles.name} />
+        <LandingText text={' - Jake Musich'} mainStyle={textStyles.name} />
+        <LandingText text={'[ Portfolio ]'} mainStyle={textStyles.portfolio} />
+
       </div>
     )
   }
@@ -84,6 +86,17 @@ const textStyles = StyleSheet.create({
     webkitWritingMode: 'vertical-rl',
     writingMode: 'vertical-rl',
     fontSize: 12,
+    // fontFamily: 'Vollkorn',
+    opacity: 0.7
+  },
+  portfolio: {
+    gridRow: '5/6',
+    gridColumn: '1/2',
+    // webkitWritingMode: 'vertical-rl',
+    // writingMode: 'vertical-rl',
+    fontSize: 12,
+    display: 'flex',
+    flexDirection: 'column',
     // fontFamily: 'Vollkorn',
     opacity: 0.7
   },

@@ -19,7 +19,7 @@ export default class MenuContainer extends Component {
       duration: 500,
       opacity: 1,
       easing: 'easeInQuad',
-      // scale: 1
+      // scale: 1,
       // translateY: '0%'
     })
   }
@@ -38,15 +38,10 @@ const styles = StyleSheet.create({
   menuMainContainer: {
     height: '100vh',
     width: '100vw',
-    color: 'white',
     position: 'absolute',
-    background: "rgba(2,0,36, 0.7)",
-    // background: 'rgba(43,6,30,0.8)',
-    // background: '#2b061e',
-    opacity: 1,
+    background: "rgba(256,256, 259, 0.7)",
     top: 0,
     right: 0,
     zIndex: 100,
-    display: 'grid'
   },
 })

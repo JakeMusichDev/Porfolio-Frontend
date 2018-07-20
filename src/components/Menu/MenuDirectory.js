@@ -24,52 +24,53 @@ export default class MenuDirectory extends Component {
   }
 
   render() {
-    const { closeMenu, paintingData } = this.props
+    const { closeMenu } = this.props
     return (
-      <div id="paintingView--mainContainer" ref={el => (this.container = el)} className={css(styles.paintingListContainer)}>
-        {items.map(
-          (item, index) => (
-            <div className={css(styles.menuItemWrapper)}>
-              <Link to={`${item.route}`} className={css(styles.itemLink)}>
-                <img onClick={closeMenu}  src={`${item.svg}`} className={css(styles.menuItem)} alt=""/>
-              </Link>
-            </div>
-          )
-        )}
+      <div ref={el => (this.container = el)} className={css(styles.menuDirectoryContainer)}>
+        {items.map( (item, index) => (
+          <div onClick={closeMenu} className={css(styles.menuItemWrapper)}>
+            {item.name}
+            {/* <Link to={`${item.route}`} className={css(styles.itemLink)}>
+              <img onClick={closeMenu}  src={`${item.svg}`} className={css(styles.menuItem)} alt=""/>
+            </Link> */}
+            {/* <Link to={`${item.route}`} className={css(styles.itemLink)}>
+              <div className={css(styles.menuItem)}>{item.name}</div>
+            </Link> */}
+          </div>
+        ))}
       </div>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  paintingListContainer: {
-    height: '90vh',
+  menuDirectoryContainer: {
+    height: '100%',
     width: '100%',
-    gridRow: '2/4',
-    gridColumn: '5/6',
+    // gridRow: '2/4',
+    // gridColumn: '5/6',
     color: 'black',
     cursor: 'pointer',
     zIndex: 10,
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'left'
+    // alignItems: 'left'
     // flexWrap: 'wrap',
-    // border:'1px solid white',
+    border:'1px solid black',
     // flexBasis: 'fit-content'
   },
   menuItemWrapper: {
-    width: '100%',
-    height: '100%',
-    border:'1px solid red',
+    width: '40%',
+    marginLeft: '40%',
+    right: 0,
+    // height: '10vw',
+    // border:'1px solid red',
     // textAlign:'right',
     fontFamily: 'Vollkorn',
-    // padding: '5%',
-    margin: '5%',
-    opacity: '0.5',
-    color: 'white',
-    ":hover": {
-      opacity: 1
-    }
+    fontSize: "4vw",
+    padding: '5%',
+    // margin: '5%',
+    // opacity: '0.5',
   },
   itemLink: {
     height: '100%',

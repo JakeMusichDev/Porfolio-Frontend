@@ -12,8 +12,8 @@ import workSVG from '../assets/home/WORK.svg'
 import airswap from '../assets/work/airswap/airswap-desktop.png'
 
 export const items = [
-  { name: 'photography', svg: photographySVG_lg, src: cole, route: '/photography' },
-  { name: 'painting', svg: paintingSVG, src: blue, route: '/painting' },
-  { name: 'contact', svg:aboutSVG, src: aboutImage, route: '/contact' },
   { name: 'work', svg:workSVG, src: airswap, route: '/work' },
+  { name: 'contact', svg:aboutSVG, src: aboutImage, route: '/contact' },
+  { name: 'painting', svg: paintingSVG, src: blue, route: '/painting' },
+  { name: 'photography', svg: photographySVG_lg, src: cole, route: '/photography' },
 ]
