@@ -52,7 +52,6 @@ class LandingContainer extends Component {
   }
 
   openPage = (e, item) => {
-    console.log(e, item);
     this.props.history.push(`${item.route}`)
   }
 }

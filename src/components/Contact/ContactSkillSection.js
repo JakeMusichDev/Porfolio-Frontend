@@ -30,10 +30,8 @@ export default class ContactSkillSection extends Component {
         </h3>
         <div className={css(styles.skillIconGrid)}>
         {/* <Fade cascade duration={1000}> */}
-            {techSkillIcons.map( (icon, index) => (
-              
-                <img className={css(styles.icon)} key={`${icon}`} src={icon} alt=''/>
-              
+            {techSkillIcons.map( (icon, index) => (              
+                <img className={css(styles.icon)} key={`${icon}`} src={icon} alt=''/>              
             ))}
         {/* </Fade> */}
         </div>

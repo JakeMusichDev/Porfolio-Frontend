@@ -25,7 +25,7 @@ export default class PixiContainer extends Component {
 
   componentWillReceiveProps(nextProps, nextState) {
     if(this.state.pixiInitComplete) {
-      console.log(nextProps)
+
       this.nextBackgroundImage(nextProps)
     }
   }
@@ -142,7 +142,6 @@ export default class PixiContainer extends Component {
     const anchorBounds = this.canvasAnchor.getBoundingClientRect()
     const imageSprite = this.createImageSprite(nextProps.image, anchorBounds)
     this.stageContainer.addChild(imageSprite)
-    console.log(this.stageContainer)
   }
 
   resize = () => {

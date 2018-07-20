@@ -25,7 +25,6 @@ export default class PageDetailContainer extends Component {
 
   render () {
     const {currentData, closePage } = this.props
-    console.log(this.props);
     let type = currentData.type;
     let content = currentData.content 
     let description = currentData.description
