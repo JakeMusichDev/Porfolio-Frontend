@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     gridRow: '6/7',
     gridColumn: '9/10',
     fontSize: 10,
+    marginTop: 10,
     textAlign: 'right',
     cursor: 'pointer',
     // transition: '0.5s all',

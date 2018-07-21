@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   },
   scrollInstruction: {
     width: 'auto',
-    fontSize: '1rm',
+    fontSize: '1.5em',
     marginBottom: '20px'
   },
   menuProjectTitle: {

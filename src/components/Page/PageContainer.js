@@ -43,7 +43,6 @@ export default class PageContainer extends Component {
   
   render() {
     const { scrollIndex, pageTitle, handleClick} = this.props
-    
     const currentProject = this.nextProject()
     const selectorText = currentProject.type !== 'painting' ? 'project' : 'painting'
     return(
