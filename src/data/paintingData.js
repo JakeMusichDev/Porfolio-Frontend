@@ -124,11 +124,11 @@ const _untitled2 = {
 const _untitled3 = {
   type: 'painting',
   projectName: "Untitled #3",
-  mainImage: untitled2,  
+  mainImage: untitled3,  
   key: 'a-mothers-wish',
   description: 'Oil on Canvas, 2017',
   content: [
-    untitled2
+    untitled3
   ]
 }
 
