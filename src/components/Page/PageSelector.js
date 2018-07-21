@@ -3,8 +3,8 @@ import { StyleSheet, css } from 'aphrodite/no-important'
 
 export const PageSelector = (props) => {
   return (
-    <div className={css(styles.titleContainer)} >
-      - view project
+    <div onClick={props.handleOpenProject} className={css(styles.titleContainer)} >
+      - view {props.text}
     </div>
   )
 }
@@ -17,7 +17,9 @@ const styles = StyleSheet.create({
     gridRow: '6/7',
     gridColumn: '9/10',
     fontSize: 10,
-    textAlign: 'right'
+    textAlign: 'right',
+    cursor: 'pointer',
+    // transition: '0.5s all',
   },
 })
 

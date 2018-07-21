@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, css } from 'aphrodite/no-important'
 import Anime from 'animejs'
+import _ from 'underscore'
 import {withScrollMonitor} from '../../hoc/ScrollHOC'
 
 import ScrollIndicator from '../General/ScollIndicator'
@@ -19,6 +20,8 @@ export default class PageContainer extends Component {
     this.state = {
       focusActive: false,
     }
+
+    this.handleClickThrottled = _.throttle(this.handleClick, 700, {trailing: false})
   }
 
   componentDidMount() {
@@ -42,14 +45,15 @@ export default class PageContainer extends Component {
     const { scrollIndex, pageTitle, handleClick} = this.props
     
     const currentProject = this.nextProject()
+    const selectorText = currentProject.type !== 'painting' ? 'project' : 'painting'
     return(
       <div ref={refDiv => {this.container = refDiv}}  className={css(styles.pageContainerMain)} >
         <PageImage src={currentProject.mainImage} />
-        <PageMenu  index={scrollIndex} name={currentProject.projectName} length={this.props.pageData.length} handleOpenProject={this.handleClick} />
+        <PageMenu  index={scrollIndex} name={currentProject.projectName} length={this.props.pageData.length} handleOpenProject={this.handleClickThrottled} />
         <PageArrow handleClick={handleClick} direction={'+'}/>
         <PageArrow handleClick={handleClick} direction={'-'} />
         <PageTitle title={pageTitle} />
-        <PageSelector />
+        <PageSelector text={selectorText} handleOpenProject={this.handleClickThrottled} />
         <ScrollIndicator gridPos={styles.gridPos} />
         { this.renderDetail(this.state.focusActive, currentProject.type, currentProject) }
       </div>
@@ -59,9 +63,9 @@ export default class PageContainer extends Component {
   renderDetail = (focusActive, type, currentProject) => {
     if(focusActive) {
       if(type !== 'painting') {
-        return <PageDetailContainer currentData={currentProject} closePage={this.handleClick} /> 
+        return <PageDetailContainer currentData={currentProject} closePage={this.handleClickThrottled} /> 
       } else {
-        return <PageDetailPaintingContainer currentData={currentProject} closePage={this.handleClick} /> 
+        return <PageDetailPaintingContainer currentData={currentProject} closePage={this.handleClickThrottled} /> 
       }
     } else return null
   }
@@ -74,24 +78,27 @@ export default class PageContainer extends Component {
 
   handleClick = () => {
     const {focusActive} = this.state
-    this.setState({focusActive: !focusActive})
     if(focusActive) {
       this.detailTransitionAnimation(1, 1)
+      this.setState({focusActive: !focusActive})
       this.props.addListeners()
     } else {
-      this.detailTransitionAnimation(0.6, 0.1)
+      this.detailTransitionAnimation(0.7, 0.1)
       this.props.removeListeners()
     }
   }
 
 
   detailTransitionAnimation = (scale, opacity) => {
+    const {focusActive} = this.state
+    const _this = this;
     Anime({
       targets: this.container.childNodes,
       scale: scale,
       duration: 700,
       opacity: opacity,
-      easing: 'easeInOutQuad'
+      easing: 'easeInOutQuad',
+      complete: () => !focusActive ? this.setState({focusActive: !focusActive}) : null
     })
   }
 }

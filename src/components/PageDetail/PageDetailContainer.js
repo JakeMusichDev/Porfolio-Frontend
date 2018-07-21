@@ -28,7 +28,6 @@ export default class PageDetailContainer extends Component {
     let type = currentData.type;
     let content = currentData.content 
     let description = currentData.description
-
     return (
       <div >
         <PageDetailExit closePage={closePage} />

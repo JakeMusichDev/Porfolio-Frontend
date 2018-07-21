@@ -88,6 +88,7 @@ const airswap = {
   description: "Redesigning the cryptocurrency Airswap's website prior to the release of their trading platform. We wrote the front-end with React, handling many of the animations with Animejs. Backend was powered by Strapi.js, a Node CMS framework.",
   role: '[ Front-end Developer ]',
   mainImage: airswap_desktop,
+  type: 'dev',
   content: [
     _airswap_desktop,
     _airswap_tablet,
@@ -100,6 +101,7 @@ const stockpile = {
   description: "Electron, Angular 2+ Desktop Application - Internal File Transfer Protocol",
   role: '[ Front-end Developer ]',
   mainImage: stockpile_index,
+  type: 'dev',
   content: [
     _stockpile_index
   ]
@@ -110,6 +112,7 @@ const artery = {
   description: "Building the portfolio for the creative studio The-Artery",
   role: '[ Front-end Developer ]',
   mainImage: artery_desktop,
+  type: 'dev',
   content: [
     _artery_desktop,
     _artery_tablet,

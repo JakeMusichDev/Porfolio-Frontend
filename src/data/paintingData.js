@@ -12,13 +12,11 @@ const _blueSchmear = {
   projectName: 'Blue Schmear',
   mainImage: blueSchmear,
   key: 'blue-schmear',
-  description: 'Oil on Canvas, 2016',
+  description: 'Oil, Charcoal, and Film on Canvas, 2018',
   content: [
     blueSchmear
   ]
 }
-
-
 const _delver = {
   type: 'painting',
   projectName: 'Delver',
@@ -36,7 +34,7 @@ const _theFulcrum = {
   projectName: 'The Fulcrum',
   mainImage: theFulcrum,  
   key: 'the-fulcrum',
-  description: 'Oil on Canvas, 2016',
+  description: 'Oil on Canvas, 2015',
   content: [
     theFulcrum
   ]
@@ -47,7 +45,7 @@ const _windWhisper = {
   projectName: 'a wind a whisper',
   mainImage: windWhisper,  
   key: 'a-wind-a-whisper',
-  description: 'Oil on Canvas, 2016',
+  description: 'Oil on Canvas, 2017',
   content: [
     windWhisper
   ]
@@ -59,7 +57,7 @@ const _wispWhimper = {
   projectName: 'a wisp a whimper',
   mainImage: wispWhimper,  
   key: 'a-wisp-a-whimper',
-  description: 'Oil on Canvas, 2016',
+  description: 'Oil on Canvas, 2017',
   content: [
     wispWhimper
   ]

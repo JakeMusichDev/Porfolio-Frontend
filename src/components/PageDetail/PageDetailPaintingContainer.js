@@ -17,7 +17,7 @@ export default class PageDetailPaintingContainer extends Component {
       targets: this.container,
       // translateY: '0%',
       duration: 1000,
-      delay: 250,
+      delay: 200,
       opacity: 1,
       easing: 'linear'
     })
