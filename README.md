@@ -1,3 +1,3 @@
-###Jake Musich Portfolio Site 
+### Jake Musich Portfolio Site 
 
-#Written with React, Aphroditejs, and Animejs
+# Written with React, Aphroditejs, and Animejs
