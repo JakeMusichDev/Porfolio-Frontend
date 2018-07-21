@@ -23,6 +23,7 @@ export default class PageContainer extends Component {
     }
 
     this.handleClickThrottled = _.throttle(this.handleClick, 700, {trailing: false})
+    
   }
 
   componentDidMount() {
@@ -45,14 +46,15 @@ export default class PageContainer extends Component {
   render() {
     const { scrollIndex, pageTitle, handleClick, pageData } = this.props
     const currentProject = this.nextProject()
+    const handleArrowThrottled = _.throttle(handleClick, 700, {trailing: false})
     const selectorText = currentProject.type !== 'painting' ? 'project' : 'painting'
     return(
       <div ref={refDiv => {this.container = refDiv}}  className={css(styles.pageContainerMain)} >
         {pageData.map((item, index) => index === scrollIndex.currentItem ? <PageImage src={currentProject.mainImage} /> : null )}
         
         <PageMenu  index={scrollIndex} name={currentProject.projectName} length={this.props.pageData.length} handleOpenProject={this.handleClickThrottled} />
-        <PageArrow handleClick={handleClick} direction={'+'}/>
-        <PageArrow handleClick={handleClick} direction={'-'} />
+        <PageArrow handleClick={handleArrowThrottled} direction={'+'}/>
+        <PageArrow handleClick={handleArrowThrottled} direction={'-'} />
         <PageTitle title={pageTitle} />
         <PageSelector text={selectorText} handleOpenProject={this.handleClickThrottled} />
         <ScrollIndicator gridPos={styles.gridPos} />
