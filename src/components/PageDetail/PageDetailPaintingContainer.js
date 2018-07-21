@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   },
   description: {
     gridRow: '5/6',
-    gridColumn: '9/11',
+    gridColumn: '8/11',
   }
 })
 

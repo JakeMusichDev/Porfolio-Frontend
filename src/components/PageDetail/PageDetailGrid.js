@@ -9,47 +9,23 @@ export default class PageDetailGrid extends Component {
     return (
       <div id='photoview-focus-grid' className={css(styles.photoView_GridContainer)} >        
           {this.props.gridData.map((item, index) => (
-            <Fade> 
-              <div className={css(styles.image)} style={{backgroundImage: `url(${item.src})`}} key={`${item.name} + ${index}`}></div>
-            </Fade>
+            item.type === 'movie' ? (
+              <video className={css(styles.image)} src={`${item.src}`} autoPlay></video>
+            ) : (
+              <Fade> 
+                <div className={css(styles.subtitle)}>
+                  {item.title}
+                </div>
+                <div className={css(styles.image)} style={{backgroundImage: `url(${item.src})`}} key={`${item.name} + ${index}`}></div>
+              </Fade>
+            )
           ))}
       </div>
     )
   }
 
-  animateIn = () => {
-    const gridContainer = document.getElementById("photoview-focus-grid")
-    const tl = Anime.timeline()
-    tl
-    .add({ 
-      targets: gridContainer.children,
-      opacity: 0,
-      scale: 0.9,
-      duration: 0,
-    })
-    .add({
-      targets: [gridContainer.children],
-      opacity: [1],
-      duration: 800,
-      scale: 1,
-      easing: 'easeInExpo',
-      // delay: 2000,
-      offset: '+=200',
-      elasticity: function(target, index, totalTargets) {
-        return 200 + ((totalTargets - index) * 200);
-      },
-      delay: function(target, index) {
-        return index * 100
-      },
-    })
-    // .add({
-    //   targets: gridContainer.children,
-    //   // translateY: '0%',
-    //   duration: 800,
-    //   easing: 'easeInQuart',
-    //   complete: () => console.log('complete')
-    // })
-  }
+
+
 }
 
 const styles = StyleSheet.create({
@@ -70,5 +46,11 @@ const styles = StyleSheet.create({
     backgroundPosition: 'center center',
     backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat'
+  },
+  subtitle: {
+    width: '100%',
+    textAlign: 'right',
+    padding: '5%',
+    fontSize: '10'
   }
 })

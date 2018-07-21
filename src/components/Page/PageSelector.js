@@ -20,7 +20,10 @@ const styles = StyleSheet.create({
     marginTop: 10,
     textAlign: 'right',
     cursor: 'pointer',
-    // transition: '0.5s all',
+    transition: '0.5s color',
+    ":hover": {
+      color: 'lightblue'
+    }
   },
 })
 
