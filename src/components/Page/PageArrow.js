@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { StyleSheet, css } from 'aphrodite/no-important'
 import { flex } from '../../styles/styleUtils'
-import downArrow from '../../assets/photography/down-arrow.svg'
-import upArrow from '../../assets/photography/up-arrow.svg'
 import {attachTilt, destroyTilt} from '../../utils/tiltHelper'
+
+import downArrow from '../../assets/general/down-arrow.svg'
+import upArrow from '../../assets/general/up-arrow.svg'
 
 export default class PageArrow extends Component {
   componentDidMount() {
