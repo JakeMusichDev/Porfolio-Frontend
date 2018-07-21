@@ -4,7 +4,11 @@ import theFulcrum from '../assets/painting/the-fulcrum.png'
 import windWhisper from '../assets/painting/a-wind-a-whisper.png'
 import wispWhimper from '../assets/painting/a-wisp-a-whimper.png'
 import mothersWish from '../assets/painting/mothers-wish.png'
-
+import sixInOne from '../assets/painting/six-in-one.png'
+import stain from '../assets/painting/stain.png'
+import thanksBalzac from '../assets/painting/thanks-balzac.png'
+import untitled2 from '../assets/painting/untitled-2.png'
+import untitled3 from '../assets/painting/untitled-3.png'
 
 //------------------------------------------------------------------------------------
 const _blueSchmear = {
@@ -73,24 +77,71 @@ const _mothersWish = {
   ]
 }
 
-// const steez = {
-//   projectName: 'Brooklyn Steez',
-//   mainImage: snowRailroad,
-//   content: [
-//     _alec,
-//     _photo2,
-//     _photo2,
-//     _cole2,
-//     _photo1
-//   ],
-// }
+const _sixInOne  = {
+  type: 'painting',
+  projectName: "Six In One, I think",
+  mainImage: sixInOne,  
+  key: 'six-one',
+  description: 'Oil on Canvas, 2016',
+  content: [
+    sixInOne
+  ]
+}
 
+const _stain = {
+  type: 'painting',
+  projectName: "Stain",
+  mainImage: stain,  
+  key: 'stain',
+  description: 'Oil on Canvas, 2016',
+  content: [
+    stain
+  ]
+}
+
+const _thanksBalzac = {
+  type: 'painting',
+  projectName: "Thanks Balzac",
+  mainImage: thanksBalzac,  
+  key: 'bazlac',
+  description: 'Oil, book, glass on wood, 2016',
+  content: [
+    thanksBalzac
+  ]
+}
+
+const _untitled2 = {
+  type: 'painting',
+  projectName: "Untitled #2",
+  mainImage: untitled2,  
+  key: 'a-mothers-wish',
+  description: 'Oil on Canvas, 2016',
+  content: [
+    untitled2
+  ]
+}
+
+const _untitled3 = {
+  type: 'painting',
+  projectName: "Untitled #3",
+  mainImage: untitled2,  
+  key: 'a-mothers-wish',
+  description: 'Oil on Canvas, 2017',
+  content: [
+    untitled2
+  ]
+}
 
 export const paintingData = [
   _blueSchmear,
+  _sixInOne,
+  _stain,
   _delver,
   _theFulcrum,
   _windWhisper,
   _wispWhimper,
   _mothersWish,
+  _thanksBalzac,
+  _untitled2,
+  _untitled3
 ]
