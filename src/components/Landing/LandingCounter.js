@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     gridRow: '5/6',
     gridColumn: '9/10',
     textAlign: 'center',
+    fontSize: '14px'
   }
 })
 
