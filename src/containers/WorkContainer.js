@@ -4,7 +4,7 @@ import Anime from 'animejs'
 
 import PageContainer from '../components/Page/PageContainer'
 
-import {withScrollMonitor} from '../hoc/ScrollHOC'
+import {withScrollMonitor} from '../utils/hoc/ScrollHOC'
 import { workProjectData } from '../data/workData'
 
 

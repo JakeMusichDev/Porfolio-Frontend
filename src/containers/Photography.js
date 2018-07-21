@@ -1,5 +1,5 @@
 import React, { Component, } from 'react'
-import { withScrollMonitor } from '../hoc/ScrollHOC'
+import { withScrollMonitor } from '../utils/hoc/ScrollHOC'
 
 import PageContainer from '../components/Page/PageContainer'
 

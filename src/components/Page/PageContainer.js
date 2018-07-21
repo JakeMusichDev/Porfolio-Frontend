@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, css } from 'aphrodite/no-important'
 import Anime from 'animejs'
 import _ from 'underscore'
-import {withScrollMonitor} from '../../hoc/ScrollHOC'
+import {withScrollMonitor} from '../../utils/hoc/ScrollHOC'
 
 import ScrollIndicator from '../General/ScollIndicator'
 import PageMenu from './PageMenu'
@@ -12,6 +12,7 @@ import { PageSelector } from './PageSelector';
 import PageArrow from './PageArrow'
 import PageDetailContainer from '../PageDetail/PageDetailContainer'
 import PageDetailPaintingContainer from '../PageDetail/PageDetailPaintingContainer'
+import { items } from '../../data/home-route-data';
 
 export default class PageContainer extends Component {
   constructor (props) {
@@ -42,12 +43,13 @@ export default class PageContainer extends Component {
 
   
   render() {
-    const { scrollIndex, pageTitle, handleClick} = this.props
+    const { scrollIndex, pageTitle, handleClick, pageData } = this.props
     const currentProject = this.nextProject()
     const selectorText = currentProject.type !== 'painting' ? 'project' : 'painting'
     return(
       <div ref={refDiv => {this.container = refDiv}}  className={css(styles.pageContainerMain)} >
-        <PageImage src={currentProject.mainImage} />
+        {pageData.map((item, index) => index === scrollIndex.currentItem ? <PageImage src={currentProject.mainImage} /> : null )}
+        
         <PageMenu  index={scrollIndex} name={currentProject.projectName} length={this.props.pageData.length} handleOpenProject={this.handleClickThrottled} />
         <PageArrow handleClick={handleClick} direction={'+'}/>
         <PageArrow handleClick={handleClick} direction={'-'} />

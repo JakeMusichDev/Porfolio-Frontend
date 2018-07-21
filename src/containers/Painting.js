@@ -1,7 +1,7 @@
 import React, { Component, } from 'react'
 
 import PageContainer from '../components/Page/PageContainer'
-import { withScrollMonitor } from '../hoc/ScrollHOC'
+import { withScrollMonitor } from '../utils/hoc/ScrollHOC'
 import { paintingData } from '../data/paintingData'
 
 

@@ -2,7 +2,7 @@ import React, { Component, ImageBackground } from 'react'
 import { StyleSheet, css } from 'aphrodite/no-important'
 import Anime from 'animejs'
 import _ from 'underscore'
-import {withScrollMonitor} from '../hoc/ScrollHOC'
+import {withScrollMonitor} from '../utils/hoc/ScrollHOC'
 import LandingContainer from '../components/Landing/LandingContainer'
 
 

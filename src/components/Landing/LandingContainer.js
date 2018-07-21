@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, css } from 'aphrodite/no-important'
 import Anime from 'animejs'
 import "../../styles/index.css"
-import { withScrollMonitor } from '../../hoc/ScrollHOC'
+import { withScrollMonitor } from '../../utils/hoc/ScrollHOC'
 
 import { items } from '../../data/home-route-data.js'
 
