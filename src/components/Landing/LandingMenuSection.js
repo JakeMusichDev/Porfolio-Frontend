@@ -17,18 +17,6 @@ export default class LandingMenuSection extends Component {
     this.animateIn()
   }
 
-  componentWillUnmount() {
-    const { index, direction } = this.props
-    const tl = Anime.timeline()
-    Anime({
-      targets: `#menu-section-${index}`,
-      translateY: '100px',
-      opacity:[0,1],
-      duration: 2000,
-      easing: 'easeInOutQuint',
-    })
-  }
-
   render() {
     const { item, index, active, open } = this.props
     const sectionStyle =
@@ -38,10 +26,8 @@ export default class LandingMenuSection extends Component {
     return (
       <div name='menu--section' className={css(styles.sectionWrapper)} >
         <div id={`menu-section-${index}`} className={sectionStyle}>
-          <div
-            onClick={e => open(e, item)}
-            className={css(styles.section)}>
-              <img src={item.svg} alt=""/>
+          <div onClick={e => open(e, item)} className={css(styles.section)} >
+              <img src={item.svg} className={css(styles.image)}  alt=""/>
             {/* { item.name.toUpperCase() } */}
           </div>
         </div>
@@ -116,6 +102,8 @@ const styles = StyleSheet.create({
   sectionWrapper: {
     height: '100%',
     width: '100%',
+    // border: '1px solid blue',
+    // background: '#F2f2',
   },
   sectionContainer: {
     height: '100%',
@@ -128,18 +116,19 @@ const styles = StyleSheet.create({
   section: {
     textDecoration: 'none',
     color: '#F2F2F2',
-    webkitTextStrokeWidth: '1px',
-    webkitTextStrokeColor: 'white',
     fontSize: '5em',
     fontFamily: ['Vollkorn', 'sans-serif'],
     letterSpacing: "5px",
-    opacity:'0.8',
+    opacity:'1',
     transition: '0.4s opacity',
     height: 'auto',
+    // border: '1px solid green',
     width: 'auto',
     ":hover" : {
       opacity:0.9
     }
+  },
+  image: {
   },
   active: {
     display: 'flex',

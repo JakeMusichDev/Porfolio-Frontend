@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     // border: '1px solid pink',
     height: '100%',
     width: '100%',
-    backgroundPosition: 'left',
+    backgroundPosition: 'center center',
     backgroundSize: 'cover',
     opacity: '0.7'
     // maxWidth: '800px'

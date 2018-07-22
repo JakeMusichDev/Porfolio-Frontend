@@ -10,6 +10,7 @@ import LandingText from './LandingText'
 import LandingMenu from './LandingMenu'
 import LandingImage from './LandingImage'
 import LandingCounter from './LandingCounter'
+import ScrollIndicator from '../General/ScollIndicator'
 
 class LandingContainer extends Component {
   componentDidMount() {
@@ -40,14 +41,13 @@ class LandingContainer extends Component {
         <LandingText text={' - Developer'} mainStyle={textStyles.dev} />
         <LandingText text={' - Jake Musich'} mainStyle={textStyles.name} />
         <LandingText text={'[ Portfolio ]'} mainStyle={textStyles.portfolio} />
-
+        <ScrollIndicator />
       </div>
     )
   }
 
   nextProject = () => {
     const { data } = this.props
-    // add css classes to change text opacity
     return items[data.currentItem]
   }
 
@@ -77,7 +77,7 @@ const textStyles = StyleSheet.create({
   },
   dev: {
     gridRow: '1/2',
-    gridColumn: '5/6',
+    gridColumn: '6/7',
   },
   name: {
     gridRow: '2/3',

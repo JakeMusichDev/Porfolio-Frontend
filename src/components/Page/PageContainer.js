@@ -18,30 +18,14 @@ export default class PageContainer extends Component {
   constructor (props) {
     super(props)
     
-    this.state = {
-      focusActive: false,
-    }
+    this.state = { pageLoaded: false, focusActive: false }
 
     this.handleClickThrottled = _.throttle(this.handleClick, 700, {trailing: false})
-    
   }
 
   componentDidMount() {
-    Anime.timeline().add({
-      targets: [this.container.childNodes],
-      translateY: '100%',
-      duration: 0,
-      opacity: 0
-    }).add({
-      targets: this.container.childNodes,
-      translateY: '0%',
-      duration: 1000,
-      opacity: 1,
-      easing: 'easeInOutQuad',
-      delay: (e, i) => i * 120,
-    })
+    this.animateIn()
   }
-
   
   render() {
     const { scrollIndex, pageTitle, handleClick, pageData } = this.props
@@ -51,7 +35,6 @@ export default class PageContainer extends Component {
     return(
       <div ref={refDiv => {this.container = refDiv}}  className={css(styles.pageContainerMain)} >
         {pageData.map((item, index) => index === scrollIndex.currentItem ? <PageImage src={currentProject.mainImage} /> : null )}
-        
         <PageMenu  index={scrollIndex} name={currentProject.projectName} length={this.props.pageData.length} handleOpenProject={this.handleClickThrottled} />
         <PageArrow handleClick={handleArrowThrottled} direction={'+'}/>
         <PageArrow handleClick={handleArrowThrottled} direction={'-'} />
@@ -63,6 +46,12 @@ export default class PageContainer extends Component {
     )
   }
 
+
+  nextProject = () => {
+    return this.props.pageData[this.props.scrollIndex.currentItem]
+  }
+
+
   renderDetail = (focusActive, type, currentProject) => {
     if(focusActive) {
       if(type !== 'painting') {
@@ -71,11 +60,6 @@ export default class PageContainer extends Component {
         return <PageDetailPaintingContainer currentData={currentProject} closePage={this.handleClickThrottled} /> 
       }
     } else return null
-  }
-
-
-  nextProject = () => {
-    return this.props.pageData[this.props.scrollIndex.currentItem]
   }
 
 
@@ -91,7 +75,6 @@ export default class PageContainer extends Component {
     }
   }
 
-
   detailTransitionAnimation = (scale, opacity) => {
     const {focusActive} = this.state
     const _this = this;
@@ -102,6 +85,22 @@ export default class PageContainer extends Component {
       opacity: opacity,
       easing: 'easeInOutQuad',
       complete: () => !focusActive ? this.setState({focusActive: !focusActive}) : null
+    })
+  }
+
+  animateIn = () => {
+    Anime.timeline().add({
+      targets: [this.container.childNodes],
+      translateY: '100%',
+      duration: 0,
+      opacity: 0
+    }).add({
+      targets: this.container.childNodes,
+      translateY: '0%',
+      duration: 1000,
+      opacity: 1,
+      easing: 'easeInOutQuad',
+      delay: (e, i) => i * 120,
     })
   }
 }

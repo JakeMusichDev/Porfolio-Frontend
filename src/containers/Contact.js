@@ -41,11 +41,9 @@ export default class Contact extends Component {
         <div ref={refDiv => (this.rightSideDiv = refDiv)} className={css(styles.rightSide)}>
           <ContactSection sectionTitle={"Hi there. I'm Jake."} />
           <ContactSection sectionCopy={contactCopy.bioIntro} />
-          <ContactSection sectionCopy={contactCopy.artistBio} />
-
-          {/* <ContactSection sectionCopy={contactCopy.bioBody} /> */}
-          <ContactSection sectionTitle={'Find me at the links below'} sectionData={socialsData} />
+          <ContactSection sectionTitle={"Why all the art?"} sectionCopy={contactCopy.artistBio} />
           <ContactSection sectionTitle={'Skills'} sectionData={skillsData} />
+          <ContactSection sectionTitle={'Find me at the links below'} sectionData={socialsData} />
         </div>
       </div>
     )
