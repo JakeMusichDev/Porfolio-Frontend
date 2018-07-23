@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   gridPos: {
-    gridRow: '9/10',
+    gridRow: '7/10',
     gridColumn: '10/11'
   }
 })

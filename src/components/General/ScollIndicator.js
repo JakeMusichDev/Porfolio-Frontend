@@ -1,41 +1,29 @@
 import React, { Component, ImageBackground } from 'react'
 import { StyleSheet, css } from 'aphrodite/no-important'
+import { flex } from '../../styles/styleUtils'
 import Anime from 'animejs'
 import "./../../styles/index.css"
-import line from '../../assets/home/Line.svg'
+import line from '../../assets/general/scroll.svg'
 
 export default class ScrollIndictator extends Component {
   componentDidMount() {
-    Anime({
-      targets: this.indicator,
-      translateY: ['-200%', "0%"],
-      duration: 5000,
-      loop: true,
-      easing: 'easeInOutQuad'
-    })
+    // Anime({
+    //   targets: this.indicator,
+    //   scale: [1, 1.1],
+    //   duration: 1000,
+    //   loop: true,
+    //   easing: 'easeInOutExpo'
+    // })
   }
 
   render() {
     const {gridPos} = this.props
     return (
-      <div className={css(styles.scrollIndicatorContainer, gridPos)}>
-        <span>
-        <div className={css(styles.text)}>
-          <span>
+      <div className={css(styles.scrollIndicatorContainer, gridPos, flex.flexCenter)}>
+        {/* <div className={css(styles.text)} ref={refDiv => {this.indicator = refDiv}}>
           {"SCROLL"}
-          {/* <div className={css(styles.please, styles.text)}> */}
-            {/* {", PLEASE ?"}   */}
-          {/* </div> */}
-          </span>
-        </div>
-        {/* <div className={css(styles.please, styles.text)}>
-          {"PLEASE ?"}  
         </div> */}
-        
-        </span>
-        {/* <div className={css(styles.wrapper)}>
-          <img className={css(styles.indicator)} ref={refDiv => {this.indicator = refDiv}} src={`${line}`} alt=""/>
-        </div> */}
+        <img className={css(styles.text)} src={`${line}`} alt=""/>
       </div>
     )
   }
@@ -48,30 +36,12 @@ const styles = StyleSheet.create({
     width: '100%',
     // border: '1px solid pink',
   },
-  wrapper: {
-    width: '100%',
-    overflow: 'hidden',
-    height: '100%',
-    // border: '1px solid pink',
-    display: 'flex',
-    justifyContent: 'center',
-    flexDirection: 'column',
-    alignItems: 'center'
-  },
   text: {
-    height: '50%',
-    width: '100%',
+    
+    height: '30px',
+    width: '40px',
     textAlign: 'center',
     fontSize: 10,
-  },
-  please: {
-    // visibility: 'hidden',
-    ":hover": {
-      visibility: "visible"
-    }
-  },
-  indicator: {
-    height: '10',
-    width: '10'
+    letterSpacing: '1.5%'
   }
 })

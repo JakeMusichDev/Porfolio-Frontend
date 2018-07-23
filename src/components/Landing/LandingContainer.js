@@ -36,12 +36,12 @@ class LandingContainer extends Component {
       <div ref={refDiv => {this.container = refDiv}} className={css(styles.landingContainerMain)} >
         <LandingMenu scrollState={data} open={this.openPage} />
         <LandingImage src={currentProject.src} />
+        <ScrollIndicator gridPos={styles.gridPos} />
         <LandingCounter index={data.currentItem} />
         <LandingText text={' - Artist'} mainStyle={textStyles.artist} />
         <LandingText text={' - Developer'} mainStyle={textStyles.dev} />
         <LandingText text={' - Jake Musich'} mainStyle={textStyles.name} />
         <LandingText text={'[ Portfolio ]'} mainStyle={textStyles.portfolio} />
-        <ScrollIndicator />
       </div>
     )
   }
@@ -67,17 +67,22 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: 10,
     fontFamily: 'Inconsolata'
+  },
+  gridPos: {
+    gridRow: '5',
+    gridColumn: '5/6',
+    // background: "pink "
   }
 })
 
 const textStyles = StyleSheet.create({
   artist: {
     gridRow: '1/2',
-    gridColumn: '3/4',
+    gridColumn: '4/5',
   },
   dev: {
     gridRow: '1/2',
-    gridColumn: '6/7',
+    gridColumn: '7/8',
   },
   name: {
     gridRow: '2/3',
@@ -98,7 +103,7 @@ const textStyles = StyleSheet.create({
     flexDirection: 'column',
     // fontFamily: 'Vollkorn',
     opacity: 0.7
-  },
+  }
 })
 
 const LandingWithScroll = withScrollMonitor(LandingContainer, items)
