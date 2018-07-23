@@ -147,7 +147,7 @@ export default class PixiContainer extends Component {
   resize = () => {
     const anchorBounds = this.canvasAnchor.getBoundingClientRect()
     this.app.resize(anchorBounds.width, anchorBounds.height)
-    console.log(this.app);
+    // console.log(this.app);
     
   }
 }
@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
   canvasContainer: {
     height: '100%',
     width: '100%',
-    border: '1px solid yellow'
+    // border: '1px solid yellow'
   }
 })
 
