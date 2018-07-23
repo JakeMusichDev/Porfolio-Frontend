@@ -5,7 +5,7 @@ import { breakPoints } from '../../utils/styles'
 
 import LandingMenuSection from './LandingMenuSection'
 
-import {items} from '../../data/home-route-data.js'
+import {items} from '../../data/routeData.js'
 
 export default class LandingMenu extends Component {
   render() {

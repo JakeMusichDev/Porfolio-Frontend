@@ -12,7 +12,7 @@ import { PageSelector } from './PageSelector';
 import PageArrow from './PageArrow'
 import PageDetailContainer from '../PageDetail/PageDetailContainer'
 import PageDetailPaintingContainer from '../PageDetail/PageDetailPaintingContainer'
-import { items } from '../../data/home-route-data';
+import { items } from '../../data/routeData';
 
 export default class PageContainer extends Component {
   constructor (props) {

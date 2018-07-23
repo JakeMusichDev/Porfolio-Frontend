@@ -4,7 +4,7 @@ import Anime from 'animejs'
 import "../../styles/index.css"
 import { withScrollMonitor } from '../../utils/hoc/ScrollHOC'
 
-import { items } from '../../data/home-route-data.js'
+import { items } from '../../data/routeData.js'
 
 import LandingText from './LandingText'
 import LandingMenu from './LandingMenu'

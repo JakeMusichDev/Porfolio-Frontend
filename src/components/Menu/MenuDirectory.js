@@ -3,7 +3,7 @@ import { StyleSheet, css } from 'aphrodite/no-important'
 import {flex} from '../../styles/styleUtils'
 import { Link } from 'react-router-dom'
 import Anime from 'animejs'
-import {items} from '../../data/home-route-data.js'
+import {items} from '../../data/routeData.js'
 
 export default class MenuDirectory extends Component {
   render() {
