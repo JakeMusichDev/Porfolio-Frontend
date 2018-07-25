@@ -4,6 +4,7 @@ import { StyleSheet, css } from 'aphrodite/no-important'
 import Anime from 'animejs'
 import { flex } from '../../styles/styleUtils'
 import circleSVG from '../../assets/menu/header-menu-circle.svg'
+import {breakPoints} from '../../utils/styles'
 
 export default class HeaderMenu extends Component {
   componentDidMount() {
@@ -62,7 +63,13 @@ const styles = StyleSheet.create({
   titleWrapper: {
     height:'100%',
     gridColumn: '10',
-    // border: '1px solid pink'
+    transition: '0.3s grid-column',
+    [breakPoints.mobile]: {
+      gridColumn: '9',
+    },
+    [breakPoints.mobile]: {
+      gridColumn: '9',
+    }
   },
   titleHeader: {
     margin: '0 auto',

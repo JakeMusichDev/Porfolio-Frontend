@@ -22,7 +22,7 @@ class Header extends Component {
         <div className={css(styles.headerWrapper)}>
           <HeaderName />
           <HeaderMenu handleMenuActiveState={handleMenuActiveState} />
-      </div>
+        </div>
     )} else return null
   }
 }

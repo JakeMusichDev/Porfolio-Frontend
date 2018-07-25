@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { StyleSheet, css } from 'aphrodite/no-important'
 import Anime from 'animejs'
 import './../../styles/index.css'
+import {breakPoints} from '../../utils/styles'
 
 export default class HeaderName extends Component {
   componentDidMount() {
@@ -50,7 +51,11 @@ const styles = StyleSheet.create({
     display:'flex',
     flexDirection: 'column',
     alignContent: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    transition: '0.3s grid-column',
+    [breakPoints.mobile]: {
+      gridColumn: '2',
+    }
   },
   titleHeader: {
     margin: '0 auto',

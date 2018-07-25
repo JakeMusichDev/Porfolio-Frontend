@@ -3,6 +3,7 @@ import { StyleSheet, css } from 'aphrodite/no-important'
 import '../../styles/index.css'
 import Fade from 'react-reveal/Fade';
 import Rellax from 'rellax'
+import {breakPoints} from '../../utils/styles'
 
 export default class PageDetailHeader extends Component {
   componentDidMount() {
@@ -58,7 +59,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: ['Vollhorn', 'serif'],
     color: '#F2F2F2',
-    fontSize: 80
+    fontSize: 80,
+    transition: '0.3s font-size',
+    [breakPoints.tablet]: {
+      fontSize: 60
+    },
+    [breakPoints.mobile]: {
+      fontSize: 40
+    }
   },
   date: {
     color: '#F2F2F2',
