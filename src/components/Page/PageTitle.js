@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     color: 'white',
     // gridRow: '7/8',
     // gridColumn: '1/3',
+    whiteSpace: 'nowrap',
     gridRow: '2/3',
     gridColumn: '9/10',
     fontFamily: ['Inconsolata', 'sans-serif'], 

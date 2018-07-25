@@ -15,14 +15,9 @@ const LandingText = (props) => {
 
 const styles = StyleSheet.create({
   textBase: {
-    color: '#F2F2F2',
-    // fontSize: '10px',
     height: '100%',
     width: '100%',
-    // transition: '1s all',
-    ":hover": {
-      // transform: 'translateX(10px)'
-    }
+    color: '#F2F2F2',
   }
 })
 

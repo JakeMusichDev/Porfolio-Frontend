@@ -28,7 +28,7 @@ import vueIcon from '../assets/about/tech-icons/vuejs.svg'
 
 export const contactCopy = {
   intro: ["I'm Jake"],
-  bioIntro: ["I'm a Front-end Developer currently working in Brooklyn, New York.", " I specialize in Javascript(ES6), React, Angular, animation, and interaction design.", " I feel in love with coding while completing my thesis and decided to make a career out of it. I graduated from the Flatiron School in New York City in 2017 and have been developing professionally ever since."],
+  bioIntro: ["I'm a Front-end Developer currently working in Brooklyn, New York.", " I specialize in Javascript(ES6), React, Angular, animation, and interaction design.", " I fell in love with coding while completing my thesis and decided to make a career out of it. I graduated from the Flatiron School in New York City in 2017 and have been developing professionally ever since."],
   bioBody: ["I feel in love with code in college over the course of my sculpture and new media art thesis project."],
   artistBio: ['I studied sculpture in college, but after completing my degree and moving to New York, I confronted the difficulty of finding space for tools, materials, and the general whirlwind of mess that you find in a sculpture studio. Frustrated, I picked up a set of paint brushes and slapped a canvas on the wall.', ' Three years later I feel ok calling myself a painter.']
 }

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import Anime from 'animejs'
 import { StyleSheet, css } from 'aphrodite/no-important'
 import VanillaTilt from 'vanilla-tilt'
+import { breakPoints } from '../../utils/styles'
 
 export default class LandingMenuSection extends Component {
   constructor(props) {
@@ -59,7 +60,7 @@ export default class LandingMenuSection extends Component {
     if( this.checkSize() ) {
       const tiltArray = [];
       const elements = document.getElementsByName('menu--section')
-      // console.log(elements);
+      console.log(elements);
       
       for (var i = 0; i < elements.length; i++) {
         var elementToDestroy = elements[i];
@@ -98,15 +99,15 @@ export default class LandingMenuSection extends Component {
   
 }
 
+
 const styles = StyleSheet.create({
   sectionWrapper: {
     height: '100%',
     width: '100%',
-    // border: '1px solid blue',
-    // background: '#F2f2',
   },
   sectionContainer: {
     height: '100%',
+    width: '100%',
     width: '100%',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -122,13 +123,19 @@ const styles = StyleSheet.create({
     opacity:'1',
     transition: '0.4s opacity',
     height: 'auto',
-    // border: '1px solid green',
     width: 'auto',
     ":hover" : {
       opacity:0.9
     }
   },
   image: {
+    transition: '0.3s width',
+    [breakPoints.tablet]: {
+      width: '60vw'
+    },
+    [breakPoints.mobile]: {
+      width: '60vw'
+    },
   },
   active: {
     display: 'flex',

@@ -8,11 +8,13 @@ import upArrow from '../../assets/general/up-arrow.svg'
 
 export default class PageArrow extends Component {
   componentDidMount() {
-    this.tiltObj = attachTilt(`page-arrow-${this.props.direction}`)
+    if(window.innerWidth > 700) {
+      this.tiltObj = attachTilt(`page-arrow-${this.props.direction}`)
+    }
   }
 
   componentWillUnmount() {
-    destroyTilt(this.tiltObj)
+    if(this.tiltObj) destroyTilt(this.tiltObj)
   }
 
   render() {

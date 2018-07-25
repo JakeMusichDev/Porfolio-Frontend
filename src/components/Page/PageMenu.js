@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { StyleSheet, css } from 'aphrodite/no-important'
 import Anime from 'animejs'
 import '../../styles/index.css'
+import {breakPoints} from '../../utils/styles'
 
 export default class PageMenu extends Component {
   constructor(props) {
@@ -54,7 +55,13 @@ const styles = StyleSheet.create({
     fontFamily: ['Inconsolata', 'sans-serif'], 
     color: '#F2F2F2',
     fontSize: '0.5rem',
-    // border: '1px solid white'
+    transition: '0.5s grid-column',
+    [breakPoints.mobile]: {
+      gridColumn: '7/11',
+    },
+    [breakPoints.mobile]: {
+      gridColumn: '7/11',
+    }
   },
   scrollInstruction: {
     width: 'auto',
@@ -65,10 +72,16 @@ const styles = StyleSheet.create({
     // border: '1px solid green',
     fontSize: '3rem',
     fontFamily: ['Vollkorn', 'serif'],
-    cursor: 'pointer'
+    cursor: 'pointer',
+    transition: '0.5s font-size',
+    [breakPoints.tablet]: {
+      fontSize: '2rem',
+    },
+    [breakPoints.mobile]: {
+      fontSize: '1.5rem',
+    }
   },
   wrapper: {
     overflow: 'hidden',
-    // border: '1px solid red'
   }
 })

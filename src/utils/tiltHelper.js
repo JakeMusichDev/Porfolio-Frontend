@@ -35,7 +35,7 @@ export const attachTilt = (elementId) => {
 };
 
 export const destroyTilt = (tiltArray) => {
-  if(!(tiltArray instanceof Array)) {    
+  if(!(tiltArray instanceof Array)) {
     tiltArray.vanillaTilt.destroy();
   } else {
     for (var i = 0; i < tiltArray.length; i++) {

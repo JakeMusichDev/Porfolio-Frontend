@@ -18,12 +18,12 @@ export default class ScrollIndictator extends Component {
 
   render() {
     const {gridPos} = this.props
+    const instrText =  window.innerWidth > 800 ? "SCROLL" : "SWIPE"
     return (
       <div className={css(styles.scrollIndicatorContainer, gridPos, flex.flexCenter)}>
-        {/* <div className={css(styles.text)} ref={refDiv => {this.indicator = refDiv}}>
-          {"SCROLL"}
-        </div> */}
-        <img className={css(styles.text)} src={`${line}`} alt=""/>
+        <div className={css(styles.text)} ref={refDiv => {this.indicator = refDiv}}>
+          {instrText}
+        </div>
       </div>
     )
   }
