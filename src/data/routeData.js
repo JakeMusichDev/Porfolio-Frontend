@@ -1,5 +1,5 @@
-import drum from '../assets/photography/couchGaze/drum.JPG'
-import wish from '../assets/painting/mothers-wish.png'
+import drum from '../assets/photography/out/home_bk.jpeg'
+import wish from '../assets/painting/thanks-balzac.png'
 import cameraSelf from '../assets/photography/couchGaze/camera-self.jpg'
 import airswap from '../assets/work/airswap/airswap-desktop.png'
 

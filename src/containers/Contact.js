@@ -8,6 +8,7 @@ import ContactName from '../components/Contact/ContactName'
 import ContactSection from '../components/Contact/ContactSection'
 import { contactCopy, skillsData, socialsData } from '../data/contactData'
 import Fade from 'react-reveal'
+import { breakPoints } from '../utils/styles'
 
 export default class Contact extends Component {
   componentDidMount() {
@@ -36,9 +37,9 @@ export default class Contact extends Component {
     return (
       <div id="contact--mainContainer" ref={ref => {this.contactContainer = ref}} className={css(styles.contactContainer)}>
         <div  ref={ref => {this.leftSideDiv = ref}} className={css(styles.leftSide)}>
-          <ContactName/>
+          <ContactName />
         </div>
-        <div ref={refDiv => (this.rightSideDiv = refDiv)} className={css(styles.rightSide)}>
+        <div id='contact--rightContainer' ref={refDiv => (this.rightSideDiv = refDiv)} className={css(styles.rightSide)}>
           <ContactSection sectionTitle={"Hi there. I'm Jake."} />
           <ContactSection sectionCopy={contactCopy.bioIntro} />
           <ContactSection sectionTitle={"Why all the art?"} sectionCopy={contactCopy.artistBio} />
@@ -55,7 +56,8 @@ const styles = StyleSheet.create({
     height: '100vh',
     width: '100vw',
     display: 'block',
-    overflowY: 'scroll'
+    overflowY: 'scroll',
+    '-webkit-overflow-scrolling': 'touch'
   },
   leftSide: {
     height: '100%',
@@ -63,7 +65,7 @@ const styles = StyleSheet.create({
     float: 'left',
   },
   rightSide: {
-    height: '100%',
+    height: 'auto',
     width: '70%',
     float: 'right',
   },
