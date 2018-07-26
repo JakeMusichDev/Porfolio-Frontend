@@ -7,14 +7,16 @@ import {breakPoints} from '../../utils/styles'
 
 export default class PageDetailHeader extends Component {
   componentDidMount() {
-    const rellaxSlow = new Rellax("#rellax-slow", {
-      wrapper: '#main-rellax',
-      speed: -2,
-    })
-    const rellaxFast = new Rellax("#rellax-fast", {
-      wrapper: '#main-rellax',
-      speed: -3,
-    })
+    if(window.innerWidth > 800) {
+      const rellaxSlow = new Rellax("#rellax-slow", {
+        wrapper: '#main-rellax',
+        speed: -2,
+      })
+      const rellaxFast = new Rellax("#rellax-fast", {
+        wrapper: '#main-rellax',
+        speed: -3,
+      })
+    }
   }
 
   render() {

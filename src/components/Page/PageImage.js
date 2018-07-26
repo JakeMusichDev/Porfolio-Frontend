@@ -28,16 +28,11 @@ const styles = StyleSheet.create({
     gridColumn: '2/8',
   },
   image: {
-    // height: "600px",
-    // maxHeight: '600px',
-    // width: 'auto',
-    // border: '1px solid pink',
     height: '100%',
     width: '100%',
     backgroundPosition: 'center center',
     backgroundSize: 'cover',
     opacity: '0.7'
-    // maxWidth: '800px'
   }
 })
 

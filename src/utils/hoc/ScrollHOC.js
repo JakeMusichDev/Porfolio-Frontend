@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import _ from 'underscore'
+import Hammer from 'hammerjs'
 
 export const withScrollMonitor = (WrappedComponent, list ) => {
   return class extends Component {
@@ -14,25 +15,34 @@ export const withScrollMonitor = (WrappedComponent, list ) => {
     }
   
     componentDidMount() {
-      this.addListeners()
+      this.initScroll()
+      this.initSwipe()
     }
   
     componentWillUnmount() {
-      this.removeListeners()
+      window.removeEventListener('wheel', this._scrollMonitor, false)
+      this.swipe.destroy()
     }
 
-    addListeners = () => {
+    initScroll = () => {
       this.wheelEvent = window.addEventListener('wheel', this._scrollMonitor, false)
     }
 
-    removeListeners = () => {
-      window.removeEventListener('wheel', this._scrollMonitor, false)
+    initSwipe = () => {
+      this.swipe = new Hammer.Manager(window, { recognizers: [[Hammer.Swipe]] })
+      this.swipe.on("swipeup", () => this.setNewState('+'))
+      this.swipe.on("swipedown", () => this.setNewState('-'))
     }
-  
+
+    scrollMonitor = wheelEvent => {
+      const direction = wheelEvent.deltaY > 0 ? '-' : '+'
+      this.setNewState(direction)
+    }
+
+
     setNewState = (direction) => {
       const { currentItem } = this.state
       let nextItem
-
       if (direction === '+' && currentItem === (list.length - 1)) {
         nextItem = 0
       } else if (direction === '+' && currentItem >= 0) {
@@ -41,26 +51,27 @@ export const withScrollMonitor = (WrappedComponent, list ) => {
         nextItem = currentItem - 1
       } else if (direction === '-' && currentItem === 0) {
         nextItem = (list.length - 1)
-      } else {
-        return
-      }
-
+      } else return
       this.setState({ currentItem: nextItem, direction })
     }
-    
-    scrollMonitor = wheelEvent => {
-      const direction = wheelEvent.deltaY > 0 ? '+' : '-'
-      this.setNewState(direction)
+
+    initEventMonitors = () => {
+      this.initScroll()
+      this.swipe.options.enable = true
     }
 
+    pauseEventMonitors = () => {
+      window.removeEventListener('wheel', this._scrollMonitor, false)
+      this.swipe.options.enable = false 
+    }
 
     render() {
       return (
         <WrappedComponent
           data={this.state} 
-          addListeners={this.addListeners} 
+          addListeners={this.initEventMonitors} 
           handleClick={this.setNewState}
-          removeListeners={this.removeListeners} 
+          removeListeners={this.pauseEventMonitors.bind(this)} 
           {...this.props} 
         />
       )

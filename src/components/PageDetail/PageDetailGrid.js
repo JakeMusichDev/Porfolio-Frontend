@@ -3,6 +3,7 @@ import { StyleSheet, css } from 'aphrodite/no-important'
 import '../../styles/index.css'
 import Anime from 'animejs'
 import Fade from 'react-reveal/Fade';
+import {breakPoints} from '../../utils/styles'
 
 export default class PageDetailGrid extends Component {
   render() {
@@ -45,12 +46,26 @@ const styles = StyleSheet.create({
     marginBottom: '25vh',
     backgroundPosition: 'center center',
     backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat'
+    backgroundRepeat: 'no-repeat',
+    transition: '0.3s margin-bottom',
+    [breakPoints.mobile]: {
+      marginBottom: '20vh',
+    },
+    [breakPoints.mobile]: {
+      marginBottom: '10vh',
+
+    }
   },
   subtitle: {
     width: '100%',
     textAlign: 'right',
     padding: '5%',
-    fontSize: '10'
+    fontSize: '10',
+    [breakPoints.mobile]: {
+      padding: '3%',
+    },
+    [breakPoints.mobile]: {
+      padding: '1%',
+    }
   }
 })

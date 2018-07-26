@@ -33,7 +33,7 @@ class LandingContainer extends Component {
     const { data } = this.props
     const currentProject = this.nextProject()
     return(
-      <div ref={refDiv => {this.container = refDiv}} className={css(mainStyles.landingContainerMain)} >
+      <div id='landing-container' ref={refDiv => {this.container = refDiv}} className={css(mainStyles.landingContainerMain)} >
         <LandingMenu scrollState={data} open={this.openPage} />
         <LandingImage src={currentProject.src} />
         {/* <ScrollIndicator gridPos={mainStyles.gridPos} /> */}

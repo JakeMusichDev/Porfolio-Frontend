@@ -18,7 +18,7 @@ export default class PageDetailPainting extends Component {
       <div id='photoview-focus-grid' className={css(styles.photoView_GridContainer)} >        
         {this.props.gridData.map((content, index) => (
           <div key={`${content.name} + ${index}`}>
-            <img className={css(styles.img)} src={`${content}`} alt="photo" />
+            <div id='painting-image' className={css(styles.image)} style={{backgroundImage: `url(${content})`}}></div>
           </div>
         ))}
       </div>
@@ -28,15 +28,19 @@ export default class PageDetailPainting extends Component {
 
 const styles = StyleSheet.create({
   photoView_GridContainer: {
-    height: 'auto',
+    height: '100%',
     width: '100%',
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     gridRow: '3/4',
-    gridColumn: '3/5'
+    gridColumn: '2/9'
   },
-  img: {
-    height: '90vh',
+  image: {
+    height: '80vh',
+    width: 'auto',
+    backgroundPosition: 'center center',
+    backgroundSize: 'contain',
+    backgroundRepeat: 'no-repeat'
   }
 })

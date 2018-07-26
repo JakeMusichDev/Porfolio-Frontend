@@ -47,7 +47,8 @@ const styles = StyleSheet.create({
     width: '100vw',
     color: 'white',
     background: 'rgba(15,15,15,0.8)',
-    overflowY: 'scroll'
+    overflowY: 'scroll',
+    webkitOverflowScrolling: 'touch'
     // gridRow: '5/6',
     // gridColumn: '1/2',
   },

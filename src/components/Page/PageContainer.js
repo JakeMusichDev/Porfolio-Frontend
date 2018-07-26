@@ -64,7 +64,8 @@ export default class PageContainer extends Component {
 
 
   handleClick = () => {
-    const {focusActive} = this.state
+    const {focusActive, pageLoaded} = this.state
+    if (!pageLoaded) return
     if(focusActive) {
       this.detailTransitionAnimation(1, 1)
       this.setState({focusActive: !focusActive})
@@ -101,6 +102,7 @@ export default class PageContainer extends Component {
       opacity: 1,
       easing: 'easeInOutQuad',
       delay: (e, i) => i * 120,
+      complete: () => this.setState({pageLoaded:true})
     })
   }
 }
