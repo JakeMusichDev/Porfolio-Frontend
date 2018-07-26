@@ -4,10 +4,9 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  position: relative;
+  position: fixed;
   outline: none;
   overflow: hidden;
-  background: --main-black;
   -webkit-font-smoothing: antialiased;
   font-family: 'Inconsolata', sans-serif;
   font-size: 10;

@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',
     transition: '0.3s margin-bottom',
-    [breakPoints.mobile]: {
+    [breakPoints.tablet]: {
       marginBottom: '20vh',
     },
     [breakPoints.mobile]: {
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     textAlign: 'right',
     padding: '5%',
     fontSize: '10',
-    [breakPoints.mobile]: {
+    [breakPoints.tablet]: {
       padding: '3%',
     },
     [breakPoints.mobile]: {

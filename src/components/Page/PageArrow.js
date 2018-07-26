@@ -39,6 +39,10 @@ const styles = StyleSheet.create({
   arrow: {
     height: '35px',
     width: '35px',
+    transition: '0.4s scale',
+    ":active": {
+      transform: 'scale(1.1)'
+    }
   },
   up: {
     gridRow: '3/4',

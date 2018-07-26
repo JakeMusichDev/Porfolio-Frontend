@@ -1,8 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 import { StyleSheet, css } from 'aphrodite/no-important'
-import {flex} from '../../styles/styleUtils'
 import { Link } from 'react-router-dom'
 import Anime from 'animejs'
+
+import { flex } from '../../styles/styleUtils'
+import {breakPoints} from '../../utils/styles'
+
 import {items} from '../../data/routeData.js'
 
 export default class MenuDirectory extends Component {
@@ -31,13 +34,26 @@ const styles = StyleSheet.create({
   menuItemWrapper: {
     marginLeft: '20%',
     marginTop: '2%',
+    transition:'0.1s margin-left',
+    [breakPoints.tablet]: {
+      marginLeft: '15%',
+    },
+    [breakPoints.mobile]: {
+    marginLeft: '1%',
+    },
   },
   menuItem: {
     textDecoration: 'none',
     color: 'black',
     height: '15vh',
     opacity: 0.5,
-    transition: '0.3s all',
+    transition: '0.3s opacity',
+    [breakPoints.tablet]: {
+      opacity: 0.7,
+    },
+    [breakPoints.mobile]: {
+      opacity: 1,
+    },
     ":hover": {
       tranform: 'scale(1.1)',
       opacity: 1
