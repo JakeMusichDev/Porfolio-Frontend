@@ -17,7 +17,7 @@ const LandingCounter = (props) => {
 const styles = StyleSheet.create({
   counter: {
     gridRow: '5/6',
-    gridColumn: '9/10',
+    gridColumn: '10/11',
     textAlign: 'center',
     fontSize: '14px'
   }

@@ -4,21 +4,16 @@ import { flex } from '../../styles/styleUtils'
 import Anime from 'animejs'
 import "./../../styles/index.css"
 import line from '../../assets/general/scroll.svg'
+import {mobileDetection} from '../../utils/mobileDetect'
 
 export default class ScrollIndictator extends Component {
   componentDidMount() {
-    // Anime({
-    //   targets: this.indicator,
-    //   scale: [1, 1.1],
-    //   duration: 1000,
-    //   loop: true,
-    //   easing: 'easeInOutExpo'
-    // })
+    this.isMobile = mobileDetection()
   }
 
   render() {
     const {gridPos} = this.props
-    const instrText =  window.innerWidth > 800 ? "SCROLL" : "SWIPE"
+    const instrText =  this.isMobile ? "SWIPE" : "SCROLL"
     return (
       <div className={css(styles.scrollIndicatorContainer, gridPos, flex.flexCenter)}>
         <div className={css(styles.text)} ref={refDiv => {this.indicator = refDiv}}>
@@ -34,14 +29,11 @@ const styles = StyleSheet.create({
   scrollIndicatorContainer: {
     height: '100%',
     width: '100%',
-    // border: '1px solid pink',
   },
   text: {
-    
-    height: '30px',
-    width: '40px',
+    // width: '40px',
     textAlign: 'center',
     fontSize: 10,
-    letterSpacing: '1.5%'
+    letterSpacing: '5%'
   }
 })

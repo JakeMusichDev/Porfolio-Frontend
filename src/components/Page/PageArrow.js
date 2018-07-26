@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { StyleSheet, css } from 'aphrodite/no-important'
 import { flex } from '../../styles/styleUtils'
 import {attachTilt, destroyTilt} from '../../utils/tiltHelper'
-
+import { breakPoints } from '../../utils/styles'
 import downArrow from '../../assets/general/down-arrow.svg'
 import upArrow from '../../assets/general/up-arrow.svg'
 
@@ -39,9 +39,17 @@ const styles = StyleSheet.create({
   arrow: {
     height: '35px',
     width: '35px',
-    transition: '0.4s scale',
+    transition: '0.4s scale 0.4s height 0.4s width',
     ":active": {
       transform: 'scale(1.1)'
+    },
+    [breakPoints.tablet]: {
+      height: '30px',
+      width: '30px',
+    },
+    [breakPoints.mobile]: {
+      height: '25px',
+      width: '25px',
     }
   },
   up: {

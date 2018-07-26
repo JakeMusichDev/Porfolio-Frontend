@@ -36,7 +36,7 @@ class LandingContainer extends Component {
       <div id='landing-container' ref={refDiv => {this.container = refDiv}} className={css(mainStyles.landingContainerMain)} >
         <LandingMenu scrollState={data} open={this.openPage} />
         <LandingImage src={currentProject.src} />
-        {/* <ScrollIndicator gridPos={mainStyles.gridPos} /> */}
+        <ScrollIndicator gridPos={mainStyles.gridPos} />
         <LandingCounter index={data.currentItem} />
         <LandingText text={' - Artist'} mainStyle={textStyles.artist} />
         <LandingText text={' - Developer'} mainStyle={textStyles.dev} />

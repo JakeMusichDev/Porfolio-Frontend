@@ -14,10 +14,11 @@ export const mainStyles = StyleSheet.create({
     fontFamily: 'Inconsolata'
   },
   gridPos: {
-    gridRow: '5',
-    gridColumn: '5/6',
+    gridRow: '5/6',
+    gridColumn: '5/8',
+    // border: '1px solid pink',
     [breakPoints.mobile]: {
-      gridColumn: '4/6',
+      // gridColumn: '4/6',
     }
   }
 })
@@ -27,7 +28,6 @@ export const textStyles = StyleSheet.create({
     gridRow: '1/2',
     gridColumn: '4/5',
     whiteSpace: 'nowrap'
-
   },
   dev: {
     gridRow: '1/2',
