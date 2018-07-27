@@ -13,12 +13,12 @@ export default class PageDetailGrid extends Component {
             item.type === 'movie' ? (
               <video className={css(styles.image)} src={`${item.src}`} autoPlay></video>
             ) : (
-              <Fade> 
+              // <Fade> 
                 <div className={css(styles.subtitle)}>
                   {item.title}
                 </div>
                 <div className={css(styles.image)} style={{backgroundImage: `url(${item.src})`}} key={`${item.name} + ${index}`}></div>
-              </Fade>
+              // </Fade>
             )
           ))}
       </div>
