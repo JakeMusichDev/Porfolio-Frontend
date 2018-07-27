@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, css } from 'aphrodite/no-important'
+import {breakPoints} from '../../utils/styles'
 
 export const PageSelector = (props) => {
   return (
@@ -20,9 +21,16 @@ const styles = StyleSheet.create({
     marginTop: 10,
     textAlign: 'right',
     cursor: 'pointer',
-    transition: '0.5s color',
+    whiteSpace: 'nowrap',
+    transition: '1s font-size',
     ":hover": {
-      color: 'lightblue'
+      fontSize: 11
+    },
+    [breakPoints.tablet]: {
+      gridColumn: '9/10',
+    },
+    [breakPoints.mobile]: {
+      gridColumn: '8/10',
     }
   },
 })

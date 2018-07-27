@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
   },
   arrow: {
     height: '35px',
+    cursor: 'pointer',
     width: '35px',
     transition: '0.4s scale 0.4s height 0.4s width',
     ":active": {

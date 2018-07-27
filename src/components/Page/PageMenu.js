@@ -66,20 +66,24 @@ const styles = StyleSheet.create({
   scrollInstruction: {
     width: 'auto',
     fontSize: '1.5em',
-    marginBottom: '20px'
+    marginBottom: '20px',
+    whiteSpace: 'nowrap'
   },
   menuProjectTitle: {
     // border: '1px solid green',
     fontSize: '3rem',
     fontFamily: ['Vollkorn', 'serif'],
     cursor: 'pointer',
-    transition: '0.5s font-size',
+    transition: '0.5s opacity',
     [breakPoints.tablet]: {
       fontSize: '2rem',
     },
     [breakPoints.mobile]: {
       fontSize: '1.5rem',
-    }
+    },
+    ":hover": {
+      opacity: 0.7,
+    },
   },
   wrapper: {
     overflow: 'hidden',

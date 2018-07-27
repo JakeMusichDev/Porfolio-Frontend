@@ -7,18 +7,25 @@ import line from '../../assets/general/scroll.svg'
 import {mobileDetection} from '../../utils/mobileDetect'
 
 export default class ScrollIndictator extends Component {
-  componentDidMount() {
+  componentWillMount() {
     this.isMobile = mobileDetection()
   }
+
+  componentDidMount() {
+    Anime({
+      targets: this.indicator,
+      opacity: [0,1],
+      duration: 1000,
+    })
+  }
+
 
   render() {
     const {gridPos} = this.props
     const instrText =  this.isMobile ? "SWIPE" : "SCROLL"
     return (
       <div className={css(styles.scrollIndicatorContainer, gridPos, flex.flexCenter)}>
-        <div className={css(styles.text)} ref={refDiv => {this.indicator = refDiv}}>
-          {instrText}
-        </div>
+        <div className={css(styles.text)} ref={refDiv => {this.indicator = refDiv}}>{instrText}</div>
       </div>
     )
   }
