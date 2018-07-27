@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { StyleSheet, css } from 'aphrodite/no-important'
 import '../../styles/index.css'
-import Anime from 'animejs'
 import Fade from 'react-reveal/Fade';
 import {breakPoints} from '../../utils/styles'
 
@@ -14,10 +13,10 @@ export default class PageDetailGrid extends Component {
               <video className={css(styles.image)} src={`${item.src}`} autoPlay></video>
             ) : (
               // <Fade> 
-                <div className={css(styles.subtitle)}>
-                  {item.title}
-                </div>
+              <div className={css(styles.gridImage)}>
+                <div className={css(styles.subtitle)}>{item.title}</div>
                 <div className={css(styles.image)} style={{backgroundImage: `url(${item.src})`}} key={`${item.name} + ${index}`}></div>
+              </div>
               // </Fade>
             )
           ))}
@@ -40,6 +39,9 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     padding: 5
   },
+  gridImage: {
+    // border: '1px solid pink'
+  },
   image: {
     height: '75vh',
     width: '100%',
@@ -53,7 +55,6 @@ const styles = StyleSheet.create({
     },
     [breakPoints.mobile]: {
       marginBottom: '10vh',
-
     }
   },
   subtitle: {

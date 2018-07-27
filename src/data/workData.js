@@ -75,25 +75,25 @@ const _stockpile_1 = {
 
 const _stockpile_2 = {
   type: 'photo',
-  title: 'Stockpile Index Page View',
+  title: 'Compression Menu',
   src: stockpile_2,
 }
 
 const _stockpile_3 = {
   type: 'photo',
-  title: 'Stockpile Index Page View',
+  title: 'New Folder View',
   src: stockpile_3,
 }
 
 const _stockpile_4 = {
   type: 'photo',
-  title: 'Stockpile Index Page View',
+  title: 'Adding users',
   src: stockpile_4,
 }
 
 const _stockpile_5 = {
   type: 'photo',
-  title: 'Stockpile Index Page View',
+  title: 'New Project View',
   src: stockpile_5,
 }
 
@@ -105,7 +105,7 @@ const _stockpile_6 = {
 
 const _stockpile_7 = {
   type: 'photo',
-  title: 'Stockpile Index Page View',
+  title: 'Delete Project View',
   src: stockpile_7,
 }
 
@@ -150,7 +150,7 @@ const stockpile = {
     _stockpile_3,
     _stockpile_4,
     _stockpile_5,
-    _stockpile_6,
+    // _stockpile_6,
     _stockpile_7,
   ]
 }
