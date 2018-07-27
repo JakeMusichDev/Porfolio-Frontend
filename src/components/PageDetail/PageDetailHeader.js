@@ -23,7 +23,7 @@ export default class PageDetailHeader extends Component {
     const { name, close, description, role } = this.props        
     return (
       <div className={css(styles.modalNameContainer)}>
-        <div id='rellax-fast'; className={css(styles.modalNameWrapper)} >
+        <div id='rellax-fast' className={css(styles.modalNameWrapper)} >
           <Fade cascade bottom>
             <div className={css(styles.modalName)}>{ name }</div>          
           </Fade>
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   modalNameContainer: {
     width: '100%',
     height: '100vh',
-    marginBottom: '80vh',
+    marginBottom: '50vh',
     display: "grid",
     gridTemplateColumns: "repeat(8, 1fr)",
     gridTemplateRows: 'repeat(5, 1fr)',
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: ['Vollhorn', 'serif'],
     color: '#F2F2F2',
-    border: '1px solid lightblue',
+    // border: '1px solid lightblue',
     transition: '0.3s font-size',
     fontSize: 80,
     [breakPoints.tablet]: {
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     gridColumn: '2/7',
     gridRow: '5',
     lineHeight: '150%',
-    border: '1px solid yellow'
+    // border: '1px solid yellow'
   },
   role: {
     gridColumn: '7/8',
