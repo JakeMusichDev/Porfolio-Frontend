@@ -40,10 +40,9 @@ export default class Contact extends Component {
           <ContactName />
         </div>
         <div id='contact--rightContainer' ref={refDiv => (this.rightSideDiv = refDiv)} className={css(styles.rightSide)}>
-          <ContactSection sectionTitle={"Hi there. I'm Jake."} />
+          <ContactSection sectionTitle={"Hi, I'm Jake."} />
           <ContactSection sectionCopy={contactCopy.bioIntro} />
-          {/* <ContactSection sectionTitle={"Why all the art?"} sectionCopy={contactCopy.artistBio} /> */}
-          <ContactSection sectionTitle={'Find me at the links below'} sectionData={socialsData} />
+          <ContactSection sectionTitle={'Socials'} sectionData={socialsData} />
           <ContactSection sectionTitle={'Skills'} sectionData={skillsData} />
         </div>
       </div>

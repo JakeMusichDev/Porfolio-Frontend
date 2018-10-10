@@ -26,7 +26,7 @@ export default class PixiContainer extends Component {
   componentWillReceiveProps(nextProps, nextState) {
     if(this.state.pixiInitComplete) {
 
-      this.nextBackgroundImage(nextProps)
+      // this.nextBackgroundImage(nextProps)
     }
   }
 

@@ -27,12 +27,13 @@ export const textStyles = StyleSheet.create({
     gridRow: '4/5',
     gridColumn: '4',
     whiteSpace: 'nowrap',
-    fontFamily: 'karla',
+    // fontFamily: 'karla',
     zIndex: '2',
+    fontFamily: ['Inconsolata', 'sans-serif'],
     fontSize: 14,
     [breakPoints.mobile]: {
     fontSize: 12,
-    gridColumn: '4',
+    gridColumn: '4/6',
     },
   },
   portfolio: {

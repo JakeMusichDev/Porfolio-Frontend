@@ -21,19 +21,18 @@ export default class LandingName extends Component {
   componentDidMount() {
     Anime.timeline().add({
       targets: [this.imgDiv.children],
-      translateY: ['20%', '0%'],
       opacity: [0, 1],
       delay: 500,
-      duration: 1000,
+      duration: 1200,
       easing: 'easeInQuad'
     }).add({
       targets: [this.imgDiv.children],
       // translateY: ['-100%'],
       opacity: [1, 0],
-      duration: 1200,
-      delay: 400,
+      duration: 2000,
+      // delay: 200,
       // elasticity: 900,
-      easing: 'linear'
+      easing: 'easeOutQuad'
     })
   }
 
@@ -54,7 +53,7 @@ const styles = StyleSheet.create({
     color: 'white',
     gridRow: '3/4',
     zIndex: 2,
-    gridColumn: '2/10',
+    gridColumn: '4/8',
     [breakPoints.mobile]: {
       gridColumn: '2/10',
     }

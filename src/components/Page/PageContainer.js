@@ -91,7 +91,7 @@ export default class PageContainer extends Component {
     var children = Array.from(animChildren).slice(1, animChildren.length)
     Anime.timeline().add({
       targets: [children],
-      translateY: '10%',
+      translateY: '20%',
       duration: 0,
       opacity: 0
     }).add({

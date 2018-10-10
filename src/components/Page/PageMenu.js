@@ -51,13 +51,13 @@ const styles = StyleSheet.create({
     fontSize: '3rem',
     fontFamily: ['Vollkorn', 'serif'],
     cursor: 'pointer',
-    transition: '1s all',
+    transition: '1s color',
     color: '#FFF',
     [breakPoints.tablet]: {
       fontSize: '2rem',
     },
     [breakPoints.mobile]: {
-      fontSize: '2.5rem',
+      fontSize: '2rem',
       textAlign: 'center'
     },
     ":hover": {

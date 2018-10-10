@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     fontSize: 16,
     color: 'white',
-    fontFamily: 'karla',
+    fontFamily: 'Vollkorn',
     [breakPoints.mobile]: {
       gridColumn: '1/5',
     }

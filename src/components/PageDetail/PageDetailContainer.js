@@ -9,17 +9,17 @@ import Anime from 'animejs'
 export default class PageDetailContainer extends Component {
   componentDidMount() {
     Anime.timeline().add({
-      targets: this.container,
-      // translateY: '100%',
+      targets: this.container.children,
+      // translateX: '100%',
       duration: 0,
       opacity: 0
     }).add({
-      targets: this.container,
-      translateY: '0%',
+      targets: this.container.children,
+      // translateX: '0%',
       duration: 900,
-      delay: 100,
+      delay: (e, i) => (i * 100) + 100,
       opacity: 1,
-      easing: 'linear'
+      easing: 'easeInQuad'
     })
   }
 

@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   section: {
-    fontFamily: ['Vollkorn', 'sans-serif'],
+    fontFamily: ['Inconsolata', 'sans-serif'],
     textDecoration: 'none',
     color: '#fff',
     fontSize: '1.5em',
@@ -40,7 +40,8 @@ const styles = StyleSheet.create({
     cursor: 'pointer',
     transition: '0.6s all',
     [breakPoints.mobile]: {
-      fontSize: '2em',
+      letterSpacing: '3px',
+      fontSize: '1.7em',
     },
     ":hover" : {
       opacity:0.8,

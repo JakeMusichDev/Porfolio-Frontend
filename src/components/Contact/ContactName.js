@@ -15,9 +15,6 @@ export default class ContactName extends Component {
     const height = this.height
     return (
       <div className={css(styles.nameSvgContainer)}>
-        <div className={css(styles.name)}>
-          Email Me
-        </div>
         <img  ref={refDiv => {this.wrappedRellaxImage = refDiv}} className={css(styles.nameSvg)} src={`${name_lg}`} alt=""/>
       </div>
     )

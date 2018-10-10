@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     gridRow: '3/4',
     [breakPoints.mobile]: {
       gridColumn: '4/9',
-      gridRow: '3',
+      gridRow: '3/4',
     }
   }
 })

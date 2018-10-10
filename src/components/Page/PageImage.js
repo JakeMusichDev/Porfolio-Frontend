@@ -17,9 +17,9 @@ export default class PageImage extends Component {
   componentDidMount() {
     Anime({
       targets: '#page-image',
-      duration: 900,
+      duration: 1000,
       opacity: [0, 0.7],
-      easing: 'linear'
+      easing: 'linear',
     })
   }
 
@@ -35,7 +35,7 @@ export default class PageImage extends Component {
   attachTilt = () => {
     if( this.checkSize() ) {
       const tiltArray = [];
-      const elements = document.getElementsByName('menu--section')
+      const elements = Array.from(document.getElementById('page-image'))
       for (var i = 0; i < elements.length; i++) {
         var elementToDestroy = elements[i];
         tiltArray.push(elementToDestroy)
