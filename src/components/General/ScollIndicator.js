@@ -22,7 +22,7 @@ export default class ScrollIndictator extends Component {
 
   render() {
     const {gridPos} = this.props
-    const instrText =  this.isMobile ? "SWIPE" : "SCROLL"
+    const instrText =  this.isMobile ? "SWIPE" : "SCROLL or CLICK"
     return (
       <div className={css(styles.scrollIndicatorContainer, gridPos, flex.flexCenter)}>
         <div className={css(styles.text)} ref={refDiv => {this.indicator = refDiv}}>{instrText}</div>

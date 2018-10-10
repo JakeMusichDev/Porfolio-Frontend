@@ -9,6 +9,16 @@ import {breakPoints} from '../../utils/styles'
 import {items} from '../../data/routeData.js'
 
 export default class MenuDirectory extends Component {
+  componentDidMount() {    
+    Anime({
+      targets: this.container.children,
+      translateY: '10%',
+      duration: 1000,
+      opacity: [0,0.8],
+      easing: 'easeInOutQuad',
+      delay: (e, i) => i * 100,
+    })
+  }
   render() {
     return (
       <div ref={el => (this.container = el)} className={css(styles.menuDirectoryContainer)}>
@@ -30,29 +40,34 @@ const styles = StyleSheet.create({
     width: '80%',
     cursor: 'pointer',
     zIndex: 10,
+    // border: '1px solid white',
   },
   menuItemWrapper: {
-    marginLeft: '20%',
-    marginTop: '2%',
-    transition:'0.1s margin-left',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '25%',
     [breakPoints.tablet]: {
       marginLeft: '15%',
     },
     [breakPoints.mobile]: {
-    marginLeft: '1%',
+      marginLeft: '1%',
     },
   },
   menuItem: {
     textDecoration: 'none',
     color: 'black',
-    height: '15vh',
-    opacity: 0.5,
+    width: '30vw',
+    opacity: 0.9,
     transition: '0.3s opacity',
     [breakPoints.tablet]: {
-      opacity: 0.7,
-    },
+      opacity: 1,
+      width: '35vw',
+  },
     [breakPoints.mobile]: {
       opacity: 1,
+      width: '50vw',
     },
     ":hover": {
       tranform: 'scale(1.1)',

@@ -59,31 +59,10 @@ export default class PixiContainer extends Component {
     this.attachFilteredImage()
   }
 
-  attachFilteredImage = () => {
-    const anchorBounds = this.canvasAnchor.getBoundingClientRect()
-    
-    // Create stage
-    this.stageContainer = new PIXI.Container()
-
-    // Create Sprites and Filters
-    const imageSprite = this.createImageSprite(this.props.image, anchorBounds)
-    const filterSprite = this.createFilter(anchorBounds)
-    const displacementFilter = this.createDisplacementFilter(filterSprite)
-
-    // Add sprites and filter to container
-    this.stageContainer.addChild(filterSprite)
-    this.stageContainer.addChild(imageSprite)
-    this.stageContainer.filters = [displacementFilter]
-
-    this.app.render(this.stageContainer)
-    
-    this.setState({pixiInitComplete:true}, () => this.animateCanvas(filterSprite) )
-  }
-
+  // Create Image itself
   createImageSprite = (image, anchorBounds) => {
-    // Create Image itself
     const imageSprite = new PIXI.Sprite.fromImage(`${image}`);
-    imageSprite.alpha = 0.9
+    imageSprite.alpha = 1
     imageSprite.autoFit = true;
     imageSprite.interactive = true
     imageSprite.zIndex = 2
@@ -92,8 +71,8 @@ export default class PixiContainer extends Component {
     return imageSprite
   }
 
-  createFilter = (anchorBounds) => {
     // Create Filter sprite 
+    createFilter = (anchorBounds) => {
     let filterSprite = PIXI.Sprite.fromImage(`${filter}`);
     filterSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
     filterSprite.texture.baseTexture.wrapMode
@@ -108,15 +87,37 @@ export default class PixiContainer extends Component {
     return displacementFilter
   }
 
+  attachFilteredImage = () => {
+    const anchorBounds = this.canvasAnchor.getBoundingClientRect()    
+    // Create stage
+    this.stageContainer = new PIXI.Container()
+    // Create Sprites and Filters
+    const imageSprite = this.createImageSprite(this.props.image, anchorBounds)
+    const filterSprite = this.createFilter(anchorBounds)
+    const displacementFilter = this.createDisplacementFilter(filterSprite)
+    // Add sprites and filter to container
+    this.stageContainer.addChild(filterSprite)
+    this.stageContainer.addChild(imageSprite)
+    this.stageContainer.filters = [displacementFilter]
+
+    this.app.render(this.stageContainer)
+    
+    this.setState({pixiInitComplete:true}, () => this.animateCanvas(filterSprite) )
+  }
+
+
+  // Animate Canvas filter 
+  // 
+
   animateCanvas = (filterSprite) => {
     let count = 0
     this.ticker = new PIXI.ticker.Ticker()
     this.ticker.add(this.update, this);
     this.ticker.start();
     this.ticker.add(function(time) {
-      filterSprite.x = count*20
-      filterSprite.y = count*20
-      count += 0.05
+      filterSprite.x = count * 11
+      filterSprite.y = count * 11
+      count += 0.03
     })
   }
 

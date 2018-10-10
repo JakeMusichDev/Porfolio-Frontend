@@ -8,40 +8,28 @@ import { items } from '../../data/routeData.js'
 
 import LandingText from './LandingText'
 import LandingMenu from './LandingMenu'
+import LandingName from './LandingName'
 import LandingImage from './LandingImage'
+import LandingUpperLogo from './LandingUpperLogo'
 import LandingCounter from './LandingCounter'
 import ScrollIndicator from '../General/ScollIndicator'
 
-class LandingContainer extends Component {
-  componentDidMount() {
-    Anime.timeline().add({
-      targets: [this.container.childNodes],
-      translateX: '10%',
-      duration: 0,
-      opacity: 0
-    }).add({
-      targets: this.container.childNodes,
-      translateX: '0%',
-      duration: 1000,
-      opacity: 1,
-      easing: 'easeInOutQuad',
-      delay: (e, i) => i * 100,
-    })
-  }
-  
+class LandingContainer extends Component {  
   render() {
     const { data } = this.props
     const currentProject = this.nextProject()
     return(
-      <div id='landing-container' ref={refDiv => {this.container = refDiv}} className={css(mainStyles.landingContainerMain)} >
+      <div 
+        ref={refDiv => {this.container = refDiv}} 
+        className={css(mainStyles.landingContainerMain)} 
+      >
         <LandingMenu scrollState={data} open={this.openPage} />
+        <LandingName />
+        <LandingUpperLogo />
         <LandingImage src={currentProject.src} />
-        <ScrollIndicator gridPos={mainStyles.gridPos} />
-        <LandingCounter index={data.currentItem} />
-        <LandingText text={' - Artist'} mainStyle={textStyles.artist} />
-        <LandingText text={' - Developer'} mainStyle={textStyles.dev} />
-        <LandingText text={' - Jake Musich'} mainStyle={textStyles.name} />
+        <LandingText text={'[ Freelance Developer & Designer ]'} mainStyle={textStyles.bio} />
         <LandingText text={'[ Portfolio ]'} mainStyle={textStyles.portfolio} />
+        <LandingText text={'© 2018'} mainStyle={textStyles.year} />
       </div>
     )
   }

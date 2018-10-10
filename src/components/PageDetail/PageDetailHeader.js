@@ -24,9 +24,9 @@ export default class PageDetailHeader extends Component {
     return (
       <div className={css(styles.modalNameContainer)}>
         <div id='rellax-fast' className={css(styles.modalNameWrapper)} >
-          <Fade cascade bottom>
+          {/* <Fade cascade bottom> */}
             <div className={css(styles.modalName)}>{ name }</div>          
-          </Fade>
+          {/* </Fade> */}
         </div>
         <div id='rellax-slow' className={css(styles.date)}>{'2018 - '}</div>
         <div id='rellax-slow' className={css(styles.role)}>{role}</div>
@@ -34,15 +34,14 @@ export default class PageDetailHeader extends Component {
       </div>
     )
   }
-
-
 }
 
 const styles = StyleSheet.create({
   modalNameContainer: {
     width: '100%',
-    height: '100vh',
-    marginBottom: '50vh',
+    height: '75vh',
+    // border: '1px solid green',
+    marginBottom: '5vh',
     display: "grid",
     gridTemplateColumns: "repeat(8, 1fr)",
     gridTemplateRows: 'repeat(5, 1fr)',
@@ -55,7 +54,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontFamily: ['Vollhorn', 'serif'],
     color: '#F2F2F2',
-    // border: '1px solid lightblue',
     transition: '0.3s font-size',
     fontSize: 80,
     [breakPoints.tablet]: {
@@ -67,17 +65,16 @@ const styles = StyleSheet.create({
   },
   date: {
     color: '#F2F2F2',
-    fontFamily: 'Inconsolata',
+    fontFamily: 'karla',
     width: '100%',
     textAlign: 'center',
     gridColumn: '7/8',
-    // border: '1px solid lightgreen',
     gridRow: '4',
-    // border: '1px solid red'
   },
   description: {
     gridColumn: '2/7',
     gridRow: '5',
+    fontFamily: 'karla',
     lineHeight: '150%',
     // border: '1px solid yellow'
   },

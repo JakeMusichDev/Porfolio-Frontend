@@ -12,12 +12,12 @@ export default class PageDetailGrid extends Component {
             item.type === 'movie' ? (
               <video className={css(styles.image)} src={`${item.src}`} autoPlay></video>
             ) : (
-              // <Fade> 
-              <div className={css(styles.gridImage)}>
-                <div className={css(styles.subtitle)}>{item.title}</div>
-                <div className={css(styles.image)} style={{backgroundImage: `url(${item.src})`}} key={`${item.name} + ${index}`}></div>
-              </div>
-              // </Fade>
+              <Fade> 
+                <div className={css(styles.gridImage)}>
+                  <div className={css(styles.subtitle)}>{item.title}</div>
+                  <div className={css(styles.image)} style={{backgroundImage: `url(${item.src})`}} key={`${item.name} + ${index}`}></div>
+                </div>
+              </Fade>
             )
           ))}
       </div>
@@ -35,17 +35,16 @@ const styles = StyleSheet.create({
     width: '70%',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     alignContent: 'center',
+    // border: '1px solid green',
     padding: 5
   },
-  gridImage: {
-    // border: '1px solid pink'
-  },
   image: {
-    height: '75vh',
+    height: '50vh',
     width: '100%',
     marginBottom: '25vh',
+    // border: '1px solid pink',
     backgroundPosition: 'center center',
     backgroundSize: 'contain',
     backgroundRepeat: 'no-repeat',

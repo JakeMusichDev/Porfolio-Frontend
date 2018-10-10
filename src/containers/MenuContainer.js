@@ -6,7 +6,6 @@ import Anime from 'animejs'
 
 import MenuDirectory from '../components/Menu/MenuDirectory'
 
-
 export default class MenuContainer extends Component {
   componentDidMount() {
     Anime.timeline().add({
@@ -15,14 +14,13 @@ export default class MenuContainer extends Component {
       opacity: 0,
     }).add({
       targets: '#appMenu--mainContainer',
-      duration: 500,
+      duration: 400,
       opacity: 1,
       easing: 'linear',
     })
   }
 
   render() {
-    
     return (
       <div id='appMenu--mainContainer' className={css(styles.menuMainContainer, flex.flexCenter)}>
         <MenuDirectory closeMenu={this.props.closeMenu}/>
@@ -36,7 +34,7 @@ const styles = StyleSheet.create({
     height: '100vh',
     width: '100vw',
     position: 'absolute',
-    background: "rgba(256,256, 259, 0.8)",
+    background: "rgba(15, 15,15, 0.8)",
     top: 0,
     right: 0,
     zIndex: 100,

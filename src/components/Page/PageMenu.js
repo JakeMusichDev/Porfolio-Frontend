@@ -5,30 +5,6 @@ import '../../styles/index.css'
 import {breakPoints} from '../../utils/styles'
 
 export default class PageMenu extends Component {
-  constructor(props) {
-    super(props)
-  }
-
-  componentDidMount() {
-    const tl = Anime.timeline()
-    tl.add({
-      targets: this.menu,
-      opacity: 0,
-      duration: 0,
-      scale: 0.8,
-      translateX: '100%',
-    }).add({
-      targets: this.menu,
-      opacity: [0.9],
-      duration: 1000,
-      elasticity: 0,
-      translateX: '0%',
-      easing: 'easeInExpo',
-      delay: 400,
-      scale: 1
-    })
-  }
-
   render() {
     const { name, index, handleOpenProject, length } = this.props
     return (
@@ -56,33 +32,37 @@ const styles = StyleSheet.create({
     color: '#F2F2F2',
     fontSize: '0.5rem',
     transition: '0.5s grid-column',
+    // border: '1px solid red',
     [breakPoints.mobile]: {
-      gridColumn: '7/11',
+      gridColumn: '2/10',
+      gridRow: '4/5',
     },
-    [breakPoints.mobile]: {
-      gridColumn: '7/11',
-    }
   },
   scrollInstruction: {
+    fontFamily: ['karla', 'sans-serif'], 
     width: 'auto',
     fontSize: '1.5em',
     marginBottom: '20px',
-    whiteSpace: 'nowrap'
+    whiteSpace: 'nowrap',
+    // border: '1px solid yellow',
   },
   menuProjectTitle: {
     // border: '1px solid green',
     fontSize: '3rem',
     fontFamily: ['Vollkorn', 'serif'],
     cursor: 'pointer',
-    transition: '0.5s opacity',
+    transition: '1s all',
+    color: '#FFF',
     [breakPoints.tablet]: {
       fontSize: '2rem',
     },
     [breakPoints.mobile]: {
-      fontSize: '1.5rem',
+      fontSize: '2.5rem',
+      textAlign: 'center'
     },
     ":hover": {
-      opacity: 0.7,
+      opacity: 1,
+      color: '#B94F4F',
     },
   },
   wrapper: {

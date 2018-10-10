@@ -9,14 +9,13 @@ export default class ContactSection extends Component {
     const { sectionTitle, sectionData, sectionCopy } = this.props    
     return (
       <div className={css(styles.sectionMain)}>
-        
         {sectionTitle ? <Fade cascade><h2 className={css(styles.sectionHeader)}>{sectionTitle}</h2></Fade> : null}
-        
         {sectionCopy ? (
           <div className={css(styles.sectionBody)}>
             {sectionCopy.map( (textLine, index) => <div className={css(styles.sectionBodyLine)}>{textLine}</div>  )}
           </div>
-        ) : null }
+          ) : null 
+        }
         {sectionData ? (this.renderGrid(sectionData)) : null}
       </div>
     );
@@ -46,22 +45,19 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    // alignContent: 'center',
     color: 'white',
-    // border: '1px solid white',
-    fontFamily: ['Inconsolata', 'serif'],
+    fontFamily: ['Karla', 'serif'],
     marginTop: '20vh',
   },
   sectionHeader: {
     color:"white",
-    fontSize:"18px",
+    fontSize:"1.6em",
     lineHeight: '120%',
     padding: '5%'
   },
   sectionBody: {
     lineHeight: '200%',
-    fontSize:"15px",
-    // border: '1px solid red',
+    fontSize:"1em",
     padding: '5%'
   },
   sectionBodyLine: {
@@ -71,16 +67,12 @@ const styles = StyleSheet.create({
     height: 'auto',
     width: '80%',
     margin: '0 auto',
-    marginBottom: '5%',
+    marginBottom: '2%',
     display: "flex",
     flexDirection: "row",
     flexWrap: 'wrap',
     justifyContent: 'center',
     alignItems: 'center',
-  },
-  gridIconWrapper: {
-    // height: '7vw',
-    // width: '7vw',
   },
   gridIcon: {
     height: '7vw',

@@ -16,7 +16,6 @@ export const mainStyles = StyleSheet.create({
   gridPos: {
     gridRow: '5/6',
     gridColumn: '5/8',
-    // border: '1px solid pink',
     [breakPoints.mobile]: {
       // gridColumn: '4/6',
     }
@@ -24,24 +23,17 @@ export const mainStyles = StyleSheet.create({
 })
 
 export const textStyles = StyleSheet.create({
-  artist: {
-    gridRow: '1/2',
-    gridColumn: '4/5',
-    whiteSpace: 'nowrap'
-  },
-  dev: {
-    gridRow: '1/2',
+  bio: {
+    gridRow: '4/5',
+    gridColumn: '4',
     whiteSpace: 'nowrap',
-    gridColumn: '7/8',
-  },
-  name: {
-    gridRow: '2/3',
-    gridColumn: '10/11',
-    webkitWritingMode: 'vertical-rl',
-    writingMode: 'vertical-rl',
+    fontFamily: 'karla',
+    zIndex: '2',
     fontSize: 14,
-    whiteSpace: 'nowrap',
-    opacity: 0.9,
+    [breakPoints.mobile]: {
+    fontSize: 12,
+    gridColumn: '4',
+    },
   },
   portfolio: {
     gridRow: '5/6',
@@ -53,10 +45,22 @@ export const textStyles = StyleSheet.create({
     opacity: 0.7,
     transition: '0.3s grid-column',
     [breakPoints.mobile]: {
+      fontSize: 11,
       gridColumn: '2/3',
-    },
+    }
+  },
+  year: {
+    gridRow: '5/6',
+    whiteSpace: 'nowrap',
+    gridColumn: '9/10',
+    fontSize: 12,
+    display: 'flex',
+    flexDirection: 'column',
+    opacity: 0.7,
+    transition: '0.3s grid-column',
     [breakPoints.mobile]: {
-      gridColumn: '2/3',
+      fontSize: 11,
+      gridColumn: '9',
     }
   }
 })

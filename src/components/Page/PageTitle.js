@@ -7,9 +7,7 @@ export const PageTitle = (props) => {
   return (
     <div className={css(styles.titleContainer, flex.flexCenter)} >
       <div className={css(styles.title)}>
-        <Zoom bottom cascade>
-          {props.title}
-        </Zoom>
+        {props.title}
       </div>
     </div>
   )
@@ -26,7 +24,7 @@ const styles = StyleSheet.create({
     gridRow: '2/3',
     gridColumn: '9/10',
     fontFamily: ['Inconsolata', 'sans-serif'], 
-    fontSize: 12,
+    fontSize: 14,
     opacity: 0.5
   },
   title: {

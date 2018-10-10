@@ -11,27 +11,27 @@ import Fade from 'react-reveal'
 import { breakPoints } from '../utils/styles'
 
 export default class Contact extends Component {
-  componentDidMount() {
-    Anime.timeline().add({
-      targets: [this.leftSideDiv.childNodes],
-      translateX: '-100%',
-      duration: 0,
-      opacity: 0
-    }).add({
-      targets: [this.rightSideDiv.childNodes],
-      translateY: '100%',
-      duration: 0,
-      opacity: 0
-    }).add({
-      targets: [this.rightSideDiv.childNodes, this.leftSideDiv.childNodes],
-      translateX: '0%',
-      translateY: '0%',
-      duration: 1000,
-      opacity: 1,
-      easing: 'easeInSine',
-      delay: (e, i) => i * 120,
-    })
-  }
+  // componentDidMount() {
+  //   Anime.timeline().add({
+  //     targets: [this.leftSideDiv.childNodes],
+  //     translateX: '-100%',
+  //     duration: 0,
+  //     opacity: 0
+  //   }).add({
+  //     targets: [this.rightSideDiv.childNodes],
+  //     translateY: '100%',
+  //     duration: 0,
+  //     opacity: 0
+  //   }).add({
+  //     targets: [this.rightSideDiv.childNodes, this.leftSideDiv.childNodes],
+  //     translateX: '0%',
+  //     translateY: '0%',
+  //     duration: 1000,
+  //     opacity: 1,
+  //     easing: 'easeInSine',
+  //     delay: (e, i) => i * 120,
+  //   })
+  // }
 
   render() {
     return (
@@ -42,9 +42,9 @@ export default class Contact extends Component {
         <div id='contact--rightContainer' ref={refDiv => (this.rightSideDiv = refDiv)} className={css(styles.rightSide)}>
           <ContactSection sectionTitle={"Hi there. I'm Jake."} />
           <ContactSection sectionCopy={contactCopy.bioIntro} />
-          <ContactSection sectionTitle={"Why all the art?"} sectionCopy={contactCopy.artistBio} />
-          <ContactSection sectionTitle={'Skills'} sectionData={skillsData} />
+          {/* <ContactSection sectionTitle={"Why all the art?"} sectionCopy={contactCopy.artistBio} /> */}
           <ContactSection sectionTitle={'Find me at the links below'} sectionData={socialsData} />
+          <ContactSection sectionTitle={'Skills'} sectionData={skillsData} />
         </div>
       </div>
     )
@@ -61,12 +61,12 @@ const styles = StyleSheet.create({
   },
   leftSide: {
     height: '100%',
-    width: '30%',
+    width: '25%',
     float: 'left',
   },
   rightSide: {
     height: 'auto',
-    width: '70%',
+    width: '75%',
     float: 'right',
   },
   header: {

@@ -39,18 +39,16 @@ export default class PageContainer extends Component {
         <PageArrow handleClick={handleArrowThrottled} direction={'+'}/>
         <PageArrow handleClick={handleArrowThrottled} direction={'-'} />
         <PageTitle title={pageTitle} />
-        <PageSelector text={selectorText} handleOpenProject={this.handleClickThrottled} />
+        {/* <PageSelector text={selectorText} handleOpenProject={this.handleClickThrottled} /> */}
         <ScrollIndicator gridPos={styles.gridPos} />
         { this.renderDetail(this.state.focusActive, currentProject.type, currentProject) }
       </div>
     )
   }
 
-
   nextProject = () => {
     return this.props.pageData[this.props.scrollIndex.currentItem]
   }
-
 
   renderDetail = (focusActive, type, currentProject) => {
     if(focusActive) {
@@ -62,7 +60,6 @@ export default class PageContainer extends Component {
     } else return null
   }
 
-
   handleClick = () => {
     const {focusActive, pageLoaded} = this.state
     if (!pageLoaded) return
@@ -71,7 +68,7 @@ export default class PageContainer extends Component {
       this.setState({focusActive: !focusActive})
       this.props.addListeners()
     } else {
-      this.detailTransitionAnimation(0.7, 0.1)
+      this.detailTransitionAnimation(0.8, 0.1)
       this.props.removeListeners()
     }
   }
@@ -90,18 +87,20 @@ export default class PageContainer extends Component {
   }
 
   animateIn = () => {
+    var animChildren = this.container.children
+    var children = Array.from(animChildren).slice(1, animChildren.length)
     Anime.timeline().add({
-      targets: [this.container.childNodes],
-      translateY: '100%',
+      targets: [children],
+      translateY: '10%',
       duration: 0,
       opacity: 0
     }).add({
-      targets: this.container.childNodes,
+      targets: children,
       translateY: '0%',
       duration: 1000,
       opacity: 1,
       easing: 'easeInOutQuad',
-      delay: (e, i) => i * 120,
+      delay: (e, i) => i * 100,
       complete: () => this.setState({pageLoaded:true})
     })
   }

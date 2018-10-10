@@ -34,7 +34,6 @@ const styles = StyleSheet.create({
   arrowContainer: {
     height: '100%',
     width: '100%',
-    color: 'white',
   },
   arrow: {
     height: '35px',
@@ -55,11 +54,19 @@ const styles = StyleSheet.create({
   },
   up: {
     gridRow: '3/4',
-    gridColumn: '1/2'
+    gridColumn: '1/3',
+    [breakPoints.mobile]: {
+      gridRow: '2/3',
+      gridColumn: '5/7',
+    }
   },
   down: {
     gridRow: '5/6',
-    gridColumn: '1/2'
+    gridColumn: '1/3',
+    [breakPoints.mobile]: {
+      gridRow: '6/7',
+      gridColumn: '5/7',
+    }
   },
 })
 

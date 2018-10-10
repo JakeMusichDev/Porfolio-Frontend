@@ -2,142 +2,50 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Anime from 'animejs'
 import { StyleSheet, css } from 'aphrodite/no-important'
-import VanillaTilt from 'vanilla-tilt'
 import { breakPoints } from '../../utils/styles'
 
 export default class LandingMenuSection extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      tiltArray:[]
-    }
-  }
-  componentDidMount() {
-    this.attachTilt()
-    this.animateIn()
-  }
-
   render() {
-    const { item, index, active, open } = this.props
-    const sectionStyle =
-      active === index
-        ? css([styles.sectionContainer, styles.active])
-        : css(styles.sectionContainer)
+    const { item, index, open } = this.props
     return (
       <div name='menu--section' className={css(styles.sectionWrapper)} >
-        <div id={`menu-section-${index}`} className={sectionStyle}>
-          <div onClick={e => open(e, item)} className={css(styles.section)} >
-              <img src={item.svg} className={css(styles.image)}  alt=""/>
-            {/* { item.name.toUpperCase() } */}
-          </div>
+        <div id={`menu-section-${index}`} className={css(styles.sectionContainer)}>
+          <div onClick={e => open(e, item)} className={css(styles.section)}>{ item.name.toUpperCase() }</div>
         </div>
       </div>
     )
   }
-
-  animateIn = () => {
-    const { index, direction } = this.props
-    const tl = Anime.timeline()
-    tl
-      .add({
-        targets: `#menu-section-${index}`,
-        translateY: `${direction}10%`,
-        duration: 0,
-        opacity:0
-      })
-      .add({
-        targets: `#menu-section-${index}`,
-        translateY: '0%',
-        opacity:[1],
-        duration: 500,
-        easing: 'easeInQuad',
-        elasticity: 100,
-      })
-  }
-
-  attachTilt = () => {
-    if( this.checkSize() ) {
-      const tiltArray = [];
-      const elements = document.getElementsByName('menu--section')
-      // console.log(elements);
-      
-      for (var i = 0; i < elements.length; i++) {
-        var elementToDestroy = elements[i];
-        tiltArray.push(elementToDestroy)
-
-        VanillaTilt.init(elements[i], {
-          reverse: false,
-          max: 40,
-          perspective: 500,
-          scale: 1,
-          speed: 1000,
-          transition: true,
-          axis: null,
-          reset: true,
-          easing: "cubic-bezier(.03,.08,.52,.99)",
-        });
-      }
-      this.setState({tiltArray})
-    }
-  }
-
-  destroyTilt = () => {
-    const {tiltArray} = this.state;
-    if ( this.checkSize() && !this.isSafari() ) {
-      for (var i = 0; i < tiltArray.length; i++) {
-        if(tiltArray[i].vanillaTilt) {
-          tiltArray[i].vanillaTilt.destroy();
-        }
-      }
-    }
-  }
-
-  checkSize = () => {
-    return window.innerWidth > 600;
-  };
-  
 }
 
 
 const styles = StyleSheet.create({
   sectionWrapper: {
-    height: '100%',
+    height: '25%',
     width: '100%',
   },
   sectionContainer: {
     height: '100%',
-    width: '100%',
-    width: '100%',
+    display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    display: 'none',
   },
   section: {
-    textDecoration: 'none',
-    color: '#F2F2F2',
-    fontSize: '5em',
     fontFamily: ['Vollkorn', 'sans-serif'],
-    letterSpacing: "5px",
+    textDecoration: 'none',
+    color: '#fff',
+    fontSize: '1.5em',
+    textAlign: 'right',
+    letterSpacing: '2px',
     opacity:'1',
-    transition: '0.4s opacity',
-    height: 'auto',
-    width: 'auto',
-    ":hover" : {
-      opacity:0.9
-    }
-  },
-  image: {
-    transition: '0.3s width',
-    [breakPoints.tablet]: {
-      width: '60vw'
-    },
+    // textTransform: 'capitalize',
+    cursor: 'pointer',
+    transition: '0.6s all',
     [breakPoints.mobile]: {
-      width: '60vw'
+      fontSize: '2em',
     },
-  },
-  active: {
-    display: 'flex',
-  },
+    ":hover" : {
+      opacity:0.8,
+      color: '#B94F4F',
+      transform: 'translateX(2px)'
+    }
+  }
 })

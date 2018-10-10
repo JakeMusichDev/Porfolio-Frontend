@@ -9,14 +9,14 @@ import paintingSVG from '../assets/home/PAINTING.svg'
 import photographySVG_lg from '../assets/home/PHOTOGRAPHY_lg.svg'
 
 
-import aboutMenuSvg from '../assets/menu/about-svg.svg'
-import paintingMenuSvg from '../assets/menu/painting-svg.svg'
-import photoMenuSvg from '../assets/menu/photo-svg.svg'
-import workMenuSvg from '../assets/menu/work-svg.svg'
+import aboutMenuSvg from '../assets/menu/about-full.svg'
+import paintingMenuSvg from '../assets/menu/painting-full.svg'
+import photoMenuSvg from '../assets/menu/photos-full.svg'
+import workMenuSvg from '../assets/menu/work-full.svg'
 
 export const items = [
-  { name: 'work', svg:workSVG, src: airswap, route: '/work', menuSvg: workMenuSvg },
   { name: 'about', svg:aboutSVG, src: cameraSelf, route: '/contact', menuSvg: aboutMenuSvg },
+  { name: 'work', svg:workSVG, src: airswap, route: '/work', menuSvg: workMenuSvg },
   { name: 'painting', svg: paintingSVG, src: wish, route: '/painting', menuSvg: paintingMenuSvg },
   { name: 'photography', svg: photographySVG_lg, src: drum, route: '/photography', menuSvg: photoMenuSvg  },
 ]

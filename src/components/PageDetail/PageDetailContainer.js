@@ -16,8 +16,8 @@ export default class PageDetailContainer extends Component {
     }).add({
       targets: this.container,
       translateY: '0%',
-      duration: 1000,
-      delay: 500,
+      duration: 900,
+      delay: 100,
       opacity: 1,
       easing: 'linear'
     })
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
     height: '100vh',
     width: '100vw',
     color: 'white',
-    background: 'rgba(15,15,15,0.8)',
+    background: 'rgba(15,15,15,0.4)',
     overflowY: 'scroll',
     '-webkit-overflow-scrolling': 'touch'
   },
